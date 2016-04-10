@@ -17,6 +17,7 @@
 		8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0B61CB9C826001C186B /* PersonalPageViewController.swift */; };
 		8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */; };
 		8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */; };
+		8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8D30E0B61CB9C826001C186B /* PersonalPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageViewController.swift; sourceTree = "<group>"; };
 		8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = offlineChatViewController.swift; sourceTree = "<group>"; };
 		8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		8D30E0BE1CB9CAE7001C186B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */,
 				8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
+				8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */,
 				8D30E0871CB9C435001C186B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +538,7 @@
 				8D30E0AD1CB9C435001C186B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D30E0AE1CB9C435001C186B /* Build configuration list for PBXNativeTarget "TickHelpTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +547,7 @@
 				8D30E0B01CB9C435001C186B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D30E0B11CB9C435001C186B /* Build configuration list for PBXNativeTarget "TickHelpUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +556,7 @@
 				8D30E0B31CB9C435001C186B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

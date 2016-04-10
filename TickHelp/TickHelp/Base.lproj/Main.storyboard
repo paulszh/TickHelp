@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -43,9 +44,65 @@
                     <view key="view" contentMode="scaleToFill" id="jig-pD-Qjn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="flk-zH-9aA">
+                                <rect key="frame" x="226" y="108" width="148" height="152"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvE-zF-00z">
+                                <rect key="frame" x="279" y="289" width="49" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="face-1" translatesAutoresizingMaskIntoConstraints="NO" id="m4A-He-Hho">
+                                <rect key="frame" x="87" y="356" width="70" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="6Kt-hp-S9z"/>
+                                    <constraint firstAttribute="width" constant="70" id="veB-kM-BzD"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="favourite512x512" translatesAutoresizingMaskIntoConstraints="NO" id="ilA-Lo-o0o">
+                                <rect key="frame" x="431" y="356" width="82" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="Bag-hg-KNA"/>
+                                    <constraint firstAttribute="width" constant="82" id="we3-cb-pq7"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Being Helped: 5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-NP-gCp">
+                                <rect key="frame" x="72" y="437" width="117" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Help others : 3" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U8P-Vc-IOO">
+                                <rect key="frame" x="414" y="436" width="117" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQC-eU-hgj">
+                                <rect key="frame" x="226" y="118" width="148" height="132"/>
+                                <connections>
+                                    <action selector="uploadImage:" destination="Zom-PO-7Le" eventType="touchUpInside" id="0Yn-vC-NqE"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ilA-Lo-o0o" secondAttribute="trailing" constant="67" id="6yV-JF-qT0"/>
+                            <constraint firstItem="m4A-He-Hho" firstAttribute="leading" secondItem="jig-pD-Qjn" secondAttribute="leadingMargin" constant="67" id="JTI-z8-c1K"/>
+                            <constraint firstItem="NvE-zF-00z" firstAttribute="centerX" secondItem="jig-pD-Qjn" secondAttribute="centerX" id="WTA-dz-fAu"/>
+                            <constraint firstItem="5k1-NP-gCp" firstAttribute="leading" secondItem="jig-pD-Qjn" secondAttribute="leadingMargin" constant="52" id="XQ8-BF-tbi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U8P-Vc-IOO" secondAttribute="trailing" constant="49" id="YeD-i0-D1w"/>
+                            <constraint firstItem="TQC-eU-hgj" firstAttribute="centerX" secondItem="jig-pD-Qjn" secondAttribute="centerX" id="nqE-VG-JqJ"/>
+                            <constraint firstItem="flk-zH-9aA" firstAttribute="centerX" secondItem="jig-pD-Qjn" secondAttribute="centerX" id="su6-gQ-Daa"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="HOME" id="9II-XQ-c6N"/>
+                    <connections>
+                        <outlet property="Avator" destination="flk-zH-9aA" id="gQB-D5-bXs"/>
+                        <outlet property="userName" destination="NvE-zF-00z" id="tQ9-UH-V7H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYh-hQ-d2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="272" y="-175"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="xTc-G1-8W6">
             <objects>
-                <tabBarController id="0Vl-kH-TzN" sceneMemberID="viewController">
+                <tabBarController id="0Vl-kH-TzN" customClass="TabBarViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="v66-n6-TyU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,4 +164,9 @@
             <point key="canvasLocation" x="1035" y="110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cat" width="636" height="335"/>
+        <image name="face-1" width="300" height="300"/>
+        <image name="favourite512x512" width="512" height="512"/>
+    </resources>
 </document>
