@@ -21,6 +21,8 @@
 		8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */; };
 		8D30E0C81CBB2447001C186B /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C71CBB2447001C186B /* test.mp4 */; };
 		8D30E0CA1CBB2946001C186B /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C91CBB2946001C186B /* test2.mp4 */; };
+		8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CB1CBB3306001C186B /* LogViewController.swift */; };
+		8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CD1CBB3317001C186B /* SignViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8D30E0C71CBB2447001C186B /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		8D30E0C91CBB2946001C186B /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
+		8D30E0CB1CBB3306001C186B /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		8D30E0CD1CBB3317001C186B /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				8D30E0881CB9C435001C186B /* LoginViewController.swift */,
+				8D30E0CB1CBB3306001C186B /* LogViewController.swift */,
+				8D30E0CD1CBB3317001C186B /* SignViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -403,8 +409,10 @@
 				8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */,
 				8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */,
 				8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */,
+				8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
 				8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */,
+				8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */,
 				8D30E0871CB9C435001C186B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
