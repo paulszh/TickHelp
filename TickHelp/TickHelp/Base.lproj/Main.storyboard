@@ -168,15 +168,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
-                                <rect key="frame" x="256" y="352" width="120" height="30"/>
+                                <rect key="frame" x="150" y="393" width="120" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <segue destination="0Vl-kH-TzN" kind="show" id="JMR-Dd-mHh"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Ug-GKj">
+                                <rect key="frame" x="101" y="150" width="218" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-bl-7Yc">
+                                <rect key="frame" x="95" y="225" width="218" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lzN-bl-7Yc" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="Tjp-ym-Mji"/>
+                            <constraint firstItem="fzp-Ug-GKj" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="Tkj-xQ-LEu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="lzN-bl-7Yc" id="P56-lT-IgE"/>
+                        <outlet property="username" destination="fzp-Ug-GKj" id="11G-PX-T9k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxh-64-9CO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,9 +219,39 @@
                                     <segue destination="0Vl-kH-TzN" kind="show" id="Yhb-98-SUB"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-Wr-w8U">
+                                <rect key="frame" x="199" y="180" width="140" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04P-5v-6jN">
+                                <rect key="frame" x="199" y="237" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C6N-sf-oTv">
+                                <rect key="frame" x="199" y="307" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-se-Nt2">
+                                <rect key="frame" x="199" y="180" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mFw-se-Nt2" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="8am-Pf-H1U"/>
+                            <constraint firstItem="C6N-sf-oTv" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="J70-jy-PdH"/>
+                            <constraint firstItem="04P-5v-6jN" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="vjm-RC-Gpn"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nickname" destination="mFw-se-Nt2" id="IYh-Td-KhB"/>
+                        <outlet property="password" destination="C6N-sf-oTv" id="zuu-Q2-FR2"/>
+                        <outlet property="username" destination="04P-5v-6jN" id="2Dn-Db-HYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njj-Fa-yY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
