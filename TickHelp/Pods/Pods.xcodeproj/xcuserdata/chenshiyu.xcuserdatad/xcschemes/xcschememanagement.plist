@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>VideoSplashKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>94443A5CD300F0986681045F20B87B0D</key>
+		<key>4417AF5C7D856EC34DB0552733D79F49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5A0DA9D723A0EC8BA35E71995FC3A4C</key>
+		<key>9CA87FFB9F3C6F5BAFC6FC07C09EA9AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5A0A34620FDC5FD2CD1A6CFDE844592</key>
 		<dict>
 			<key>primary</key>
 			<true/>

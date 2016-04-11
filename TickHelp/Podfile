@@ -5,6 +5,7 @@
 
 target 'TickHelp' do
     pod 'VideoSplashKit'
+    pod "TextFieldEffects"
 end
 
 target 'TickHelpTests' do
