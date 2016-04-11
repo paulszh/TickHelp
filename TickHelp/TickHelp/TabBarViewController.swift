@@ -16,7 +16,9 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         // Do any additional setup after loading the view.
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         UITabBar.appearance().tintColor = UIColor.whiteColor()
-    
+        
+//        let myTabBarItem = self.tabBar.items![1] as UITabBarItem
+//        myTabBarItem.image = UIImage(named: "Home")!
     }
 
     override func didReceiveMemoryWarning() {
