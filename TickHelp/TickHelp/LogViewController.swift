@@ -1,5 +1,5 @@
 //
-//  TabBarViewController.swift
+//  LogViewController.swift
 //  TickHelp
 //
 //  Created by Ariel on 4/10/16.
@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import TextFieldEffects
 
-class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
-    
+class LogViewController: UIViewController {
+
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        UITabBar.appearance().barTintColor = UIColor.blackColor()
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        setPlacehoder();
+    }
+    
+    func setPlacehoder(){
         
-//        let myTabBarItem = self.tabBar.items![1] as UITabBarItem
-//        myTabBarItem.image = UIImage(named: "Home")!
+        let placeholder1 = NSAttributedString(string: "User name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+
+        let placeholder2 = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        
+        username.attributedPlaceholder = placeholder1
+        password.attributedPlaceholder = placeholder2
+
     }
 
     override func didReceiveMemoryWarning() {
