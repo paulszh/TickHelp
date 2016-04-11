@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		8D30E0871CB9C435001C186B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0861CB9C435001C186B /* AppDelegate.swift */; };
 		8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0881CB9C435001C186B /* LoginViewController.swift */; };
 		8D30E08C1CB9C435001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E08A1CB9C435001C186B /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 		8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */; };
 		8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */; };
 		8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */; };
+		8D30E0C81CBB2447001C186B /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C71CBB2447001C186B /* test.mp4 */; };
+		8D30E0CA1CBB2946001C186B /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C91CBB2946001C186B /* test2.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.release.xcconfig"; sourceTree = "<group>"; };
+		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		8D30E0831CB9C435001C186B /* TickHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TickHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D30E0861CB9C435001C186B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D30E0881CB9C435001C186B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +61,8 @@
 		8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = offlineChatViewController.swift; sourceTree = "<group>"; };
 		8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8D30E0C71CBB2447001C186B /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
+		8D30E0C91CBB2946001C186B /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431DC7586C1D0C82B1AC0ADE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */,
+				6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8D30E07A1CB9C435001C186B = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +107,8 @@
 				8D30E09A1CB9C435001C186B /* TickHelpTests */,
 				8D30E0A51CB9C435001C186B /* TickHelpUITests */,
 				8D30E0841CB9C435001C186B /* Products */,
+				431DC7586C1D0C82B1AC0ADE /* Pods */,
+				DBE2FCDDC541F58FAE2B7323 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +125,7 @@
 		8D30E0851CB9C435001C186B /* TickHelp */ = {
 			isa = PBXGroup;
 			children = (
+				8D30E0C61CBB2421001C186B /* Resources */,
 				8D30E0BE1CB9CAE7001C186B /* Support */,
 				8D30E0BB1CB9C8EA001C186B /* Ranking */,
 				8D30E0B81CB9C89E001C186B /* Chat */,
@@ -177,6 +198,23 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		8D30E0C61CBB2421001C186B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D30E0C91CBB2946001C186B /* test2.mp4 */,
+				8D30E0C71CBB2447001C186B /* test.mp4 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DBE2FCDDC541F58FAE2B7323 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D30E0AB1CB9C435001C186B /* Build configuration list for PBXNativeTarget "TickHelp" */;
 			buildPhases = (
+				0CA3093CB0E8BFCCAD4EAE7A /* Check Pods Manifest.lock */,
 				8D30E07F1CB9C435001C186B /* Sources */,
 				8D30E0801CB9C435001C186B /* Frameworks */,
 				8D30E0811CB9C435001C186B /* Resources */,
+				407FBE900E838A5EA111F0E2 /* Embed Pods Frameworks */,
+				9B155431AB6C43D836AE6A28 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,6 +286,7 @@
 				TargetAttributes = {
 					8D30E0821CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = AFY9V78MYM;
 					};
 					8D30E0961CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
@@ -282,8 +324,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D30E0911CB9C435001C186B /* LaunchScreen.storyboard in Resources */,
+				8D30E0C81CBB2447001C186B /* test.mp4 in Resources */,
 				8D30E08E1CB9C435001C186B /* Assets.xcassets in Resources */,
 				8D30E08C1CB9C435001C186B /* Main.storyboard in Resources */,
+				8D30E0CA1CBB2946001C186B /* test2.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +346,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CA3093CB0E8BFCCAD4EAE7A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		407FBE900E838A5EA111F0E2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B155431AB6C43D836AE6A28 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D30E07F1CB9C435001C186B /* Sources */ = {
@@ -453,23 +545,31 @@
 		};
 		8D30E0AC1CB9C435001C186B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ariel.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		8D30E0AD1CB9C435001C186B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ariel.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
