@@ -139,7 +139,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     func connectedWithPeer(peerID: MCPeerID) {
         NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
             
-            self.performSegueWithIdentifier("idSegueChat", sender: self)}
+            print("here")
+            self.performSegueWithIdentifier("segueChat", sender: self)}
         
     }
 }

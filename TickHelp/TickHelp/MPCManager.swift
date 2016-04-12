@@ -108,13 +108,15 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     }
 
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
-                 switch state{
+    switch state{
         case MCSessionState.Connected:
         print("Connected to session: \(session)")
         delegate?.connectedWithPeer(peerID)
         
         case MCSessionState.Connecting:
         print("Connecting to session: \(session)")
+        //For now
+        //delegate?.connectedWithPeer(peerID)
         
         default:
         print("Did not connect to session: \(session)")
@@ -125,10 +127,10 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
         
         //REMEMBER: Do not remove the following lines, they are needed to receive Messages from peer
-//        let dictionary: [String: AnyObject] = [
-//            kCommunicationsDataTerm: data,
-//            kCommunicationsFromPeerTerm: peerID]
-//        NSNotificationCenter.defaultCenter().postNotificationName("receivedMPCChatDataNotification", object: dictionary)
+        let dictionary: [String: AnyObject] = [
+            "data": data,
+            "fromPeer": peerID]
+        NSNotificationCenter.defaultCenter().postNotificationName("receivedMPCChatDataNotification", object: dictionary)
     }
     
     func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress) {
