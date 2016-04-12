@@ -22,6 +22,11 @@ class SignViewController: UIViewController {
         super.viewDidLoad()
         
         setPlacehoder();
+        
+        // Create a reference to a Firebase location
+        let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
+        // Write data to Firebase
+        myRootRef.setValue("Do you have data? You'll love Firebase.")
 
         // Do any additional setup after loading the view.
     }
