@@ -87,9 +87,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         }
         
         delegate?.lostPeer()
-        
-        
-    }
+            }
     
     func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
         print(error.localizedDescription)

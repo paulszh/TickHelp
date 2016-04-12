@@ -31,6 +31,7 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Register cell classes
         peers.registerClass(UITableViewCell.self, forCellReuseIdentifier: "idCellPeer")
+        
     }
 
     override func didReceiveMemoryWarning() {

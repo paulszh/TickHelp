@@ -24,17 +24,19 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         // Do any additional setup after loading the view.
         chatTable.delegate = self
         chatTable.dataSource = self
-        
-        chatTable.estimatedRowHeight = 60.0
+    
+        chatTable.estimatedRowHeight = 80.0
         chatTable.rowHeight = UITableViewAutomaticDimension
+        
+        chatTable.rowHeight = 80.0
         
         textChat.delegate = self
         
-        chatTable.estimatedRowHeight = 60.0
-        chatTable.rowHeight = UITableViewAutomaticDimension
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(chatViewController.handleMPCChatReceivedDataWithNotification(_:)), name: "receivedMPCChatDataNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(chatViewController.handleMPCChatReceivedDisconnectionWithNotification(_:)), name: "receivedMPCDisconnectionNotification", object: nil)
+        
+        chatTable.separatorStyle = UITableViewCellSeparatorStyle.None
+
 
     }
 
@@ -65,7 +67,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("idCell")! as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("idCell")! as! chatTableViewCell
         
         let currentMessage = messagesArray[indexPath.row] as Dictionary<String, String>
         
@@ -82,12 +84,12 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 senderColor = UIColor.orangeColor()
             }
             
-            cell.detailTextLabel?.text = senderLabelText
-            cell.detailTextLabel?.textColor = senderColor
+            cell.name?.text = senderLabelText
+            cell.name?.textColor = senderColor
         }
         
         if let message = currentMessage["message"] {
-            cell.textLabel?.text = message
+            cell.messenge?.text = message
         }
         
         return cell
