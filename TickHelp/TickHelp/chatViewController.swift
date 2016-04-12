@@ -151,16 +151,30 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 })
             }
             else{
+                let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)
                 
+                let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
+                    self.appDelegate.mpcManager.session.disconnect()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                
+                alert.addAction(doneAction)
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                })
             }
         }
     }
     
     func handleMPCChatReceivedDisconnectionWithNotification(notification: NSNotification) {
+        
+        //Extract the data and the source peer from the received dictionary
         let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
         
         //Extract the data and the source peer from the received dictionary
-        let data = receivedDataDictionary["data" ] as? NSData
+        let data = receivedDataDictionary["data"] as? NSData
         let fromPeer = receivedDataDictionary["fromPeer"] as! MCPeerID
         
         //Convert the data (NSData) into a Dictionary object
@@ -169,7 +183,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         //Check if there's an entry with the kCommunicationsMessageTerm key
         if let message = dataDictionary["message"]{
             
-            if message != "_end_chat_"  {
+            if message != "_lost_connection_"  {
                 //Create a new dictioary and ser the sender and the received message to it
                 let messageDictionary: [String: String] = ["sender": fromPeer.displayName, "message": message]
                 
@@ -195,6 +209,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             }
         }
     }
+}
 
     /*
     // MARK: - Navigation
@@ -206,4 +221,3 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     */
 
-}
