@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Firebase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-TickHelp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>256C8D0676A417C61A4DD1C190E80D4B</key>
+		<key>4417AF5C7D856EC34DB0552733D79F49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF2607BC98EEEBFA21A1E082624D5E07</key>
+		<key>9CA87FFB9F3C6F5BAFC6FC07C09EA9AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7AC9326D819482593FE118E915409D7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C61A7925B2387CCF7AFA9F79CC62936F</key>
+		<key>D5A0A34620FDC5FD2CD1A6CFDE844592</key>
 		<dict>
 			<key>primary</key>
 			<true/>
