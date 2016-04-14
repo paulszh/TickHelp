@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="-1982" y="245"/>
         </scene>
-        <!--HOME-->
+        <!--Personal Page View Controller-->
         <scene sceneID="msy-Qx-nqt">
             <objects>
                 <viewController id="Zom-PO-7Le" customClass="PersonalPageViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                             <constraint firstItem="flk-zH-9aA" firstAttribute="centerX" secondItem="jig-pD-Qjn" secondAttribute="centerX" id="su6-gQ-Daa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" id="9II-XQ-c6N"/>
+                    <tabBarItem key="tabBarItem" title="" id="9II-XQ-c6N"/>
                     <connections>
                         <outlet property="Avator" destination="flk-zH-9aA" id="gQB-D5-bXs"/>
                         <outlet property="userName" destination="NvE-zF-00z" id="tQ9-UH-V7H"/>
@@ -136,7 +136,7 @@
             </objects>
             <point key="canvasLocation" x="272" y="485"/>
         </scene>
-        <!--CHAT-->
+        <!--Offline Chat View Controller-->
         <scene sceneID="3bC-KB-iWl">
             <objects>
                 <viewController id="AL8-n1-WSd" customClass="offlineChatViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -151,17 +151,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FKS-aH-cAD">
                                 <rect key="frame" x="0.0" y="47" width="600" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AeA-Lq-zeF">
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hks-IM-pAe">
                                     <rect key="frame" x="0.0" y="72" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <items>
-                                        <barButtonItem title="Mode" id="RiZ-Vg-qr3">
-                                            <connections>
-                                                <action selector="startstopAdvertising:" destination="AL8-n1-WSd" id="HZY-Zc-IqL"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </items>
-                                </toolbar>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="visibility:" destination="AL8-n1-WSd" eventType="touchUpInside" id="vU6-MT-tt8"/>
+                                    </connections>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="m8D-Cz-bMR">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -176,7 +173,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="CHAT" id="a3b-qW-NXg"/>
+                    <tabBarItem key="tabBarItem" title="" id="a3b-qW-NXg"/>
                     <connections>
                         <outlet property="peers" destination="FKS-aH-cAD" id="kn1-tD-MDp"/>
                         <segue destination="iMW-Yf-dqy" kind="presentation" identifier="segueChat" id="ZiZ-Yj-7DW"/>

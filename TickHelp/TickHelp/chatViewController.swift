@@ -28,7 +28,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         chatTable.estimatedRowHeight = 80.0
         chatTable.rowHeight = UITableViewAutomaticDimension
         
-        chatTable.rowHeight = 80.0
+        chatTable.rowHeight = 70.0
         
         textChat.delegate = self
         
