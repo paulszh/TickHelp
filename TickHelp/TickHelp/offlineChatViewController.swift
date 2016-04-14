@@ -39,7 +39,7 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func startstopAdvertising(sender: AnyObject) {
+    @IBAction func visibility(sender: AnyObject) {
         
         let actionSheet = UIAlertController(title: "", message: "Change Visibility", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
