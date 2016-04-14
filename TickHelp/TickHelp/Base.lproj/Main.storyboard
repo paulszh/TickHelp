@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="-1982" y="245"/>
         </scene>
-        <!--HOME-->
+        <!--Personal Page View Controller-->
         <scene sceneID="msy-Qx-nqt">
             <objects>
                 <viewController id="Zom-PO-7Le" customClass="PersonalPageViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                             <constraint firstItem="flk-zH-9aA" firstAttribute="centerX" secondItem="jig-pD-Qjn" secondAttribute="centerX" id="su6-gQ-Daa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" id="9II-XQ-c6N"/>
+                    <tabBarItem key="tabBarItem" title="" id="9II-XQ-c6N"/>
                     <connections>
                         <outlet property="Avator" destination="flk-zH-9aA" id="gQB-D5-bXs"/>
                         <outlet property="userName" destination="NvE-zF-00z" id="tQ9-UH-V7H"/>
@@ -136,7 +136,7 @@
             </objects>
             <point key="canvasLocation" x="272" y="485"/>
         </scene>
-        <!--CHAT-->
+        <!--Offline Chat View Controller-->
         <scene sceneID="3bC-KB-iWl">
             <objects>
                 <viewController id="AL8-n1-WSd" customClass="offlineChatViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,13 +147,120 @@
                     <view key="view" contentMode="scaleToFill" id="WcF-LS-XNa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FKS-aH-cAD">
+                                <rect key="frame" x="0.0" y="47" width="600" height="511"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hks-IM-pAe">
+                                    <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="visibility:" destination="AL8-n1-WSd" eventType="touchUpInside" id="vU6-MT-tt8"/>
+                                    </connections>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="m8D-Cz-bMR">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m8D-Cz-bMR" id="ygF-4a-LJn">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="CHAT" id="a3b-qW-NXg"/>
+                    <tabBarItem key="tabBarItem" title="" id="a3b-qW-NXg"/>
+                    <connections>
+                        <outlet property="peers" destination="FKS-aH-cAD" id="kn1-tD-MDp"/>
+                        <segue destination="iMW-Yf-dqy" kind="presentation" identifier="segueChat" id="ZiZ-Yj-7DW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxS-8R-r2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272" y="-175"/>
+            <point key="canvasLocation" x="289" y="-555"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="fc8-Mc-hUH">
+            <objects>
+                <viewController id="iMW-Yf-dqy" customClass="chatViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wnx-bb-SYb"/>
+                        <viewControllerLayoutGuide type="bottom" id="g3I-sA-Sez"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rNk-FM-XJM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q3q-Q8-O7n">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back" id="mVl-xR-XpV">
+                                        <connections>
+                                            <action selector="stopChat:" destination="iMW-Yf-dqy" id="CO6-T0-xh2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-ms-E1R">
+                                <rect key="frame" x="0.0" y="106" width="600" height="419"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="idCell" rowHeight="80" id="ymk-g8-wQN" customClass="chatTableViewCell" customModule="TickHelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymk-g8-wQN" id="3et-P5-zY1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHD-I7-jz9">
+                                                    <rect key="frame" x="18" y="29" width="505" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdJ-Td-k08">
+                                                    <rect key="frame" x="18" y="8" width="246" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messenge" destination="oHD-I7-jz9" id="5p8-wm-wTY"/>
+                                            <outlet property="name" destination="cdJ-Td-k08" id="fb7-Fh-PKf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="27" id="VQq-0u-87b">
+                                        <rect key="frame" x="0.0" y="108" width="600" height="27"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQq-0u-87b" id="K5b-W6-U8W">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="26.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ay-KZ-Jqi">
+                                <rect key="frame" x="-5" y="525" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="chatTable" destination="fFn-ms-E1R" id="rCs-1t-pYf"/>
+                        <outlet property="textChat" destination="6ay-KZ-Jqi" id="qIr-Wb-yIL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCd-b5-axe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="-855"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="T3M-hj-eaa">

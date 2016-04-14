@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class SignViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var nickname: UITextField!
     
@@ -23,7 +25,6 @@ class SignViewController: UIViewController {
         
         setPlacehoder();
         
-        // Create a reference to a Firebase location
         let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
         // Write data to Firebase
         myRootRef.setValue("Do you have data? You'll love Firebase.")
