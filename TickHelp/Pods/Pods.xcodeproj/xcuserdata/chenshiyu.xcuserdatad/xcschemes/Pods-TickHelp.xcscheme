@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '413FCE8836AA447A1E6D3C81'
+               BlueprintIdentifier = '01CDD39AB849BD53AE39B17D'
                BlueprintName = 'Pods-TickHelp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_TickHelp.framework'>
