@@ -28,6 +28,7 @@
 		8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CB1CBB3306001C186B /* LogViewController.swift */; };
 		8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CD1CBB3317001C186B /* SignViewController.swift */; };
 		8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0D11CBB4DE1001C186B /* Main.storyboard */; };
+		8DA88E591CC0BB2C00DF99DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		8D30E0CB1CBB3306001C186B /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		8D30E0CD1CBB3317001C186B /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		8D30E0D21CBB4DE1001C186B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		8D30E0851CB9C435001C186B /* TickHelp */ = {
 			isa = PBXGroup;
 			children = (
+				8DA88E571CC0BB0700DF99DF /* Map */,
 				8D30E0C61CBB2421001C186B /* Resources */,
 				8D30E0BE1CB9CAE7001C186B /* Support */,
 				8D30E0BB1CB9C8EA001C186B /* Ranking */,
@@ -226,6 +229,14 @@
 				8D30E0C71CBB2447001C186B /* test.mp4 */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8DA88E571CC0BB0700DF99DF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		DBE2FCDDC541F58FAE2B7323 /* Frameworks */ = {
@@ -428,6 +439,7 @@
 				8D1870301CBD78AC00B610C8 /* MPCManager.swift in Sources */,
 				8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */,
 				8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */,
+				8DA88E591CC0BB2C00DF99DF /* MapViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */,
