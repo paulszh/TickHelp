@@ -8,6 +8,9 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
+
+var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
 
 class offlineChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MPCManagerDelegate {
 
@@ -69,6 +72,12 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         actionSheet.addAction(cancelAction)
         
         self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    @IBAction func LogOut(sender: AnyObject) {
+        ref.unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        performSegueWithIdentifier("logOutSeg", sender: self)
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

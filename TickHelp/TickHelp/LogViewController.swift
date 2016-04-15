@@ -35,13 +35,21 @@ class LogViewController: UIViewController {
 
     @IBAction func login(sender: AnyObject) {
         
+        
         ref.authUser(username.text, password: password.text,
             withCompletionBlock: { error, authData in
+                
                 if error != nil {
-                    print("Please check your username and password")
+                    
+                    //print("Please check your username and password")
+                    //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
+                    //self.presentViewController(alert, animated: true, completion: nil)
+                    
                             // There was an error logging in to this account
                 } else {
-                    print("Successfully login ")
+               
+                    //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
+                    //self.presentViewController(alert, animated: true, completion: nil)
                         self.performSegueWithIdentifier("loginSeg", sender: self)
                             // We are now logged in
                     }
