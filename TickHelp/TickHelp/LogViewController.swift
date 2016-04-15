@@ -14,6 +14,8 @@ class LogViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,18 +34,26 @@ class LogViewController: UIViewController {
     }
 
     @IBAction func login(sender: AnyObject) {
-        let ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+        
+        
         ref.authUser(username.text, password: password.text,
-                     withCompletionBlock: { error, authData in
-                        if error != nil {
-                            print("Please check your username and password")
+            withCompletionBlock: { error, authData in
+                
+                if error != nil {
+                    
+                    //print("Please check your username and password")
+                    //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
+                    //self.presentViewController(alert, animated: true, completion: nil)
+                    
                             // There was an error logging in to this account
-                        } else {
-                            print("Successfully login ")
-                            self.performSegueWithIdentifier("loginSeg", sender: self)
+                } else {
+               
+                    //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
+                    //self.presentViewController(alert, animated: true, completion: nil)
+                        self.performSegueWithIdentifier("loginSeg", sender: self)
                             // We are now logged in
-                        }
-        })
+                    }
+            })
         
     }
     override func didReceiveMemoryWarning() {

@@ -9,12 +9,13 @@
 import UIKit
 
 import VideoSplashKit
+import Firebase
 
 class ViewController: VideoSplashViewController {
     
     @IBOutlet weak var LogIn: UIButton!
     @IBOutlet weak var SignUp: UIButton!
-    
+    var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +33,6 @@ class ViewController: VideoSplashViewController {
         self.restartForeground = true
         
         
-        
         //Buttons
         LogIn.layer.cornerRadius = 5
         LogIn.layer.borderWidth = 1
@@ -43,6 +43,21 @@ class ViewController: VideoSplashViewController {
         SignUp.layer.borderWidth = 1
         SignUp.layer.borderColor = UIColor.whiteColor().CGColor
         
+        
     }
+
+    
+//    override func viewDidAppear(animated: Bool){
+//        
+//        super.viewWillAppear(animated);
+//        
+//        //Auto log in
+//        if( ref.authData != nil){
+//            print("Successfully login ")
+//             print("User " + ref.authData.uid + " is logged in with " + ref.authData.provider)
+//            performSegueWithIdentifier("autoSeg", sender: self)
+//        }
+//    }
+
 }
 
