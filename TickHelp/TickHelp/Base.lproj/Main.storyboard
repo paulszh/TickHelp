@@ -55,11 +55,12 @@
                     <connections>
                         <outlet property="LogIn" destination="XNG-0Q-ONi" id="v1p-al-uWB"/>
                         <outlet property="SignUp" destination="P8U-9d-4al" id="8c4-6M-xtd"/>
+                        <segue destination="0Vl-kH-TzN" kind="presentation" identifier="autoSeg" id="tS0-wg-LNk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1982" y="245"/>
+            <point key="canvasLocation" x="-1918" y="263"/>
         </scene>
         <!--Personal Page View Controller-->
         <scene sceneID="msy-Qx-nqt">
@@ -306,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxh-64-9CO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1220" y="-272"/>
+            <point key="canvasLocation" x="-1220" y="-504"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="nkd-2n-YgQ">
@@ -364,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njj-Fa-yY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1172" y="670"/>
+            <point key="canvasLocation" x="-1184" y="1066"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="xTc-G1-8W6">
@@ -409,6 +410,6 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CvT-xh-OQt"/>
+        <segue reference="tS0-wg-LNk"/>
     </inferredMetricsTieBreakers>
 </document>
