@@ -8,6 +8,7 @@
 
 import UIKit
 import TextFieldEffects
+import Firebase
 
 class LogViewController: UIViewController {
 
@@ -30,6 +31,21 @@ class LogViewController: UIViewController {
 
     }
 
+    @IBAction func login(sender: AnyObject) {
+        let ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+        ref.authUser(username.text, password: password.text,
+                     withCompletionBlock: { error, authData in
+                        if error != nil {
+                            print("Please check your username and password")
+                            // There was an error logging in to this account
+                        } else {
+                            print("Successfully login ")
+                            self.performSegueWithIdentifier("loginSeg", sender: self)
+                            // We are now logged in
+                        }
+        })
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

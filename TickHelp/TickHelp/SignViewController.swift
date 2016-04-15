@@ -12,7 +12,7 @@ import Firebase
 class SignViewController: UIViewController {
     
     
-
+    
     @IBOutlet weak var nickname: UITextField!
     
     
@@ -25,11 +25,27 @@ class SignViewController: UIViewController {
         
         setPlacehoder();
         
-        let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
+        //let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
         // Write data to Firebase
-        myRootRef.setValue("Do you have data? You'll love Firebase.")
-
+        
         // Do any additional setup after loading the view.
+    }
+    @IBAction func register(sender: AnyObject) {
+        let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
+        myRootRef.setValue("create the user")
+        myRootRef.createUser(username.text, password: password.text,withValueCompletionBlock: { error, result in
+                                
+                                if error != nil {
+                                    // There was an error creating the account
+                                } else {
+                                    let uid = result["uid"] as? String
+                                    print("Successfully created user account with uid: \(uid)")
+                                    self.performSegueWithIdentifier("signupSeg", sender: self)
+                                }
+        })
+        
+        
+        
     }
     
     func setPlacehoder(){
@@ -43,22 +59,22 @@ class SignViewController: UIViewController {
         password.attributedPlaceholder = placeholder3
         
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
