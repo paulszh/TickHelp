@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYh-hQ-d2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="197"/>
+            <point key="canvasLocation" x="325" y="-51"/>
         </scene>
         <!--Friend List View Controller-->
         <scene sceneID="xPZ-ML-HfE">
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OO-dQ-Lh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="1000"/>
+            <point key="canvasLocation" x="325" y="788"/>
         </scene>
         <!--Offline Chat View Controller-->
         <scene sceneID="3bC-KB-iWl">
@@ -202,7 +202,8 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.99607849120000003" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
                                 <items>
-                                    <navigationItem title="Nearby" id="gn2-uZ-uLQ">
+                                    <navigationItem id="gn2-uZ-uLQ">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Log out" id="B31-Cb-2wk">
                                             <connections>
                                                 <action selector="LogOut:" destination="AL8-n1-WSd" id="4yJ-m1-EjB"/>
@@ -212,13 +213,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hks-IM-pAe">
-                                <rect key="frame" x="0.0" y="278" width="600" height="44"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="visibility:" destination="AL8-n1-WSd" eventType="touchUpInside" id="vU6-MT-tt8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -227,6 +221,19 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="a3b-qW-NXg"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="T05-Lw-ctH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hks-IM-pAe">
+                                <rect key="frame" x="20" y="0.5" width="226" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Visibility"/>
+                                <connections>
+                                    <action selector="visibility:" destination="AL8-n1-WSd" eventType="touchUpInside" id="vU6-MT-tt8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="peers" destination="FKS-aH-cAD" id="kn1-tD-MDp"/>
                         <segue destination="iMW-Yf-dqy" kind="presentation" identifier="segueChat" id="ZiZ-Yj-7DW"/>
@@ -234,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxS-8R-r2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-635" y="-836"/>
+            <point key="canvasLocation" x="333" y="-883"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="fc8-Mc-hUH">
@@ -313,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCd-b5-axe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="-495"/>
+            <point key="canvasLocation" x="1126" y="-883"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="T3M-hj-eaa">
@@ -327,22 +334,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Ug-GKj">
+                                <rect key="frame" x="155" y="224" width="218" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
-                                <rect key="frame" x="150" y="393" width="120" height="30"/>
+                                <rect key="frame" x="204" y="346" width="120" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="login:" destination="OD7-mR-r8z" eventType="touchUpInside" id="y79-E6-xZV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Ug-GKj">
-                                <rect key="frame" x="101" y="150" width="218" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOh-E4-UsL">
+                                <rect key="frame" x="119" y="128" width="254" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-bl-7Yc">
-                                <rect key="frame" x="95" y="225" width="218" height="30"/>
+                                <rect key="frame" x="155" y="285" width="218" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -432,16 +445,17 @@
                         <segue destination="AL8-n1-WSd" kind="relationship" relationship="viewControllers" id="5zR-hN-vfd"/>
                         <segue destination="Zom-PO-7Le" kind="relationship" relationship="viewControllers" id="HXD-Xb-mkq"/>
                         <segue destination="vJO-p4-P0k" kind="relationship" relationship="viewControllers" id="ENx-R9-H0M"/>
+                        <segue destination="qUR-UR-hpU" kind="relationship" relationship="viewControllers" id="eu3-bL-ip2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POm-sW-jqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-520" y="197"/>
         </scene>
-        <!--Ranking View Controller-->
+        <!--Rank View Controller-->
         <scene sceneID="FDh-Oo-J1d">
             <objects>
-                <viewController id="qUR-UR-hpU" customClass="RankingViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Rank View Controller" id="qUR-UR-hpU" customClass="RankingViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7vq-LC-iJx"/>
                         <viewControllerLayoutGuide type="bottom" id="EkL-WM-SJp"/>
@@ -451,10 +465,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cox-Iq-X2g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKt-j4-hEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="294"/>
+            <point key="canvasLocation" x="325" y="1597"/>
         </scene>
     </scenes>
     <resources>
@@ -463,6 +478,6 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tS0-wg-LNk"/>
+        <segue reference="nAF-hi-ZVg"/>
     </inferredMetricsTieBreakers>
 </document>
