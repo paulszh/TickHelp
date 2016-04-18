@@ -1,29 +1,19 @@
 //
-//  TabBarViewController.swift
+//  MapViewController.swift
 //  TickHelp
 //
-//  Created by Ariel on 4/10/16.
+//  Created by Ariel on 4/14/16.
 //  Copyright © 2016 Ariel. All rights reserved.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
-    
+class MapViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        UITabBar.appearance().barTintColor = UIColor.blackColor()
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
-        
-        let item0 = self.tabBar.items![0] as UITabBarItem
-        item0.image = UIImage(named: "chat")!
-        item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        
-        let item1 = self.tabBar.items![1] as UITabBarItem
-        item1.image = UIImage(named: "ID")!
-        item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
     }
 
     override func didReceiveMemoryWarning() {
