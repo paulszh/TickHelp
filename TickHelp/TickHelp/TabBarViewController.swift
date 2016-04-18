@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
     
@@ -25,17 +24,6 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         let item1 = self.tabBar.items![1] as UITabBarItem
         item1.image = UIImage(named: "ID")!
         item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        
-        let currentUser = Firebase(url: "https://tickhelp.firebaseio.com/" + constant.userID);
-        currentUser.observeEventType(.Value, withBlock: { snapshot in
-            //retrieve the data from the firebase
-            print(snapshot.value)
-
-            //print(snapshot.value.objectForKey("nickname"))
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
-        
     }
 
     override func didReceiveMemoryWarning() {
