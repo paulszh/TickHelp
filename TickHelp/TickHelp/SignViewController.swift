@@ -19,6 +19,7 @@ class SignViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
+    let firebase = Firebase(url:constant.userURL)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +32,38 @@ class SignViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func register(sender: AnyObject) {
-        let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
-        myRootRef.setValue("create the user")
-        myRootRef.createUser(username.text, password: password.text,withValueCompletionBlock: { error, result in
-                                
-                                if error != nil {
-                                    // There was an error creating the account
-                                } else {
-                                    let uid = result["uid"] as? String
-                                    print("Successfully created user account with uid: \(uid)")
-                                    self.performSegueWithIdentifier("signupSeg", sender: self)
-                                }
-        })
+        self.firebase.createUser(username.text, password: password.text) { (error: NSError!) in
+            // 2
+            if error == nil {
+                // 3
+                self.firebase.authUser(self.username.text, password: self.password.text,
+                                  withCompletionBlock: { (error, auth) -> Void in
+                                    print(auth.uid)
+                                    // Create a new user dictionary accessing the user's info
+                                    // provided by the authData parameter
+                                    let newUser = [
+                                        "username": auth.uid,
+                                        "nickname": self.nickname.text,
+                                        "password": self.password.text,
+                                        "credit" : "0",
+                                    ]
+                                    // Create a child path with a key set to the uid underneath the "users" node
+                                    // This creates a URL path like the following:
+                                    //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
+                                    if(auth.uid != nil){
+                                        self.firebase.childByAppendingPath("users")
+                                            .childByAppendingPath(auth.uid).setValue(newUser)
+                                        self.performSegueWithIdentifier("signupSeg", sender: self)
+                                    }
+                                    // 4
+                })
+                
+            }
+            else{
+                print("Failed");
+            }
+        }
+        
         
         
         
