@@ -15,7 +15,7 @@ class ViewController: VideoSplashViewController {
     
     @IBOutlet weak var LogIn: UIButton!
     @IBOutlet weak var SignUp: UIButton!
-    var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+    var ref = Firebase(url: constant.userURL)
     override func viewDidLoad() {
         super.viewDidLoad()
         
