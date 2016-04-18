@@ -14,5 +14,4 @@ struct constant{
     static var nickname = "";
     static var username = "";
     static var password = "";
-    
 }

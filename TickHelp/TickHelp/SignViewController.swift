@@ -33,9 +33,8 @@ class SignViewController: UIViewController {
     }
     @IBAction func register(sender: AnyObject) {
         self.firebase.createUser(username.text, password: password.text) { (error: NSError!) in
-            // 2
+            //user is created successfully
             if error == nil {
-                // 3
                 self.firebase.authUser(self.username.text, password: self.password.text,
                                        withCompletionBlock: { (error, auth) -> Void in
                                         
@@ -46,6 +45,7 @@ class SignViewController: UIViewController {
                                             "uid": auth.uid,
                                             "username": self.username.text,
                                             "nickname": self.nickname.text,
+                                            //the password need to be hashed
                                             "password": self.password.text,
                                             "credit" : "0",
                                         ]
@@ -55,17 +55,13 @@ class SignViewController: UIViewController {
                                                 .childByAppendingPath(auth.uid).setValue(newUser)
                                             self.performSegueWithIdentifier("signupSeg", sender: self)
                                         }
-                                        // 4
                 })
                 
             }
             else{
-                print("Failed");
+                print("Authentication Failed");
             }
         }
-        
-        
-        
         
     }
     
