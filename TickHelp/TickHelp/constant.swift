@@ -8,11 +8,16 @@
 
 import Foundation
 
+<<<<<<< HEAD
 struct constant{
     static var userURL = "https://tickhelp.firebaseio.com/"
     static var uid = "";
     static var nickname = "";
     static var username = "";
     static var password = "";
+=======
+class constant{
+    static var userURL = "https://tickhelp.firebaseio.com/"
+>>>>>>> zhouhang
     
 }

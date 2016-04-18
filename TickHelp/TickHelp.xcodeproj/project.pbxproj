@@ -10,7 +10,6 @@
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
 		08C3BDFA1CC469B300062931 /* test4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 08C3BDF91CC469B300062931 /* test4.mp4 */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
-		85CA5B791CC37E860063F287 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA5B781CC37E860063F287 /* FriendListController.swift */; };
 		8D01A6241CBB66B400072110 /* test3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D01A6231CBB66B400072110 /* test3.mp4 */; };
 		8D1870301CBD78AC00B610C8 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18702F1CBD78AC00B610C8 /* MPCManager.swift */; };
 		8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1870311CBD8E0A00B610C8 /* chatViewController.swift */; };
@@ -30,6 +29,7 @@
 		8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CB1CBB3306001C186B /* LogViewController.swift */; };
 		8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CD1CBB3317001C186B /* SignViewController.swift */; };
 		8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0D11CBB4DE1001C186B /* Main.storyboard */; };
+		8DA88E591CC0BB2C00DF99DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 		6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.release.xcconfig"; sourceTree = "<group>"; };
 		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
-		85CA5B781CC37E860063F287 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
 		8D01A6231CBB66B400072110 /* test3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.mp4; sourceTree = "<group>"; };
 		8D18702F1CBD78AC00B610C8 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		8D1870311CBD8E0A00B610C8 /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		8D30E0CB1CBB3306001C186B /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		8D30E0CD1CBB3317001C186B /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		8D30E0D21CBB4DE1001C186B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,14 +118,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		85CA5B771CC37E750063F287 /* Friends */ = {
-			isa = PBXGroup;
-			children = (
-				85CA5B781CC37E860063F287 /* FriendListController.swift */,
-			);
-			name = Friends;
-			sourceTree = "<group>";
-		};
 		8D30E07A1CB9C435001C186B = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +143,7 @@
 		8D30E0851CB9C435001C186B /* TickHelp */ = {
 			isa = PBXGroup;
 			children = (
-				85CA5B771CC37E750063F287 /* Friends */,
+				8DA88E571CC0BB0700DF99DF /* Map */,
 				8D30E0C61CBB2421001C186B /* Resources */,
 				8D30E0BE1CB9CAE7001C186B /* Support */,
 				8D30E0BB1CB9C8EA001C186B /* Ranking */,
@@ -240,6 +232,14 @@
 				8D30E0C71CBB2447001C186B /* test.mp4 */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8DA88E571CC0BB0700DF99DF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8DA88E581CC0BB2C00DF99DF /* MapViewController.swift */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		DBE2FCDDC541F58FAE2B7323 /* Frameworks */ = {
@@ -441,9 +441,9 @@
 				8D1870341CBDA17600B610C8 /* chatTableViewCell.swift in Sources */,
 				8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */,
 				8D1870301CBD78AC00B610C8 /* MPCManager.swift in Sources */,
-				85CA5B791CC37E860063F287 /* FriendListController.swift in Sources */,
 				8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */,
 				8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */,
+				8DA88E591CC0BB2C00DF99DF /* MapViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */,
