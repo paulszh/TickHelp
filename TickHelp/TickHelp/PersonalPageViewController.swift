@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PersonalPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,6 +19,17 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         
         self.avator.image = maskRoundedImage(centerCrop(self.avator.image!))
         self.avator.image = resizeImage(self.avator.image!, targetSize: CGSize(width: 160, height: 160))
+        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+        print(ref)
+        // Get the data on a post that has changed
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            //Get the data from the firebase
+            self.userName.text = snapshot.value.objectForKey("nickname") as? String
+
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
     }
 
     override func didReceiveMemoryWarning() {
