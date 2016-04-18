@@ -24,6 +24,12 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         let item1 = self.tabBar.items![1] as UITabBarItem
         item1.image = UIImage(named: "ID")!
         item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        
+        let item2 = self.tabBar.items![2] as UITabBarItem
+        item2.image = UIImage(named: "ID")!
+        item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
