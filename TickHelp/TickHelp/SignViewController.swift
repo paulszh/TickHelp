@@ -53,6 +53,7 @@ class SignViewController: UIViewController {
                                         if(auth.uid != nil){
                                             self.firebase.childByAppendingPath("users")
                                                 .childByAppendingPath(auth.uid).setValue(newUser)
+                                            constant.uid = auth.uid;
                                             self.performSegueWithIdentifier("signupSeg", sender: self)
                                         }
                 })

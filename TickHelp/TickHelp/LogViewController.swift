@@ -48,7 +48,9 @@ class LogViewController: UIViewController {
                 //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
+                constant.uid = authData.uid;
                 self.performSegueWithIdentifier("loginSeg", sender: self)
+                
             }
         }
         
