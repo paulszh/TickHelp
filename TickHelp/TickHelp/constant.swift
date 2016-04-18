@@ -9,5 +9,6 @@
 import Foundation
 
 class constant{
+    static var userURL = "https://tickhelp.firebaseio.com/"
     
 }
