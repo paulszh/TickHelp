@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
 
 
 protocol MPCManagerDelegate {
@@ -36,8 +37,32 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         
         super.init()
         
-        //Initialize variables
+        
+        //CHANGE
+//        
+//        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+//        var display : String = ""
+//        
+//        print(ref)
+//        
+//        // Get the data on a post that has changed
+//        ref.observeEventType(.Value, withBlock: { snapshot in
+//            print(snapshot.value)
+//            //Get the data from the firebase
+//            display = (snapshot.value.objectForKey("nickname") as? String)!
+//            
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
+//
+//        //Initialize variables
+//        //peer = MCPeerID(displayName: "peer")
+//        print("HERE:"+display)
+//        peer = MCPeerID(displayName: display)
+        
         peer = MCPeerID(displayName: UIDevice.currentDevice().name)
+        
+        
         //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self
