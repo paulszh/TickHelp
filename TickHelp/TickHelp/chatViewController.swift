@@ -37,7 +37,6 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         chatTable.separatorStyle = UITableViewCellSeparatorStyle.None
 
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,9 +47,9 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBAction func stopChat(sender: AnyObject) {
         
         let messageDictionary: [String: String] = ["message": "_end_chat_"]
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] ){
+        if appDelegate.mpcManager!.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager!.session.connectedPeers[0] ){
             self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                self.appDelegate.mpcManager.session.disconnect()
+                self.appDelegate.mpcManager!.session.disconnect()
             })
         }
     }
@@ -101,7 +100,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         let messageDictionary: [String: String] = ["message": textField.text!]
         
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] ){
+        if appDelegate.mpcManager!.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager!.session.connectedPeers[0] ){
             let dictionary: [String: String] = ["sender": "self", "message": textField.text!]
             messagesArray.append(dictionary)
             
@@ -154,7 +153,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-                    self.appDelegate.mpcManager.session.disconnect()
+                    self.appDelegate.mpcManager!.session.disconnect()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
@@ -197,7 +196,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 let alert = UIAlertController(title: "", message: "Connections was lost with \(fromPeer.displayName)", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-                    self.appDelegate.mpcManager.session.disconnect()
+                    self.appDelegate.mpcManager!.session.disconnect()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 

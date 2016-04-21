@@ -15,6 +15,8 @@ class LogViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var ref = Firebase(url: constant.userURL)
+    let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
+  //  var mpcManager: MPCManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class LogViewController: UIViewController {
                 //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
             } else {
+                self.appDelagate.mpcManager = MPCManager()
                 // Authentication just completed successfully :)
                 // The logged in user's unique identifier
                 print(authData.uid)
