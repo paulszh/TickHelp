@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
 
 
 protocol MPCManagerDelegate {
@@ -32,12 +33,15 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     var invitationHandler: ((Bool, MCSession) ->Void)!
     
     
+    
     override init(){
-        
         super.init()
-        
         //Initialize variables
         peer = MCPeerID(displayName: UIDevice.currentDevice().name)
+   //     peer = MCPeerID(displayName: "szh")
+        print("printing peer....... ")
+        print(peer)
+    
         //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self
