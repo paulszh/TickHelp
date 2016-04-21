@@ -339,10 +339,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
+                                <rect key="frame" x="204" y="346" width="120" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="login:" destination="OD7-mR-r8z" eventType="touchUpInside" id="y79-E6-xZV"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOh-E4-UsL">
                                 <rect key="frame" x="119" y="128" width="254" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-bl-7Yc">
@@ -350,13 +357,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
-                                <rect key="frame" x="204" y="354" width="120" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="login:" destination="OD7-mR-r8z" eventType="touchUpInside" id="y79-E6-xZV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -478,6 +478,6 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nAF-hi-ZVg"/>
+        <segue reference="CvT-xh-OQt"/>
     </inferredMetricsTieBreakers>
 </document>
