@@ -10,11 +10,12 @@ import UIKit
 import MultipeerConnectivity
 import Firebase
 
-var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
-
 class offlineChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MPCManagerDelegate {
 
     @IBOutlet weak var peers: UITableView!
+    
+    var ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
+
     
     let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     var isAdvertising: Bool!
@@ -92,7 +93,55 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer")! as UITableViewCell
-        cell.textLabel?.text = appDelagate.mpcManager.foundPeers[indexPath.row].displayName
+        
+        let refAll = Firebase(url: constant.userURL + "/users/")
+        
+        //        ref.observeEventType(.Value, withBlock: { snapshot in
+        //
+        //
+        //            //Get the data from the firebase
+        //            let name = snapshot.value.objectForKey("nickname") as? String
+        //            cell.textLabel?.text  = name
+        //            //print("HHHHHHHHHHH " + name! )
+        //
+        //
+        //            }, withCancelBlock: { error in
+        //                print(error.description)
+        //        })
+        
+//                var devices: NSArray! = nil
+//        
+//                refAll.observeEventType(.ChildAdded, withBlock: { snapshot in
+//        
+//                    devices = snapshot.value.objectForKey("device") as! NSArray!
+//                    print(devices)
+//                    
+//                })
+        
+        refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            print(snapshot.childrenCount) // I got the expected number of items
+            
+            let enumerator = snapshot.children
+            
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
+                let str = rest.value.objectForKey("device") as! String!
+                
+                if(str != nil){
+                    print(str)
+                    print(self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName)
+                }
+                
+                
+                if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
+                    print(str)
+                    cell.textLabel?.text = rest.value.objectForKey("nickname") as! String!
+                }
+            }
+        })
+        
+        //cell.textLabel?.text = appDelagate.mpcManager.foundPeers[indexPath.row].displayName
         
         return cell
     }
