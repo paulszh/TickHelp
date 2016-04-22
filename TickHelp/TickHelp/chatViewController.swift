@@ -69,6 +69,10 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCell")! as! chatTableViewCell
         
+        print("\(peer.nickname) name")
+        print("\(peer.uid) name")
+        print("\(peer.uid) name")
+        
         let currentMessage = messagesArray[indexPath.row] as Dictionary<String, String>
         
         if let sender = currentMessage["sender"] {
@@ -80,7 +84,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 senderColor = UIColor.purpleColor()
             }
             else{
-                senderLabelText = sender + " said:"
+                senderLabelText = peer.nickname + " said:"
                 senderColor = UIColor.orangeColor()
             }
             
@@ -151,7 +155,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 })
             }
             else{
-                let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "", message: "The chat was ended", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
                     self.appDelegate.mpcManager.session.disconnect()

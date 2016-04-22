@@ -14,6 +14,7 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var peers: UITableView!
     
+    let refAll = Firebase(url: constant.userURL + "/users/")
     var ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
 
     
@@ -94,29 +95,6 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer")! as UITableViewCell
         
-        let refAll = Firebase(url: constant.userURL + "/users/")
-        
-        //        ref.observeEventType(.Value, withBlock: { snapshot in
-        //
-        //
-        //            //Get the data from the firebase
-        //            let name = snapshot.value.objectForKey("nickname") as? String
-        //            cell.textLabel?.text  = name
-        //            //print("HHHHHHHHHHH " + name! )
-        //
-        //
-        //            }, withCancelBlock: { error in
-        //                print(error.description)
-        //        })
-        
-//                var devices: NSArray! = nil
-//        
-//                refAll.observeEventType(.ChildAdded, withBlock: { snapshot in
-//        
-//                    devices = snapshot.value.objectForKey("device") as! NSArray!
-//                    print(devices)
-//                    
-//                })
         
         refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
@@ -127,11 +105,6 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
                 let str = rest.value.objectForKey("device") as! String!
-                
-                if(str != nil){
-                    print(str)
-                    print(self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName)
-                }
                 
                 
                 if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
@@ -170,26 +143,51 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     func invitationWasReceived(fromPeer: String) {
         
+        var peerName: String!
         
-        let alert = UIAlertController(title: "", message: "\(fromPeer) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let acceptAction: UIAlertAction = UIAlertAction(title: "Accept", style: UIAlertActionStyle.Default)  {(alertAction) -> Void in
+    
+        refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            self.appDelagate.mpcManager.invitationHandler(true, self.appDelagate.mpcManager.session)
+            print(snapshot.childrenCount) // I got the expected number of items
             
-        }
-        
-        let declineAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {(alertAction) -> Void in
-            self.appDelagate.mpcManager.invitationHandler!(false,self.appDelagate.mpcManager.session)
-        }
-        
-        alert.addAction(acceptAction)
-        alert.addAction(declineAction)
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
+            let enumerator = snapshot.children
             
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
+                let str = rest.value.objectForKey("device") as! String!
+               
+                
+                if (str != nil && str == fromPeer){
+                    print("hehe")
+                    peerName = rest.value.objectForKey("nickname") as! String!
+                    peer.uid = rest.value.objectForKey("uid") as! String!
+                    peer.nickname = peerName
+                    
+                    let alert = UIAlertController(title: "", message: "\(peerName) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    let acceptAction: UIAlertAction = UIAlertAction(title: "Accept", style: UIAlertActionStyle.Default)  {(alertAction) -> Void in
+                        
+                        self.appDelagate.mpcManager.invitationHandler(true, self.appDelagate.mpcManager.session)
+                    }
+                    
+                    let declineAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {(alertAction) -> Void in
+                        self.appDelagate.mpcManager.invitationHandler!(false,self.appDelagate.mpcManager.session)
+                    }
+                    
+                    alert.addAction(acceptAction)
+                    alert.addAction(declineAction)
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    
+                    break;
+                }
+            }
+        })
+        
+
         
         //TODO: Currently automatically accepting connection. Need to write code on when to accept/deny connection
         //self.appDelagate.mpcManager.invitationHandler!(true, self.appDelagate.mpcManager.session)
