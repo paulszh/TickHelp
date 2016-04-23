@@ -30,6 +30,9 @@ class SignViewController: UIViewController {
         // Write data to Firebase
         
         // Do any additional setup after loading the view.
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     @IBAction func register(sender: AnyObject) {
         self.firebase.createUser(username.text, password: password.text) { (error: NSError!) in
@@ -65,6 +68,11 @@ class SignViewController: UIViewController {
             }
         }
         
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func setPlacehoder(){

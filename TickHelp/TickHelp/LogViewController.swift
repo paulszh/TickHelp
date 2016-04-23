@@ -20,6 +20,9 @@ class LogViewController: UIViewController {
         super.viewDidLoad()
 
         setPlacehoder();
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func setPlacehoder(){
@@ -31,6 +34,11 @@ class LogViewController: UIViewController {
         username.attributedPlaceholder = placeholder1
         password.attributedPlaceholder = placeholder2
 
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
     @IBAction func login(sender: AnyObject) {

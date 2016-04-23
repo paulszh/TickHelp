@@ -18,9 +18,12 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     var messagesArray: [Dictionary<String, String>] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    var peerName: String!
+    var peerId: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Do any additional setup after loading the view.
         chatTable.delegate = self
         chatTable.dataSource = self
@@ -84,7 +87,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 senderColor = UIColor.purpleColor()
             }
             else{
-                senderLabelText = peer.nickname + " said:"
+                senderLabelText = peerName + " said:"
                 senderColor = UIColor.orangeColor()
             }
             
