@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
 
 
 protocol MPCManagerDelegate {
@@ -24,21 +25,37 @@ protocol MPCManagerDelegate {
 class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate {
     
     var delegate:MPCManagerDelegate?
+    
     var session: MCSession!
-    var peer: MCPeerID!
+//    var peer: MCPeerID!
     var browser: MCNearbyServiceBrowser!
     var advertiser: MCNearbyServiceAdvertiser!
     var foundPeers = [MCPeerID]()
     var invitationHandler: ((Bool, MCSession) ->Void)!
-    
+
     
     override init(){
-        
         super.init()
+        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+        print(ref)
+        var name_to_display = ""
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            //Get the data from the firebase
+            constant.nickname = (snapshot.value.objectForKey("nickname") as? String)!
+                name_to_display = (snapshot.value.objectForKey("nickname") as? String)!
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        print("..display name is: ")
+        print(name_to_display)
+        print(constant.nickname)
+ 
+        var peer: MCPeerID!
+        peer = MCPeerID(displayName: constant.uid)
+
         
-        //Initialize variables
-        peer = MCPeerID(displayName: UIDevice.currentDevice().name)
-        //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
+      //  session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self
         
@@ -106,15 +123,19 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     }
 
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
+
     switch state{
+        
         case MCSessionState.Connected:
-        print("Connected to session: \(session)")
-        delegate?.connectedWithPeer(peerID)
+            print("Connected to session: \(session)")
+            delegate?.connectedWithPeer(peerID)
         
         case MCSessionState.Connecting:
-        print("Connecting to session: \(session)")
+            print("Connecting to session: \(session)")
         //For now
-        //delegate?.connectedWithPeer(peerID)
+            print("Opposite peerID is: ......")
+            print(peerID)
+         //   delegate?.connectedWithPeer(peerID)
         
         default:
         print("Did not connect to session: \(session)")
