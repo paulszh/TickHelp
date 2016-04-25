@@ -26,8 +26,12 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
         let item2 = self.tabBar.items![2] as UITabBarItem
-        item2.image = UIImage(named: "ID")!
+        item2.image = UIImage(named: "Groups")!
         item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        
+        let item3 = self.tabBar.items![3] as UITabBarItem
+        item3.image = UIImage(named: "Queen")!
+        item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
         
     }
