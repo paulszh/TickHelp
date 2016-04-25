@@ -27,7 +27,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     var delegate:MPCManagerDelegate?
     
     var session: MCSession!
-//    var peer: MCPeerID!
+    var peer: MCPeerID!
     var browser: MCNearbyServiceBrowser!
     var advertiser: MCNearbyServiceAdvertiser!
     var foundPeers = [MCPeerID]()
