@@ -29,6 +29,7 @@
 		8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CB1CBB3306001C186B /* LogViewController.swift */; };
 		8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0CD1CBB3317001C186B /* SignViewController.swift */; };
 		8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0D11CBB4DE1001C186B /* Main.storyboard */; };
+		8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4A791CCAADA1004F1E8F /* peer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		8D30E0CB1CBB3306001C186B /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		8D30E0CD1CBB3317001C186B /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		8D30E0D21CBB4DE1001C186B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D6A4A791CCAADA1004F1E8F /* peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = peer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			children = (
 				8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */,
 				085852851CBF59220099CD1D /* constant.swift */,
+				8D6A4A791CCAADA1004F1E8F /* peer.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
+				8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */,
 				8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */,
 				8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */,
 				8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */,

@@ -36,26 +36,13 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     
     override init(){
         super.init()
-        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
-        print(ref)
-        var name_to_display = ""
-        ref.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
-            //Get the data from the firebase
-            constant.nickname = (snapshot.value.objectForKey("nickname") as? String)!
-                name_to_display = (snapshot.value.objectForKey("nickname") as? String)!
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
-        print("..display name is: ")
-        print(name_to_display)
-        print(constant.nickname)
- 
-        var peer: MCPeerID!
-        peer = MCPeerID(displayName: constant.uid)
 
+        //CHANGE
         
-      //  session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
+        peer = MCPeerID(displayName: UIDevice.currentDevice().name)
+        
+        
+        //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self
         
