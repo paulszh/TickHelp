@@ -33,14 +33,10 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     
     
     override init(){
-<<<<<<< HEAD
         
-        super.init()
-=======
         super.init()
 
         //CHANGE
->>>>>>> master
         
         //Initialize variables
         peer = MCPeerID(displayName: UIDevice.currentDevice().name)
