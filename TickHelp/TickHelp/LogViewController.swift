@@ -14,12 +14,16 @@ class LogViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+    var ref = Firebase(url: constant.userURL)
+    // get a reference to the appDelegate
+    var mpcManager: MPCManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setPlacehoder();
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func setPlacehoder(){
@@ -32,28 +36,38 @@ class LogViewController: UIViewController {
         password.attributedPlaceholder = placeholder2
 
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     @IBAction func login(sender: AnyObject) {
-        
-        
-        ref.authUser(username.text, password: password.text,
-            withCompletionBlock: { error, authData in
+        ref.authUser(username.text, password:password.text) {
+            error, authData in
+            if error != nil {
+                // Something went wrong. :(
+                //print("Please check your username and password")
+                //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
+                //self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+
+                // Authentication just completed successfully :)
+                // The logged in user's unique identifier
+                print(authData.uid)
                 
-                if error != nil {
-                    
-                    //print("Please check your username and password")
-                    //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
-                    //self.presentViewController(alert, animated: true, completion: nil)
-                    
-                            // There was an error logging in to this account
-                } else {
-               
-                    //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
-                    //self.presentViewController(alert, animated: true, completion: nil)
-                        self.performSegueWithIdentifier("loginSeg", sender: self)
-                            // We are now logged in
-                    }
-            })
+                //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
+                //self.presentViewController(alert, animated: true, completion: nil)
+                // We are now logged in
+                constant.uid = authData.uid;
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.mpcManager = MPCManager();
+                print("App delegate called.")
+                self.performSegueWithIdentifier("loginSeg", sender: self)
+                
+            }
+        }
         
     }
     override func didReceiveMemoryWarning() {

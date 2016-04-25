@@ -19,6 +19,7 @@ class SignViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
+    let firebase = Firebase(url:constant.userURL)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +30,49 @@ class SignViewController: UIViewController {
         // Write data to Firebase
         
         // Do any additional setup after loading the view.
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     @IBAction func register(sender: AnyObject) {
-        let myRootRef = Firebase(url:"https://tickhelp.firebaseio.com/")
-        myRootRef.setValue("create the user")
-        myRootRef.createUser(username.text, password: password.text,withValueCompletionBlock: { error, result in
-                                
-                                if error != nil {
-                                    // There was an error creating the account
-                                } else {
-                                    let uid = result["uid"] as? String
-                                    print("Successfully created user account with uid: \(uid)")
-                                    self.performSegueWithIdentifier("signupSeg", sender: self)
-                                }
-        })
+        self.firebase.createUser(username.text, password: password.text) { (error: NSError!) in
+            //user is created successfully
+            if error == nil {
+                self.firebase.authUser(self.username.text, password: self.password.text,
+                                       withCompletionBlock: { (error, auth) -> Void in
+                                        
+                                        print(auth.uid)
+                                        // Create a new user dictionary accessing the user's info
+                                        // provided by the authData parameter
+                                        let newUser = [
+                                            "uid": auth.uid,
+                                            "username": self.username.text,
+                                            "nickname": self.nickname.text,
+                                            //the password need to be hashed
+                                            "password": self.password.text,
+                                            "credit" : "0",
+                                            "device": UIDevice.currentDevice().name
+                                        ]
+                                        
+                                        if(auth.uid != nil){
+                                            self.firebase.childByAppendingPath("users")
+                                                .childByAppendingPath(auth.uid).setValue(newUser)
+                                            constant.uid = auth.uid;
+                                            self.performSegueWithIdentifier("signupSeg", sender: self)
+                                        }
+                })
+                
+            }
+            else{
+                print("Authentication Failed");
+            }
+        }
         
-        
-        
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func setPlacehoder(){

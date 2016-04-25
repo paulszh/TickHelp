@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
 
 
 protocol MPCManagerDelegate {
@@ -24,20 +25,23 @@ protocol MPCManagerDelegate {
 class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate {
     
     var delegate:MPCManagerDelegate?
+    
     var session: MCSession!
-    var peer: MCPeerID!
+//    var peer: MCPeerID!
     var browser: MCNearbyServiceBrowser!
     var advertiser: MCNearbyServiceAdvertiser!
     var foundPeers = [MCPeerID]()
     var invitationHandler: ((Bool, MCSession) ->Void)!
-    
+
     
     override init(){
-        
         super.init()
+
+        //CHANGE
         
-        //Initialize variables
         peer = MCPeerID(displayName: UIDevice.currentDevice().name)
+        
+        
         //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self
@@ -106,15 +110,19 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     }
 
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
+
     switch state{
+        
         case MCSessionState.Connected:
-        print("Connected to session: \(session)")
-        delegate?.connectedWithPeer(peerID)
+            print("Connected to session: \(session)")
+            delegate?.connectedWithPeer(peerID)
         
         case MCSessionState.Connecting:
-        print("Connecting to session: \(session)")
+            print("Connecting to session: \(session)")
         //For now
-        //delegate?.connectedWithPeer(peerID)
+            print("Opposite peerID is: ......")
+            print(peerID)
+         //   delegate?.connectedWithPeer(peerID)
         
         default:
         print("Did not connect to session: \(session)")

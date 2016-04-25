@@ -1,3 +1,4 @@
+
 //
 //  offlineChatViewController.swift
 //  TickHelp
@@ -10,14 +11,18 @@ import UIKit
 import MultipeerConnectivity
 import Firebase
 
-var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
-
 class offlineChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MPCManagerDelegate {
 
     @IBOutlet weak var peers: UITableView!
     
+    let refAll = Firebase(url: constant.userURL + "/users/")
+    var ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
+    
     let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     var isAdvertising: Bool!
+    
+    var peerName: String!
+    var peerId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +40,10 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         // Register cell classes
         peers.registerClass(UITableViewCell.self, forCellReuseIdentifier: "idCellPeer")
         
+        //print("peer: \(self.peerName)")
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,7 +100,26 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer")! as UITableViewCell
-        cell.textLabel?.text = appDelagate.mpcManager.foundPeers[indexPath.row].displayName
+        
+        
+        refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            print(snapshot.childrenCount) // I got the expected number of items
+            
+            let enumerator = snapshot.children
+            
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
+                let str = rest.value.objectForKey("device") as! String!
+                
+                if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
+                    print(str)
+                    cell.textLabel?.text = rest.value.objectForKey("nickname") as! String!
+                }
+            }
+        })
+        
+        //cell.textLabel?.text = appDelagate.mpcManager.foundPeers[indexPath.row].displayName
         
         return cell
     }
@@ -105,9 +132,30 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedPeer = appDelagate.mpcManager.foundPeers[indexPath.row] as MCPeerID
         
-        //TODO: This function is used to send peer info we are interested in
-        appDelagate.mpcManager.browser.invitePeer(selectedPeer, toSession: appDelagate.mpcManager.session, withContext: nil, timeout: 20)
+        refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            print(snapshot.childrenCount) // I got the expected number of items
+            
+            let enumerator = snapshot.children
+            
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
+                let str = rest.value.objectForKey("device") as! String!
+                
+                if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
+                    print(str)
+                    self.peerName = rest.value.objectForKey("nickname") as! String!
+                    self.peerId = rest.value.objectForKey("uid") as! String!
+                    
+                    self.appDelagate.mpcManager.browser.invitePeer(selectedPeer, toSession: self.appDelagate.mpcManager.session, withContext: nil, timeout: 20)
+                    
+                    break
+
+                }
+            }
+        })
         
+        //TODO: This function is used to send peer info we are interested in
     }
     
     // MARK: MPCManager delegate method implementation
@@ -121,29 +169,64 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     func invitationWasReceived(fromPeer: String) {
         
-        
-        let alert = UIAlertController(title: "", message: "\(fromPeer) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let acceptAction: UIAlertAction = UIAlertAction(title: "Accept", style: UIAlertActionStyle.Default)  {(alertAction) -> Void in
+    
+        refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            self.appDelagate.mpcManager.invitationHandler(true, self.appDelagate.mpcManager.session)
+            print(snapshot.childrenCount) // I got the expected number of items
             
-        }
-        
-        let declineAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {(alertAction) -> Void in
-            self.appDelagate.mpcManager.invitationHandler!(false,self.appDelagate.mpcManager.session)
-        }
-        
-        alert.addAction(acceptAction)
-        alert.addAction(declineAction)
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
+            let enumerator = snapshot.children
             
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
+                let str = rest.value.objectForKey("device") as! String!
+               
+                
+                if (str != nil && str == fromPeer){
+                    self.peerName = rest.value.objectForKey("nickname") as! String!
+                    self.peerId = rest.value.objectForKey("uid") as! String!
+                    
+                    print("peerSeted: \(self.peerName)")
+
+                    
+                    let alert = UIAlertController(title: "", message: "\(self.peerName) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    let acceptAction: UIAlertAction = UIAlertAction(title: "Accept", style: UIAlertActionStyle.Default)  {(alertAction) -> Void in
+                        
+                        self.appDelagate.mpcManager.invitationHandler(true, self.appDelagate.mpcManager.session)
+                    }
+                    
+                    let declineAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {(alertAction) -> Void in
+                        self.appDelagate.mpcManager.invitationHandler!(false,self.appDelagate.mpcManager.session)
+                    }
+                    
+                    alert.addAction(acceptAction)
+                    alert.addAction(declineAction)
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    
+                    break;
+                }
+            }
+        })
+    
         //TODO: Currently automatically accepting connection. Need to write code on when to accept/deny connection
         //self.appDelagate.mpcManager.invitationHandler!(true, self.appDelagate.mpcManager.session)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "segueChat") {
+            
+            print("peer: \(self.peerName)")
+            
+            let dest: chatViewController = segue.destinationViewController as! chatViewController
+            
+            dest.peerName = self.peerName
+            dest.peerId = self.peerId
+
+            // pass data to next view
+        }
     }
     
     func connectedWithPeer(peerID: MCPeerID) {

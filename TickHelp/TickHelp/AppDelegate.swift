@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-       
-        mpcManager = MPCManager()
+        if(constant.uid != ""){
+            mpcManager = MPCManager()
+        }
         return true
     }
 
