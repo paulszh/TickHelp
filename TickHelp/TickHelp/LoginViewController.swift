@@ -47,17 +47,17 @@ class ViewController: VideoSplashViewController {
     }
 
     
-    override func viewDidAppear(animated: Bool){
-        
-        super.viewWillAppear(animated);
-        
-        //Auto log in
-        if( ref.authData != nil){
-            print("Successfully login ")
-             print("User " + ref.authData.uid + " is logged in with " + ref.authData.provider)
-            performSegueWithIdentifier("autoSeg", sender: self)
-        }
-    }
+//    override func viewDidAppear(animated: Bool){
+//        
+//        super.viewWillAppear(animated);
+//        
+//        //Auto log in
+//        if( ref.authData != nil){
+//            print("Successfully login ")
+//             print("User " + ref.authData.uid + " is logged in with " + ref.authData.provider)
+//            performSegueWithIdentifier("autoSeg", sender: self)
+//        }
+//    }
 
 }
 
