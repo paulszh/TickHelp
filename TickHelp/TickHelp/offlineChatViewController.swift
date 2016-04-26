@@ -42,6 +42,9 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         
         //print("peer: \(self.peerName)")
         
+        peers.separatorStyle = UITableViewCellSeparatorStyle.None
+
+        
     }
     
 
@@ -108,6 +111,9 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             let enumerator = snapshot.children
             
+            cell.imageView?.image = UIImage(named: "face")
+            
+            
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
                 let str = rest.value.objectForKey("device") as! String!
@@ -120,6 +126,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         })
         
         //cell.textLabel?.text = appDelagate.mpcManager.foundPeers[indexPath.row].displayName
+        
+        cell.textLabel!.font = UIFont(name:"Avenir", size:20)
         
         return cell
     }
