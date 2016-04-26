@@ -111,16 +111,17 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             let enumerator = snapshot.children
             
-            cell.imageView?.image = UIImage(named: "face")
-            
-            
             while let rest = enumerator.nextObject() as? FDataSnapshot {
+                
                 
                 let str = rest.value.objectForKey("device") as! String!
                 
                 if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
                     print(str)
                     cell.textLabel?.text = rest.value.objectForKey("nickname") as! String!
+                    print()
+                    cell.imageView?.image = UIImage(named: "face")
+
                 }
             }
         })

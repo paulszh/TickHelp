@@ -20,12 +20,12 @@ class ViewController: VideoSplashViewController {
         super.viewDidLoad()
         
         //Video
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test3", ofType: "mp4")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test4", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
         self.alwaysRepeat = true
         self.sound = true
-        self.startTime = 4.0
+        self.startTime = 3.0
         self.duration = 6.0
         self.alpha = 0.4
         self.backgroundColor = UIColor.blackColor()
