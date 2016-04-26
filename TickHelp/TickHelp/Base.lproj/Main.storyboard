@@ -44,9 +44,15 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWe-4N-fM5">
+                                <rect key="frame" x="213" y="344" width="127" height="30"/>
+                                <state key="normal" title="&gt;&gt; Log in as guest"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="iWe-4N-fM5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8FN-8y-QSq"/>
+                            <constraint firstItem="XNG-0Q-ONi" firstAttribute="top" secondItem="iWe-4N-fM5" secondAttribute="bottom" constant="15" id="Yhj-N4-EVs"/>
                             <constraint firstItem="wi3-4u-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gL4-ye-NLo"/>
                             <constraint firstItem="XNG-0Q-ONi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oOM-21-KOt"/>
                             <constraint firstItem="P8U-9d-4al" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rkd-g9-1Pe"/>
@@ -478,6 +484,7 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CvT-xh-OQt"/>
+        <segue reference="tS0-wg-LNk"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
