@@ -211,6 +211,7 @@
                                     <navigationItem id="gn2-uZ-uLQ">
                                         <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Log out" id="B31-Cb-2wk">
+                                            <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="LogOut:" destination="AL8-n1-WSd" id="4yJ-m1-EjB"/>
                                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="logOutSeg" id="YCX-nG-H8n"/>
@@ -345,29 +346,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2s-HK-V7x">
                                 <rect key="frame" x="204" y="346" width="120" height="30"/>
+                                <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="login:" destination="OD7-mR-r8z" eventType="touchUpInside" id="y79-E6-xZV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOh-E4-UsL">
-                                <rect key="frame" x="119" y="128" width="254" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-bl-7Yc">
                                 <rect key="frame" x="155" y="285" width="218" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOh-E4-UsL">
+                                <rect key="frame" x="209" y="128" width="80" height="49"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q2s-HK-V7x" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="8XQ-hQ-Jbr"/>
                             <constraint firstItem="lzN-bl-7Yc" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="Tjp-ym-Mji"/>
                             <constraint firstItem="fzp-Ug-GKj" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="Tkj-xQ-LEu"/>
+                            <constraint firstItem="lOh-E4-UsL" firstAttribute="centerX" secondItem="Rdf-VG-Agg" secondAttribute="centerX" id="YPb-sw-qLD"/>
+                            <constraint firstItem="Q2s-HK-V7x" firstAttribute="top" secondItem="lzN-bl-7Yc" secondAttribute="bottom" constant="31" id="xUg-WW-b4V"/>
                         </constraints>
                     </view>
                     <connections>
@@ -392,18 +397,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-oY-LMf">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-oY-LMf">
                                 <rect key="frame" x="276" y="392" width="127" height="30"/>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="register:" destination="mtk-Lw-fG2" eventType="touchUpInside" id="V0T-Oy-B5W"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-Wr-w8U">
-                                <rect key="frame" x="199" y="180" width="140" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04P-5v-6jN">
                                 <rect key="frame" x="199" y="237" width="197" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -419,10 +421,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIGNUP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1x-1j-fhI">
+                                <rect key="frame" x="256" y="115" width="114" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mFw-se-Nt2" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="8am-Pf-H1U"/>
+                            <constraint firstItem="eRr-oY-LMf" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="GeB-J0-E9O"/>
                             <constraint firstItem="C6N-sf-oTv" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="J70-jy-PdH"/>
                             <constraint firstItem="04P-5v-6jN" firstAttribute="centerX" secondItem="ugY-UQ-cbw" secondAttribute="centerX" id="vjm-RC-Gpn"/>
                         </constraints>
@@ -484,7 +493,7 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tS0-wg-LNk"/>
+        <segue reference="CvT-xh-OQt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
