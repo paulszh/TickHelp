@@ -51,7 +51,7 @@ class SignViewController: UIViewController {
                                             //the password need to be hashed
                                             "password": self.password.text,
                                             "credit" : "0",
-                                            "device": UIDevice.currentDevice().name
+                                            "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
                                         
                                         if(auth.uid != nil){

@@ -39,7 +39,8 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
 
         //CHANGE
         
-        peer = MCPeerID(displayName: UIDevice.currentDevice().name)
+        
+        peer = MCPeerID(displayName: UIDevice.currentDevice().identifierForVendor!.UUIDString)
         
         
         //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
