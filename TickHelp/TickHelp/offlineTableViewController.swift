@@ -34,11 +34,10 @@ class offlineTableViewController: UIViewController, UITableViewDelegate, UITable
         
         // Register cell classes
         peers.registerClass(UITableViewCell.self, forCellReuseIdentifier: "offCell")
-        print("wowo")
         
         //print("peer: \(self.peerName)")
         
-       // peers.separatorStyle = UITableViewCellSeparatorStyle.None
+       peers.separatorStyle = UITableViewCellSeparatorStyle.None
         
         
     }

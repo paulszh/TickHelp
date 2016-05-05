@@ -102,7 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="peers" destination="iWS-9k-HBh" id="JmY-te-6ft"/>
-                        <segue destination="B1b-NW-2fe" kind="presentation" identifier="segueOffChat" id="xx6-z6-8Hv"/>
+                        <segue destination="B1b-NW-2fe" kind="presentation" identifier="segueOffLineChat" id="xx6-z6-8Hv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aho-89-UoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
