@@ -83,23 +83,19 @@ class offlineTableViewController: UIViewController, UITableViewDelegate, UITable
 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        print("wowo4")
         return 1
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("wowo2")
         return appDelagate.mpcManager.foundPeers.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("wowo3")
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("offCell")! as UITableViewCell
-                
+        
       cell.textLabel?.text =  self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName as String!
         
        // cell.textLabel?.text = "hi"
@@ -114,12 +110,10 @@ class offlineTableViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        print("wowo5")
         return 70.0
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("wowo6")
         let selectedPeer = appDelagate.mpcManager.foundPeers[indexPath.row] as MCPeerID
         
          self.appDelagate.mpcManager.browser.invitePeer(selectedPeer, toSession: self.appDelagate.mpcManager.session, withContext: nil, timeout: 20)
@@ -163,7 +157,7 @@ class offlineTableViewController: UIViewController, UITableViewDelegate, UITable
         NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
             
             print("here")
-            self.performSegueWithIdentifier("segueChat", sender: self)}
+            self.performSegueWithIdentifier("segueOffLineChat", sender: self)}
         
     }
 
