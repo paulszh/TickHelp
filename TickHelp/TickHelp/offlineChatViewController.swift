@@ -104,6 +104,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer")! as UITableViewCell
         
+        print("CEEEEEEEEEEELLLLLLLLLLLL")
+        
         
         refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
