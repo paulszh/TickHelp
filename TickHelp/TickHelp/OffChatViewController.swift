@@ -37,7 +37,6 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OffChatViewController.handleMPCChatReceivedDataWithNotification(_:)), name: "receivedMPCChatDataNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OffChatViewController.handleMPCChatReceivedDisconnectionWithNotification(_:)), name: "receivedMPCDisconnectionNotification", object: nil)
         
-        print("*****   View successful loaded ...")
         
     }
     
@@ -52,9 +51,9 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBAction func endChat(sender: AnyObject) {
         
         let messageDictionary: [String: String] = [kCommunicationsMessageTerm: kCommunicationsEndConnectionTerm]
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] ){
+        if appDelegate.mpcOfflineManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcOfflineManager.session.connectedPeers[0] ){
             self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                self.appDelegate.mpcManager.session.disconnect()
+                self.appDelegate.mpcOfflineManager.session.disconnect()
             })
         }
         
@@ -78,7 +77,7 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("idOfflineCell") as! ChatViewCell
         
         let currentMessage = messagesArray[indexPath.row] as Dictionary<String, String>
-        /*
+        
         if let sender = currentMessage[kCommunicationsSenderTerm] {
             var senderLabelText: String
             var senderColor: UIColor
@@ -97,30 +96,6 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         if let message = currentMessage[kCommunicationsMessageTerm]{
             cell.messageLabel?.text = message
-        }*/
-     //   if let message = currentMessage["message"] {
-//cell.messageLabel?.text = message
-      //  }
-        
-        if let sender = currentMessage["sender"] {
-            var senderLabelText: String
-            var senderColor: UIColor
-            
-            if sender == "self"{
-                senderLabelText = "I"
-                senderColor = UIColor.lightGrayColor()
-            }
-            else{
-                senderLabelText = peerName
-                senderColor = UIColor.orangeColor()
-            }
-
-            cell.nameLabel?.text = senderLabelText
-            cell.nameLabel?.textColor = senderColor
-        }
-        
-        if let message = currentMessage["message"] {
-            cell.messageLabel?.text = message
         }
         return cell
     }
@@ -130,10 +105,9 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         let messageDictionary: [String: String] = [kCommunicationsMessageTerm: textField.text!]
         
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] ){
+        if appDelegate.mpcOfflineManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcOfflineManager.session.connectedPeers[0] ){
             let dictionary: [String: String] = [kCommunicationsSenderTerm: kCommunicationsSelfTerm, kCommunicationsMessageTerm: textField.text!]
             messagesArray.append(dictionary)
-            
             self.updateTableview()
         }else{
             print("Could not send data")
@@ -153,6 +127,7 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func handleMPCChatReceivedDataWithNotification(notification: NSNotification) {
         let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
+        print("      ** This method enterded.....   ")
         
         //Extract the data and the source peer from the received dictionary
         let data = receivedDataDictionary[kCommunicationsDataTerm] as? NSData
@@ -178,7 +153,7 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
                 let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-                    self.appDelegate.mpcManager.session.disconnect()
+                    self.appDelegate.mpcOfflineManager.session.disconnect()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
@@ -219,7 +194,7 @@ class OffChatViewController: UIViewController, UITextFieldDelegate, UITableViewD
                 let alert = UIAlertController(title: "", message: "Connections was lost with \(fromPeer.displayName)", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-                    self.appDelegate.mpcManager.session.disconnect()
+                    self.appDelegate.mpcOfflineManager.session.disconnect()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
