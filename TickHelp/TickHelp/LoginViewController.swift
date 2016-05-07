@@ -15,6 +15,8 @@ class ViewController: VideoSplashViewController {
     
     @IBOutlet weak var LogIn: UIButton!
     @IBOutlet weak var SignUp: UIButton!
+    @IBOutlet weak var GuestLogIn: UIButton!
+    
     var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +44,9 @@ class ViewController: VideoSplashViewController {
         SignUp.layer.cornerRadius = 5
         SignUp.layer.borderWidth = 1
         SignUp.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        
+                
     }
+
 
     
 //    override func viewDidAppear(animated: Bool){
