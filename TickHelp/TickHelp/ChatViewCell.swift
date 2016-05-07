@@ -12,8 +12,9 @@ class ChatViewCell: UITableViewCell {
   //  @IBOutlet weak var messageLabel: UILabel! = UILabel()
    // @IBOutlet weak var nameLabel: UILabel! = UILabel()
     
-    @IBOutlet weak var messageLabel: UILabel! = UILabel()
-    @IBOutlet weak var nameLabel: UILabel! = UILabel()
+    @IBOutlet weak var messageLabel: UILabel!
+
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

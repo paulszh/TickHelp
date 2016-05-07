@@ -19,7 +19,6 @@ class OfflineViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-       // print("Entering....")
         tblPeers.delegate = self
         tblPeers.dataSource = self
 
@@ -30,7 +29,6 @@ class OfflineViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Register cell classes
         tblPeers.registerClass(UITableViewCell.self, forCellReuseIdentifier: "idCellPeer")
-     //   print("Exited...")
     }
     
     override func didReceiveMemoryWarning() {
@@ -145,7 +143,6 @@ class OfflineViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func connectedWithPeer(peerID: MCPeerID) {
         NSOperationQueue.mainQueue().addOperationWithBlock{ () -> Void in
-            print("... trying to connect with peer")
             self.performSegueWithIdentifier("segueOfflineChat", sender: self)}
         
     }
