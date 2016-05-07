@@ -48,7 +48,7 @@
                                 <rect key="frame" x="245" y="344" width="64" height="30"/>
                                 <state key="normal" title="&gt;&gt; Guest"/>
                                 <connections>
-                                    <segue destination="aiR-nm-mO7" kind="modal" id="pfV-Hg-URn"/>
+                                    <segue destination="mZR-ab-vMa" kind="modal" id="ZmL-qz-7bv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -495,7 +495,6 @@
         <!--Item 2-->
         <scene sceneID="MMD-xo-h85">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DbZ-Bi-Jqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="vyw-L4-cjA" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUb-oD-22t"/>
@@ -504,12 +503,37 @@
                     <view key="view" contentMode="scaleToFill" id="2zR-ay-xif">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Tickhelp!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpv-Go-Jyc">
+                                <rect key="frame" x="34" y="72" width="166" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your display name below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxW-is-8F1">
+                                <rect key="frame" x="34" y="136" width="238" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyf-8y-q9r">
+                                <rect key="frame" x="34" y="170" width="216" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wo4-b4-5tr">
+                                <rect key="frame" x="34" y="219" width="134" height="30"/>
+                                <color key="backgroundColor" red="0.01736338350785338" green="0.01736338350785338" blue="0.01736338350785338" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Confirm"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="bSz-g4-hvM"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DbZ-Bi-Jqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-804" y="-1627"/>
+            <point key="canvasLocation" x="-482" y="-2423"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zcz-tO-FGU">
@@ -527,7 +551,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nng-dE-JTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1859" y="-2134"/>
+            <point key="canvasLocation" x="-1626" y="-2056"/>
         </scene>
         <!--Item-->
         <scene sceneID="aE9-lQ-f3w">
@@ -602,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zis-fY-CZi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3132" y="-524"/>
+            <point key="canvasLocation" x="-482" y="-1632"/>
         </scene>
         <!--Off Chat View Controller-->
         <scene sceneID="BFP-1S-KHs">
@@ -853,7 +877,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zg-7d-PvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="-2672"/>
+            <point key="canvasLocation" x="279" y="-1632"/>
         </scene>
     </scenes>
     <resources>
@@ -863,7 +887,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tS0-wg-LNk"/>
-        <segue reference="pfV-Hg-URn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
