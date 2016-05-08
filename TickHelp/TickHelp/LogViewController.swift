@@ -15,11 +15,15 @@ class LogViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var ref = Firebase(url: constant.userURL)
+    // get a reference to the appDelegate
+    var mpcManager: MPCManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setPlacehoder();
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func setPlacehoder(){
@@ -32,6 +36,11 @@ class LogViewController: UIViewController {
         password.attributedPlaceholder = placeholder2
 
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     @IBAction func login(sender: AnyObject) {
         ref.authUser(username.text, password:password.text) {
@@ -42,13 +51,19 @@ class LogViewController: UIViewController {
                 //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
             } else {
+
                 // Authentication just completed successfully :)
                 // The logged in user's unique identifier
                 print(authData.uid)
+                
                 //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
                 constant.uid = authData.uid;
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.mpcManager = MPCManager();
+                print("App delegate called.")
                 self.performSegueWithIdentifier("loginSeg", sender: self)
                 
             }

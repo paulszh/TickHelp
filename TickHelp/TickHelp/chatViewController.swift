@@ -18,9 +18,12 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     var messagesArray: [Dictionary<String, String>] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    var peerName: String!
+    var peerId: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Do any additional setup after loading the view.
         chatTable.delegate = self
         chatTable.dataSource = self
@@ -69,6 +72,10 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("idCell")! as! chatTableViewCell
         
+        print("\(peer.nickname) name")
+        print("\(peer.uid) name")
+        print("\(peer.uid) name")
+        
         let currentMessage = messagesArray[indexPath.row] as Dictionary<String, String>
         
         if let sender = currentMessage["sender"] {
@@ -76,11 +83,11 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             var senderColor: UIColor
             
             if sender == "self"{
-                senderLabelText = "I said:"
-                senderColor = UIColor.purpleColor()
+                senderLabelText = "I"
+                senderColor = UIColor.lightGrayColor()
             }
             else{
-                senderLabelText = sender + " said:"
+                senderLabelText = peerName
                 senderColor = UIColor.orangeColor()
             }
             
@@ -151,7 +158,7 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                 })
             }
             else{
-                let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "", message: "The chat was ended", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let doneAction: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
                     self.appDelegate.mpcManager.session.disconnect()

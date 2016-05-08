@@ -12,13 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mpcOfflineManager: MPCOfflineManager!
     
     var mpcManager: MPCManager!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-       
-        mpcManager = MPCManager()
+            mpcOfflineManager = MPCOfflineManager()
+            mpcManager = MPCManager()
         return true
     }
 

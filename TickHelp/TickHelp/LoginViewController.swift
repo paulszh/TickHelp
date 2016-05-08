@@ -15,17 +15,19 @@ class ViewController: VideoSplashViewController {
     
     @IBOutlet weak var LogIn: UIButton!
     @IBOutlet weak var SignUp: UIButton!
+    @IBOutlet weak var GuestLogIn: UIButton!
+    
     var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Video
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test3", ofType: "mp4")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test4", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
         self.alwaysRepeat = true
         self.sound = true
-        self.startTime = 4.0
+        self.startTime = 3.0
         self.duration = 6.0
         self.alpha = 0.4
         self.backgroundColor = UIColor.blackColor()
@@ -42,9 +44,9 @@ class ViewController: VideoSplashViewController {
         SignUp.layer.cornerRadius = 5
         SignUp.layer.borderWidth = 1
         SignUp.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        
+                
     }
+
 
     
 //    override func viewDidAppear(animated: Bool){
