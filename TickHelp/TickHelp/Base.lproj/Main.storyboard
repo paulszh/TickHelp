@@ -48,7 +48,7 @@
                                 <rect key="frame" x="245" y="344" width="64" height="30"/>
                                 <state key="normal" title="&gt;&gt; Guest"/>
                                 <connections>
-                                    <segue destination="mZR-ab-vMa" kind="modal" id="ZmL-qz-7bv"/>
+                                    <segue destination="mZR-ab-vMa" kind="presentation" id="TtH-1w-pQI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYh-hQ-d2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="-51"/>
+            <point key="canvasLocation" x="53" y="685"/>
         </scene>
         <!--Friend List View Controller-->
         <scene sceneID="xPZ-ML-HfE">
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OO-dQ-Lh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="788"/>
+            <point key="canvasLocation" x="53" y="1524"/>
         </scene>
         <!--Offline Chat View Controller-->
         <scene sceneID="3bC-KB-iWl">
@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxS-8R-r2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="-883"/>
+            <point key="canvasLocation" x="61" y="-147"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="fc8-Mc-hUH">
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCd-b5-axe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-883"/>
+            <point key="canvasLocation" x="854" y="-147"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="T3M-hj-eaa">
@@ -388,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxh-64-9CO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852" y="-184"/>
+            <point key="canvasLocation" x="-2124" y="552"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="nkd-2n-YgQ">
@@ -451,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njj-Fa-yY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1580" y="1106"/>
+            <point key="canvasLocation" x="-1852" y="1842"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="xTc-G1-8W6">
@@ -471,7 +471,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POm-sW-jqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520" y="197"/>
+            <point key="canvasLocation" x="-792" y="933"/>
         </scene>
         <!--Rank View Controller-->
         <scene sceneID="FDh-Oo-J1d">
@@ -490,12 +490,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKt-j4-hEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="1597"/>
+            <point key="canvasLocation" x="53" y="2333"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="MMD-xo-h85">
             <objects>
-                <viewController id="vyw-L4-cjA" sceneMemberID="viewController">
+                <viewController id="vyw-L4-cjA" customClass="DisplayNameController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUb-oD-22t"/>
                         <viewControllerLayoutGuide type="bottom" id="p6D-j0-tH7"/>
@@ -504,36 +504,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Tickhelp!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpv-Go-Jyc">
-                                <rect key="frame" x="34" y="72" width="166" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your display name below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxW-is-8F1">
-                                <rect key="frame" x="34" y="136" width="238" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyf-8y-q9r">
-                                <rect key="frame" x="34" y="170" width="216" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSR-5T-Zdc">
+                                <rect key="frame" x="58" y="253" width="238" height="30"/>
+                                <color key="backgroundColor" red="0.018488219895287927" green="0.018488219895287927" blue="0.018488219895287927" alpha="0.46174091312056736" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="ConfirmDisplayNameBtn:" destination="vyw-L4-cjA" eventType="touchUpInside" id="f0j-16-MI7"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-4p-sAB">
+                                <rect key="frame" x="58" y="177" width="238" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wo4-b4-5tr">
-                                <rect key="frame" x="34" y="219" width="134" height="30"/>
-                                <color key="backgroundColor" red="0.01736338350785338" green="0.01736338350785338" blue="0.01736338350785338" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Confirm"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="bSz-g4-hvM"/>
+                    <connections>
+                        <outlet property="DisplayNameTextField" destination="rHs-4p-sAB" id="1pC-pW-fJI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbZ-Bi-Jqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-482" y="-2423"/>
+            <point key="canvasLocation" x="-1304" y="-2191"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zcz-tO-FGU">
@@ -551,7 +545,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nng-dE-JTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1626" y="-2056"/>
+            <point key="canvasLocation" x="-2361" y="-1816"/>
         </scene>
         <!--Item-->
         <scene sceneID="aE9-lQ-f3w">
@@ -626,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zis-fY-CZi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-482" y="-1632"/>
+            <point key="canvasLocation" x="-1304" y="-1352"/>
         </scene>
         <!--Off Chat View Controller-->
         <scene sceneID="BFP-1S-KHs">
@@ -877,7 +871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zg-7d-PvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="-1632"/>
+            <point key="canvasLocation" x="-457" y="-1352"/>
         </scene>
     </scenes>
     <resources>
@@ -886,7 +880,7 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tS0-wg-LNk"/>
+        <segue reference="CvT-xh-OQt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
