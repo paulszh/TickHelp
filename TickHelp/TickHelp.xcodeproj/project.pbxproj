@@ -350,7 +350,7 @@
 				TargetAttributes = {
 					8D30E0821CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = L3K7B2G297;
+						DevelopmentTeam = PW7N3JWXUJ;
 					};
 					8D30E0961CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
@@ -632,7 +632,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = firstProject.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -647,7 +647,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = firstProject.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

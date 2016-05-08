@@ -44,19 +44,30 @@ class SignViewController: UIViewController {
                                         print(auth.uid)
                                         // Create a new user dictionary accessing the user's info
                                         // provided by the authData parameter
+                                        
+                                        
+                                        var List: [String] = ["DFGFG"]
+                                        let listRef = self.firebase.childByAppendingPath("users")
+                                            .childByAutoId()
+                                        let listID = listRef.key
+                                        
                                         let newUser = [
                                             "uid": auth.uid,
                                             "username": self.username.text,
                                             "nickname": self.nickname.text,
                                             //the password need to be hashed
                                             "password": self.password.text,
+                                            "friendList": listID,
                                             "credit" : "0",
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
+                                       
                                         
                                         if(auth.uid != nil){
                                             self.firebase.childByAppendingPath("users")
                                                 .childByAppendingPath(auth.uid).setValue(newUser)
+                                            listRef.setValue(List)
+                                            
                                             constant.uid = auth.uid;
                                             self.performSegueWithIdentifier("signupSeg", sender: self)
                                         }
