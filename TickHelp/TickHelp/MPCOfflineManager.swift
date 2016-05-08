@@ -43,6 +43,7 @@ class MPCOfflineManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
             //Initialize variables
             peer = MCPeerID(displayName: UIDevice.currentDevice().name)
         }
+        
         //session = MCSession(peer: peer, securityIdentity: [myIdentity], encryptionPreference: MCEncryptionPreference.Required)
         session = MCSession(peer: peer)
         session.delegate = self

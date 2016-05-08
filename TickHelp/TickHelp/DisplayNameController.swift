@@ -27,15 +27,15 @@ class DisplayNameController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
 
         nameToDisplay = textField.text!
-        print("nameToDisplay: \(nameToDisplay)")
+        constant.displayname = textField.text!
+     //   self.appDelagate.mpcOfflineManager = MPCOfflineManager()
+     //    print("nameToDisplay: \(nameToDisplay)")
     }
     
     @IBAction func ConfirmDisplayNameBtn(sender: UIButton) {
         constant.displayname = nameToDisplay
   //      print("display name is now: \(nameToDisplay)")
   //      print("constant name is now: \(constant.displayname)")
-  //      print("now is")
-  //      print(constant.displayname)
   //      self.appDelagate.mpcOfflineManager = MPCOfflineManager()
 
     }
