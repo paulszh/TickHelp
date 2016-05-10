@@ -17,7 +17,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     let refAll = Firebase(url: constant.userURL + "/users/")
     var ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
-    
+    let usersRef = Firebase(url: constant.userURL + "/online")
+    var currUser : user!
     let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     var isAdvertising: Bool!
     
@@ -28,6 +29,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        print("HERE1")
         
         peers.delegate = self
         peers.dataSource = self
@@ -45,6 +48,28 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         peers.separatorStyle = UITableViewCellSeparatorStyle.None
 
         
+    }
+    
+    //To Display online User
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        ref.observeAuthEventWithBlock { authData in
+            print("Enter observeAuthEventWithBlock")
+            if authData != nil {
+                
+                self.currUser = user(authData: authData)
+                
+                // Create a child reference with a unique id
+                let currentUserRef = self.usersRef.childByAutoId()
+                
+                // Save the current user to the online users list
+                currentUserRef.setValue(self.currUser.email)
+                
+                // When the user disconnects remove the value
+                currentUserRef.onDisconnectRemoveValue()
+            }
+            
+        }
     }
     
 
@@ -90,6 +115,12 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         performSegueWithIdentifier("logOutSeg", sender: self)
         
     }
+    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+    
+    }
+    
+    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -102,6 +133,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("HERE2")
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer")! as UITableViewCell
         
         
@@ -149,6 +182,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
+                print(0)
+                
                 let str = rest.value.objectForKey("device") as! String!
                 
                 if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
@@ -166,6 +201,7 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         
         //TODO: This function is used to send peer info we are interested in
     }
+    
     
     // MARK: MPCManager delegate method implementation
     func foundPeer() {

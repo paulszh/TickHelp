@@ -47,8 +47,7 @@ class SignViewController: UIViewController {
                                         
                                         
                                         var List: [String] = ["DFGFG"]
-                                        let listRef = self.firebase.childByAppendingPath("users")
-                                            .childByAutoId()
+                                        let listRef = self.firebase.childByAutoId()
                                         let listID = listRef.key
                                         
                                         let newUser = [
@@ -71,6 +70,8 @@ class SignViewController: UIViewController {
                                             constant.uid = auth.uid;
                                             self.performSegueWithIdentifier("signupSeg", sender: self)
                                         }
+                                        
+                                        print("HERE0")
                 })
                 
             }

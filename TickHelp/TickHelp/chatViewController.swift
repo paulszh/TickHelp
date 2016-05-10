@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import Firebase
 
 class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -102,6 +103,21 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         return cell
     }
     
+    @IBAction func addFriend(sender: AnyObject) {
+        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            //Get the data from the firebase
+            let friendRef = snapshot.value.objectForKey("friendList") as? String
+            let newRef = Firebase(url:constant.userURL + "/users/" + friendRef!)
+            newRef.setValue(self.peerId)
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
+        
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()

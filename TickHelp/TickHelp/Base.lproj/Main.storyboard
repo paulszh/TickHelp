@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OO-dQ-Lh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="1524"/>
+            <point key="canvasLocation" x="53" y="1378"/>
         </scene>
         <!--Offline Chat View Controller-->
         <scene sceneID="3bC-KB-iWl">
@@ -205,6 +205,12 @@
                                             <connections>
                                                 <action selector="LogOut:" destination="AL8-n1-WSd" id="4yJ-m1-EjB"/>
                                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="logOutSeg" id="YCX-nG-H8n"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="online" id="CDB-XO-joj">
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="82H-jF-rC6" kind="presentation" id="He1-Ks-Ffx"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -252,7 +258,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxS-8R-r2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="-147"/>
+            <point key="canvasLocation" x="-1519" y="-163"/>
+        </scene>
+        <!--online -->
+        <scene sceneID="wa7-fz-7ji">
+            <objects>
+                <tableViewController title="online " id="bVu-pc-nDT" customClass="OnlineUserTableViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cNF-eq-yup">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="7nv-uX-uSe">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7nv-uX-uSe" id="PbU-H1-Za1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bVu-pc-nDT" id="Iwu-c0-e3F"/>
+                            <outlet property="delegate" destination="bVu-pc-nDT" id="Gh8-fp-Vwd"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Online User" id="mfC-pa-TYW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AvH-SL-VA0">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="KJT-Cn-idS" kind="unwind" unwindAction="cancelToPlayersViewController:" id="21i-87-qaA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOc-kL-6Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KJT-Cn-idS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-50" y="-689"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IbM-3h-sCP">
+            <objects>
+                <navigationController id="82H-jF-rC6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FEq-Ok-xme">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bVu-pc-nDT" kind="relationship" relationship="rootViewController" id="fas-9q-6Me"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXE-Gd-o9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-705" y="-711"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="fc8-Mc-hUH">
@@ -273,6 +334,12 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="stopChat:" destination="iMW-Yf-dqy" id="CO6-T0-xh2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="add" id="4AS-Yz-hvL">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="addFriend:" destination="iMW-Yf-dqy" id="9Hl-Vv-j5J"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -332,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCd-b5-axe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="-147"/>
+            <point key="canvasLocation" x="53" y="-207"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="T3M-hj-eaa">
@@ -863,7 +930,7 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tS0-wg-LNk"/>
+        <segue reference="nAF-hi-ZVg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
