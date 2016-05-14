@@ -10,4 +10,5 @@ import UIKit
 
 class FriendListController: UIViewController {
 
+    @IBOutlet weak var friendTable: UITableView!
 }

@@ -11,7 +11,7 @@ import Firebase
 
 class SignViewController: UIViewController {
     
-    
+    var uid: String!
     
     @IBOutlet weak var nickname: UITextField!
     
@@ -44,19 +44,44 @@ class SignViewController: UIViewController {
                                         print(auth.uid)
                                         // Create a new user dictionary accessing the user's info
                                         // provided by the authData parameter
+                                        
+                                        
+                                        
                                         let newUser = [
                                             "uid": auth.uid,
                                             "username": self.username.text,
                                             "nickname": self.nickname.text,
-                                            //the password need to be hashed
                                             "password": self.password.text,
                                             "credit" : "0",
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
                                         
                                         if(auth.uid != nil){
+                                            
+                                            //User Info
                                             self.firebase.childByAppendingPath("users")
-                                                .childByAppendingPath(auth.uid).setValue(newUser)
+                                                .childByAppendingPath(auth.uid)
+                                                .childByAppendingPath("info")
+                                                .setValue(newUser)
+                                            
+                                            //Friend Info
+                                            
+                                            let listRef = self.firebase
+                                                .childByAppendingPath("users")
+                                                .childByAppendingPath(auth.uid)
+                                                .childByAppendingPath("friends")
+                                            
+                                            //TEST****
+                                            
+                                            let friend1 = ["uid": "000", "name" : "xxx"]
+                                            let friend1Ref = listRef.childByAutoId()
+                                            
+                                            friend1Ref.setValue(friend1)
+                                            
+                                            //*********
+                                            
+                                            self.uid = auth.uid
+                                            
                                             constant.uid = auth.uid;
                                             self.performSegueWithIdentifier("signupSeg", sender: self)
                                         }
@@ -92,8 +117,6 @@ class SignViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     /*
      // MARK: - Navigation
      
