@@ -10,6 +10,7 @@ import UIKit
 
 import VideoSplashKit
 import Firebase
+import GeoFire
 
 class ViewController: VideoSplashViewController {
     
@@ -18,6 +19,8 @@ class ViewController: VideoSplashViewController {
     @IBOutlet weak var GuestLogIn: UIButton!
     
     var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
