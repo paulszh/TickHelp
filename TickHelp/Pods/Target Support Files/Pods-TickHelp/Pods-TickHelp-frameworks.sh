@@ -86,12 +86,16 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TickHelp/Firebase.framework"
   install_framework "Pods-TickHelp/GeoFire.framework"
+  install_framework "Pods-TickHelp/JSQMessagesViewController.framework"
+  install_framework "Pods-TickHelp/JSQSystemSoundPlayer.framework"
   install_framework "Pods-TickHelp/TextFieldEffects.framework"
   install_framework "Pods-TickHelp/VideoSplashKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TickHelp/Firebase.framework"
   install_framework "Pods-TickHelp/GeoFire.framework"
+  install_framework "Pods-TickHelp/JSQMessagesViewController.framework"
+  install_framework "Pods-TickHelp/JSQSystemSoundPlayer.framework"
   install_framework "Pods-TickHelp/TextFieldEffects.framework"
   install_framework "Pods-TickHelp/VideoSplashKit.framework"
 fi

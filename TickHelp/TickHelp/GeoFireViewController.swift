@@ -48,9 +48,6 @@ class GeoFireViewController: UIViewController {
         let span = MKCoordinateSpanMake(0.001, 0.001)
         let region = MKCoordinateRegionMake(center.coordinate, span)
         var regionQuery = geoFire.queryWithRegion(region)
-       // print("...hello")
-       // print(regionQuery)
-       // print("...end")
         
         var queryHandle = circleQuery.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
             print("Key '\(key)' entered the search area and is at location '\(location)'")

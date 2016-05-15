@@ -8,6 +8,7 @@ target 'TickHelp' do
     pod 'VideoSplashKit'
     pod "TextFieldEffects"
     pod 'Firebase', '>= 2.5.1'
+    pod 'JSQMessagesViewController'
 end
 
 target 'TickHelpTests' do
