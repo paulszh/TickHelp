@@ -66,20 +66,12 @@ class SignViewController: UIViewController {
                                             
                                             //Friend Info
                                             
-                                            let listRef = self.firebase
+                                           self.firebase
                                                 .childByAppendingPath("users")
                                                 .childByAppendingPath(auth.uid)
                                                 .childByAppendingPath("friends")
                                             
-                                            //TEST****
-                                            
-                                            let friend1 = ["uid": "000", "name" : "xxx"]
-                                            let friend1Ref = listRef.childByAutoId()
-                                            
-                                            friend1Ref.setValue(friend1)
-                                            
-                                            //*********
-                                            
+                                                                                    
                                             self.uid = auth.uid
                                             
                                             constant.uid = auth.uid;

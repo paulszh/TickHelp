@@ -116,7 +116,6 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
-                
                 let info = rest.childSnapshotForPath("info")as FDataSnapshot
                 let str = info.value.objectForKey("device") as! String!
 
