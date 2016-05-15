@@ -10,6 +10,7 @@ import UIKit
 
 import VideoSplashKit
 import Firebase
+import GeoFire
 
 class ViewController: VideoSplashViewController {
     
@@ -18,6 +19,8 @@ class ViewController: VideoSplashViewController {
     @IBOutlet weak var GuestLogIn: UIButton!
     
     var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +61,17 @@ class ViewController: VideoSplashViewController {
 //            print("Successfully login ")
 //             print("User " + ref.authData.uid + " is logged in with " + ref.authData.provider)
 //            performSegueWithIdentifier("autoSeg", sender: self)
+//        }
+//    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        if (segue.identifier == "loginSeg") {
+//            
+//            let dest: TabBarViewController = segue.destinationViewController as! TabBarViewController
+//            
+//            dest.selfId = ref.authData.uid
+//            
+//            // pass data to next view
 //        }
 //    }
 

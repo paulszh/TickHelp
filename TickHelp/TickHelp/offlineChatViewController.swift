@@ -16,7 +16,6 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var peers: UITableView!
     
     let refAll = Firebase(url: constant.userURL + "/users/")
-    var ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
     
     let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     var isAdvertising: Bool!
@@ -85,6 +84,10 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         self.presentViewController(actionSheet, animated: true, completion: nil)
     }
     @IBAction func LogOut(sender: AnyObject) {
+        
+        let uid = Firebase(url: constant.userURL).authData.uid
+        let ref = Firebase(url: constant.userURL + "/users/" + uid)
+        
         ref.unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         performSegueWithIdentifier("logOutSeg", sender: self)
@@ -113,12 +116,13 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
-                
-                let str = rest.value.objectForKey("device") as! String!
+                let info = rest.childSnapshotForPath("info")as FDataSnapshot
+                let str = info.value.objectForKey("device") as! String!
+
                 
                 if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
                     print(str)
-                    cell.textLabel?.text = rest.value.objectForKey("nickname") as! String!
+                    cell.textLabel?.text = info.value.objectForKey("nickname") as! String!
                     print()
                     cell.imageView?.image = UIImage(named: "face")
 
@@ -143,18 +147,17 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
         
         refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            print(snapshot.childrenCount) // I got the expected number of items
-            
             let enumerator = snapshot.children
             
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
-                let str = rest.value.objectForKey("device") as! String!
+                let info = rest.childSnapshotForPath("info")as FDataSnapshot
+                let str = info.value.objectForKey("device") as! String!
                 
                 if (str != nil && str == self.appDelagate.mpcManager.foundPeers[indexPath.row].displayName){
                     print(str)
-                    self.peerName = rest.value.objectForKey("nickname") as! String!
-                    self.peerId = rest.value.objectForKey("uid") as! String!
+                    self.peerName = info.value.objectForKey("nickname") as! String!
+                    self.peerId = info.value.objectForKey("uid") as! String!
                     
                     self.appDelagate.mpcManager.browser.invitePeer(selectedPeer, toSession: self.appDelagate.mpcManager.session, withContext: nil, timeout: 20)
                     
@@ -178,6 +181,8 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     
     func invitationWasReceived(fromPeer: String) {
         
+        print("invited")
+        
     
         refAll.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
@@ -187,15 +192,13 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
             
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 
-                let str = rest.value.objectForKey("device") as! String!
-               
+                let info = rest.childSnapshotForPath("info")as FDataSnapshot
+                let str = info.value.objectForKey("device") as! String!
                 
                 if (str != nil && str == fromPeer){
-                    self.peerName = rest.value.objectForKey("nickname") as! String!
-                    self.peerId = rest.value.objectForKey("uid") as! String!
+                    self.peerName = info.value.objectForKey("nickname") as! String!
+                    self.peerId = info.value.objectForKey("uid") as! String!
                     
-                    print("peerSeted: \(self.peerName)")
-
                     
                     let alert = UIAlertController(title: "", message: "\(self.peerName) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
                     
@@ -227,14 +230,11 @@ class offlineChatViewController: UIViewController, UITableViewDelegate, UITableV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "segueChat") {
             
-            print("peer: \(self.peerName)")
-            
             let dest: chatViewController = segue.destinationViewController as! chatViewController
             
             dest.peerName = self.peerName
             dest.peerId = self.peerId
-
-            // pass data to next view
+        
         }
     }
     
