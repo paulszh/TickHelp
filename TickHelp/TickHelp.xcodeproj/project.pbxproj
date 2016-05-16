@@ -14,7 +14,6 @@
 		8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217B1CE8624B002638C3 /* ConversationListViewController.swift */; };
 		857321801CE86292002638C3 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217F1CE86292002638C3 /* Conversation.swift */; };
 		857321821CE862D9002638C3 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857321811CE862D9002638C3 /* JSQChatViewController.swift */; };
-		8577466D1CE8641B00CCF97C /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577466C1CE8641B00CCF97C /* DemoConversation.swift */; };
 		8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBAD1CDDB94900B60FBA /* OfflineConstants.swift */; };
 		8586FBB01CDDB9C700B60FBA /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBAF1CDDB9C700B60FBA /* OfflineViewController.swift */; };
 		8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */; };
@@ -71,7 +70,6 @@
 		8573217B1CE8624B002638C3 /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		8573217F1CE86292002638C3 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		857321811CE862D9002638C3 /* JSQChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
-		8577466C1CE8641B00CCF97C /* DemoConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConversation.swift; sourceTree = "<group>"; };
 		8586FBAD1CDDB94900B60FBA /* OfflineConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineConstants.swift; sourceTree = "<group>"; };
 		8586FBAF1CDDB9C700B60FBA /* OfflineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCOfflineManager.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				8573217B1CE8624B002638C3 /* ConversationListViewController.swift */,
 				8573217F1CE86292002638C3 /* Conversation.swift */,
 				857321811CE862D9002638C3 /* JSQChatViewController.swift */,
-				8577466C1CE8641B00CCF97C /* DemoConversation.swift */,
 			);
 			name = GeoFireLocation;
 			sourceTree = "<group>";
@@ -491,7 +488,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8577466D1CE8641B00CCF97C /* DemoConversation.swift in Sources */,
 				8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,

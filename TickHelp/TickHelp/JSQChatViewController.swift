@@ -11,12 +11,18 @@ import JSQMessagesViewController
 import Firebase
 
 class JSQChatViewController: JSQMessagesViewController {
+    var messageRef: Firebase!
+    var oppositeMessageRef: Firebase!
+    
     var messages = [JSQMessage]()
     
     var conversation: Conversation?
+    
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
-    let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid);
+    
+    let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid).childByAppendingPath("MessageList");
+    let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat).childByAppendingPath("MessageList");
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +31,13 @@ class JSQChatViewController: JSQMessagesViewController {
     //    print("The uid of the current messaging user is: \(constant.uid)")
     //    print("The messaging user's username is: \(constant.nickname)")
     //    print("The uid of the other user is: \(constant.other_user_on_chat)")
-        
+        /*
         self.conversationRef.childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.other_user_on_chat)
         // works both ways... the other user will update the database as well
-        let currRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat).childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.uid);
+        let currRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat).childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.uid); */
+        messageRef = conversationRef.childByAppendingPath("messages")
+        oppositeMessageRef = oppositeConversationRef.childByAppendingPath("messages")
+        
 
         
         // This is how you remove Avatars from the messagesView
@@ -63,6 +72,33 @@ class JSQChatViewController: JSQMessagesViewController {
      //   }
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        observeMessages()
+    }
+    
+    private func observeMessages() {
+        // 1
+        let messagesQuery = messageRef.queryLimitedToLast(25)
+        // 2
+        messagesQuery.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+            // 3
+            let id = snapshot.value["senderId"] as! String
+            let text = snapshot.value["text"] as! String
+            
+            // 4
+            self.addMessage(id, text: text)
+            
+            // 5
+            self.finishReceivingMessage()
+        }
+    }
+    func addMessage(id: String, text: String) {
+        let message = JSQMessage(senderId: id, displayName: "", text: text)
+        messages.append(message)
+    }
+    /*
     override func didPressSendButton(button: UIButton?, withMessageText text: String?, senderId: String?, senderDisplayName: String?, date: NSDate?) {
         
         // This is where you would impliment your method for saving the message to your backend.
@@ -74,6 +110,33 @@ class JSQChatViewController: JSQMessagesViewController {
         self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
+    }*/
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+    //    conversationRef.childByAppendingPath("OppositeUserUid").setValue(constant.other_user_on_chat)
+        
+        let itemRef = messageRef.childByAutoId() // 1
+        let messageItem = [ // 2
+            "text": text,
+            "senderId": constant.uid,
+        //    "oppositeUserUid": constant.other_user_on_chat
+        ]
+        itemRef.setValue(messageItem) // 3
+        
+        // also set the database of the opposite user
+        
+        let oppositeItemRef = oppositeMessageRef.childByAutoId()
+        let oppositeMessageItem = [ // 2
+            "text": text,
+            "senderId": constant.other_user_on_chat,
+        //    "oppositeUserUid": constant.uid
+        ]
+        oppositeItemRef.setValue(oppositeMessageItem)
+        
+        // 4
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        // 5
+        finishSendingMessage()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
