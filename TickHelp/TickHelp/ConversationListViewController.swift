@@ -27,11 +27,13 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
      
      //   data has been loaded in loadDataFromFirebase()
      //   self.conversations = getConversation()
-     //   self.tableView?.reloadData()
+        self.tableView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    //    self.tableView?.reloadData()
+        
         // Hides empty cells
         tableView?.tableFooterView = UIView()
     }
@@ -78,7 +80,6 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
                 }, withCancelBlock: { error in
                     print(error.description)
             })
-            
         })
     }
     
