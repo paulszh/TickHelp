@@ -65,14 +65,14 @@ class JSQChatViewController: JSQMessagesViewController {
         senderDisplayName = conversation?.display_nickname ?? conversation?.display_username ?? conversation?.display_username ?? ""
         automaticallyScrollsToMostRecentMessage = true
         
-     //   if (conversation?.smsNumber) != nil {
-     //       self.messages = makeConversation()
-     //       self.collectionView?.reloadData()
-     //       self.collectionView?.layoutIfNeeded()
-     //   }
+  //      if (conversation?.smsNumber) != nil {
+  //          self.messages = makeConversation()
+ //           self.collectionView?.reloadData()
+   //         self.collectionView?.layoutIfNeeded()
+  //      }
     }
     
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         observeMessages()
@@ -87,9 +87,10 @@ class JSQChatViewController: JSQMessagesViewController {
             let id = snapshot.value["senderId"] as! String
             let text = snapshot.value["text"] as! String
             
-            // 4
-            self.addMessage(id, text: text)
-            
+            // 4 Need to make sure not to display messages sent by self
+            if((snapshot.value["opposite_senderID"] as! String) != constant.uid){
+                self.addMessage(id, text: text)
+            }
             // 5
             self.finishReceivingMessage()
         }
@@ -112,13 +113,11 @@ class JSQChatViewController: JSQMessagesViewController {
         self.collectionView?.reloadData()
     }*/
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-    //    conversationRef.childByAppendingPath("OppositeUserUid").setValue(constant.other_user_on_chat)
-        
         let itemRef = messageRef.childByAutoId() // 1
         let messageItem = [ // 2
             "text": text,
             "senderId": constant.uid,
-        //    "oppositeUserUid": constant.other_user_on_chat
+            "opposite_senderID" : constant.other_user_on_chat,
         ]
         itemRef.setValue(messageItem) // 3
         
@@ -128,7 +127,7 @@ class JSQChatViewController: JSQMessagesViewController {
         let oppositeMessageItem = [ // 2
             "text": text,
             "senderId": constant.other_user_on_chat,
-        //    "oppositeUserUid": constant.uid
+            "opposite_senderID" : constant.uid,
         ]
         oppositeItemRef.setValue(oppositeMessageItem)
         
@@ -137,6 +136,10 @@ class JSQChatViewController: JSQMessagesViewController {
         
         // 5
         finishSendingMessage()
+        
+   //     self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
+        self.finishSendingMessageAnimated(true)
+        self.collectionView?.reloadData()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

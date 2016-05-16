@@ -89,26 +89,28 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Uncomment this would cause a seg fault
+        
         let conversation = conversations[indexPath.row]
+        
         guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? ConversationTableViewCell else {
             return UITableViewCell()
         }
         
         //        cell.avatarView.setup(conversation.patientId)
-   //     cell.nameLabel.text = "Chat with The Guys"
+      ///  cell.nameLabel.text = "Chat with The Guys"
         cell.nameLabel.text = self.conversations[indexPath.row].display_nickname
         cell.recentTextLabel.text = conversation.latestMessage
         
         // Check if the conversation is read and apply Bold/Not Bold to the text to indicate Read/Unread state
-        !conversation.isRead ? cell.nameLabel.font = cell.nameLabel.font.bold() : (cell.nameLabel.font = cell.nameLabel.font.withTraits([]))
-        
+     //   !conversation.isRead ? cell.nameLabel.font = cell.nameLabel.font.bold() : (cell.nameLabel.font = cell.nameLabel.font.withTraits([]))
+ 
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // retrieve the user that we are currently chatting with so we can 
         // update the firebase database accordingly
+        
         constant.other_user_on_chat = self.conversations[indexPath.row].display_uid!
         print(constant.other_user_on_chat)
         performSegueWithIdentifier("ConversationSegue", sender: indexPath.row)
@@ -119,6 +121,7 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if let conversationController = segue.destinationViewController as? JSQChatViewController, row = sender as? Int {
             let conversation = conversations[row]
             conversationController.conversation = conversation
