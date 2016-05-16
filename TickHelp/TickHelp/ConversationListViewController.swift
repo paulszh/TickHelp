@@ -111,9 +111,20 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // retrieve the user that we are currently chatting with so we can 
         // update the firebase database accordingly
+        // This is to know whom we are communicating with. might need to be refactored a little.
         
         constant.other_user_on_chat = self.conversations[indexPath.row].display_uid!
         print(constant.other_user_on_chat)
+        // need to get the nickname of the user that we are communicating with
+        let otherUserRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat)
+        otherUserRef.observeEventType(.Value, withBlock: { snapshot in
+           // print(snapshot.value)
+            constant.usernameFromOtherUser = (snapshot.value.objectForKey("nickname") as? String)!
+         //   print("The nickname is: \(constant.usernameFromOtherUser)")
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
         performSegueWithIdentifier("ConversationSegue", sender: indexPath.row)
     }
     

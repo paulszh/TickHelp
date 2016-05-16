@@ -16,4 +16,5 @@ struct constant{
     static var password = "";
     static var displayname = "";
     static var other_user_on_chat = "";
+    static var usernameFromOtherUser = ""
 }

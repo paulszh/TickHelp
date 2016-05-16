@@ -142,6 +142,28 @@ class JSQChatViewController: JSQMessagesViewController {
         self.collectionView?.reloadData()
     }
     
+    @IBAction func AddFriendBtn(sender: AnyObject) {
+        let uid = Firebase(url: constant.userURL).authData.uid
+        
+        let ref = Firebase(url: constant.userURL + "/users/" + uid)
+        
+        let listRef = ref.childByAppendingPath("friends")
+        
+
+        //Add Friend
+        
+        let friend = ["uid": constant.other_user_on_chat, "name" : constant.usernameFromOtherUser]
+        let friendRef = listRef.childByAutoId()
+        
+        friendRef.setValue(friend, withCompletionBlock: {
+            (error:NSError?, ref:Firebase!) in
+            if (error != nil) {
+                print("Data could not be saved.")
+            } else {
+                print("Data saved successfully!")
+            }
+        })
+    }
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
