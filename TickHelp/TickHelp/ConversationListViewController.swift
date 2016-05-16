@@ -22,7 +22,21 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        conversations.removeAll()
+        loadDataFromFirebase()
+     
+     //   data has been loaded in loadDataFromFirebase()
+     //   self.conversations = getConversation()
+     //   self.tableView?.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Hides empty cells
+        tableView?.tableFooterView = UIView()
+    }
+    
+    func loadDataFromFirebase(){
         let geofireRef = Firebase(url: constant.userURL)
         let geoPath = geofireRef.childByAppendingPath("locations")
         let geoFire = GeoFire(firebaseRef: geoPath)
@@ -39,45 +53,33 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
         let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.6)
         
-        // Query location by region
-        //     let span = MKCoordinateSpanMake(0.001, 0.001)
-        //     let region = MKCoordinateRegionMake(center.coordinate, span)
-        //     var regionQuery = geoFire.queryWithRegion(region)
-        
         var queryHandle = circleQuery.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-            print("Key '\(key)' entered the search area and is at location '\(location)'")
+            //    print("Key '\(key)' entered the search area and is at location '\(location)'")
             let refPath = geofireRef.childByAppendingPath("users")
                 .childByAppendingPath(key)
+            
             // Get the data on a post that has changed
             refPath.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot.value)
-                //Get the data from the firebase
-                //     self.userName.text = snapshot.value.objectForKey("nickname") as? String
+                // retrieve data
                 let getCurrName = snapshot.value.objectForKey("nickname") as? String
                 let getCurrUsername = snapshot.value.objectForKey("username") as? String
                 // Should not add current logged-in uid to the display list
                 if(constant.uid != key){
                     let newCon = Conversation(display_nickname: getCurrName, display_username: getCurrUsername, display_uid: key, latestMessage: getCurrUsername, isRead: false)
                     self.conversations.append(newCon)
-                    
-                    
-                    self.tableView?.reloadData()
+                }
+                else{
+                    // store current user's info into the global constants
+                    constant.username = (snapshot.value.objectForKey("username") as? String)!
+                    constant.nickname = (snapshot.value.objectForKey("nickname") as? String)!
                 }
                 
-                
+                self.tableView?.reloadData()
                 }, withCancelBlock: { error in
                     print(error.description)
             })
             
         })
-    //    self.conversations = getConversation()
-    //    self.tableView?.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Hides empty cells
-        tableView?.tableFooterView = UIView()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

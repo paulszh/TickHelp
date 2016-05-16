@@ -21,10 +21,12 @@ class JSQChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
-        print("The uid of the current messaging user is: \(constant.uid)")
-        print("The uid of the other user is: \(constant.other_user_on_chat)")
-        self.conversationRef.childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.other_user_on_chat)
         
+    //    print("The uid of the current messaging user is: \(constant.uid)")
+    //    print("The messaging user's username is: \(constant.nickname)")
+    //    print("The uid of the other user is: \(constant.other_user_on_chat)")
+        
+        self.conversationRef.childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.other_user_on_chat)
         // works both ways... the other user will update the database as well
         let currRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat).childByAppendingPath("MessageList").childByAppendingPath("other_user_uid").setValue(constant.uid);
 
@@ -40,7 +42,11 @@ class JSQChatViewController: JSQMessagesViewController {
         // For this Demo we will use Woz's ID
 
         // Anywhere that AvatarIDWoz is used you should replace with you currentUserVariable
-        senderId = AvatarIdWoz
+    //    senderId = AvatarIdWoz
+        senderId = constant.nickname
+        
+        
+        
     //    senderDisplayName = conversation?.firstName ?? conversation?.preferredName ?? conversation?.lastName ?? ""
         
         
@@ -50,11 +56,11 @@ class JSQChatViewController: JSQMessagesViewController {
         senderDisplayName = conversation?.display_nickname ?? conversation?.display_username ?? conversation?.display_username ?? ""
         automaticallyScrollsToMostRecentMessage = true
         
-   /*     if (conversation?.smsNumber) != nil {
-      //      self.messages = makeConversation()
-            self.collectionView?.reloadData()
-            self.collectionView?.layoutIfNeeded()
-        }*/
+     //   if (conversation?.smsNumber) != nil {
+     //       self.messages = makeConversation()
+     //       self.collectionView?.reloadData()
+     //       self.collectionView?.layoutIfNeeded()
+     //   }
     }
     
     override func didPressSendButton(button: UIButton?, withMessageText text: String?, senderId: String?, senderDisplayName: String?, date: NSDate?) {
@@ -63,7 +69,9 @@ class JSQChatViewController: JSQMessagesViewController {
         //
         // For this Demo I will just add it to the messages list localy
         //
-        self.messages.append(JSQMessage(senderId: AvatarIdWoz, displayName: DisplayNameWoz, text: text))
+        
+    //    self.messages.append(JSQMessage(senderId: AvatarIdWoz, displayName: DisplayNameWoz, text: text))
+        self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
@@ -77,7 +85,8 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource? {
-        return messages[indexPath.item].senderId == AvatarIdWoz ? outgoingBubble : incomingBubble
+    //    return messages[indexPath.item].senderId == AvatarIdWoz ? outgoingBubble : incomingBubble
+        return messages[indexPath.item].senderId == constant.nickname ? outgoingBubble : incomingBubble
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource? {
@@ -87,7 +96,9 @@ class JSQChatViewController: JSQMessagesViewController {
     override func collectionView(collectionView: JSQMessagesCollectionView?, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.item]
         switch message.senderId {
-        case AvatarIdWoz:
+            
+        case constant.nickname:
+    //    case AvatarIdWoz:
             return nil
         default:
             guard let senderDisplayName = message.senderDisplayName else {
@@ -100,7 +111,8 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout?, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return messages[indexPath.item].senderId == AvatarIdWoz ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
+    //    return messages[indexPath.item].senderId == AvatarIdWoz ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
+        return messages[indexPath.item].senderId == constant.nickname ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
     }
     
 }
