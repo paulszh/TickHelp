@@ -88,7 +88,7 @@ class JSQChatViewController: JSQMessagesViewController {
             let text = snapshot.value["text"] as! String
             
             // 4 Need to make sure not to display messages sent by self
-            if((snapshot.value["opposite_senderID"] as! String) != constant.uid){
+            if((snapshot.value["opposite_senderID"] as! String) == constant.other_user_on_chat){
                 self.addMessage(id, text: text)
             }
             // 5
