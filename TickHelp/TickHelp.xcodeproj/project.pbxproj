@@ -241,6 +241,7 @@
 				8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */,
 				8D18702F1CBD78AC00B610C8 /* MPCManager.swift */,
 				8D1870311CBD8E0A00B610C8 /* chatViewController.swift */,
+				08E9533C1CE1AB5100E091CA /* OnlineUserTableViewController.swift */,
 				8D1870331CBDA17600B610C8 /* chatTableViewCell.swift */,
 			);
 			name = Chat;
@@ -260,7 +261,6 @@
 				8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */,
 				085852851CBF59220099CD1D /* constant.swift */,
 				8D6A4A791CCAADA1004F1E8F /* peer.swift */,
-				08E9533C1CE1AB5100E091CA /* OnlineUserTableViewController.swift */,
 				08E9533E1CE1BB4400E091CA /* user.swift */,
 			);
 			name = Support;

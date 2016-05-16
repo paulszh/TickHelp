@@ -43,11 +43,13 @@ class LogViewController: UIViewController {
     }
 
     @IBAction func login(sender: AnyObject) {
+    
+        
         ref.authUser(username.text, password:password.text) {
             error, authData in
             if error != nil {
                 // Something went wrong. :(
-                //print("Please check your username and password")
+                print("Please check your username and password")
                 //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
             } else {
@@ -64,12 +66,28 @@ class LogViewController: UIViewController {
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.mpcManager = MPCManager();
                 print("App delegate called.")
-                self.performSegueWithIdentifier("loginSeg", sender: self)
+                // 1
+                self.ref.observeAuthEventWithBlock { (authData) -> Void in
+                    // 2
+                    if authData != nil {
+                        // 3
+                        print("Authenticate successfully")
+                        self.performSegueWithIdentifier("loginSeg", sender: self)
+                        //self.performSegueWithIdentifier(self.LoginToList, sender: nil)
+                    }
+                }
+                //self.performSegueWithIdentifier("loginSeg", sender: self)
                 
             }
         }
         
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

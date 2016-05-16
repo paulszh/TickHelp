@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TickHelp/OnlineUserTableViewController.swift"
-            timestampString = "484555230.355044"
+            timestampString = "484627290.405955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "OnlineUserTableViewController"
             landmarkType = "3">
          </BreakpointContent>
