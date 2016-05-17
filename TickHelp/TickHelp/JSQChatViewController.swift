@@ -67,15 +67,16 @@ class JSQChatViewController: JSQMessagesViewController {
         
   //      if (conversation?.smsNumber) != nil {
   //          self.messages = makeConversation()
- //           self.collectionView?.reloadData()
-   //         self.collectionView?.layoutIfNeeded()
+  //          self.collectionView?.reloadData()
+  //          self.collectionView?.layoutIfNeeded()
   //      }
+        observeMessages()
     }
     
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        observeMessages()
+    //    observeMessages()
     }
     
     private func observeMessages() {
