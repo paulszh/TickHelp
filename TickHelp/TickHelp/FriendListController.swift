@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class FriendListController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var friendTable: UITableView!
     
     var friendName : [String!] = []
@@ -44,19 +44,19 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             
-                let uid = snapshot.value.objectForKey("uid") as! String!
-                
-                self.friendId.append(uid)
-                
-                let name = snapshot.value.objectForKey("name") as! String!
-                
-                self.friendName.append(name)
+            let uid = snapshot.value.objectForKey("uid") as! String!
             
-                print("Name: \(name)")
+            self.friendId.append(uid)
+            
+            let name = snapshot.value.objectForKey("name") as! String!
+            
+            self.friendName.append(name)
+            
+            print("Name: \(name)")
             
             self.friendTable.reloadData()
         })
-
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,11 +71,11 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         }
         
         cell.textLabel!.text = friendName[indexPath.row]
-
+        
         cell.textLabel!.font = UIFont(name:"Avenir", size:20)
         
         cell.imageView?.image = UIImage(named: "face")
-
+        
         return cell
     }
     

@@ -35,7 +35,6 @@ class MPCOfflineManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         super.init()
         print("now is")
         print(constant.displayname)
-        
         if(constant.displayname != ""){
             peer = MCPeerID(displayName: constant.displayname)
         }

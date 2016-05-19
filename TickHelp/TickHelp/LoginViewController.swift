@@ -18,7 +18,7 @@ class ViewController: VideoSplashViewController {
     @IBOutlet weak var SignUp: UIButton!
     @IBOutlet weak var GuestLogIn: UIButton!
     
-    var ref = Firebase(url: "https://tickhelp.firebaseio.com/")
+    var ref = Firebase(url: "https://tickhelpaustin.firebaseio.com/")
     
     
     override func viewDidLoad() {
@@ -61,17 +61,6 @@ class ViewController: VideoSplashViewController {
 //            print("Successfully login ")
 //             print("User " + ref.authData.uid + " is logged in with " + ref.authData.provider)
 //            performSegueWithIdentifier("autoSeg", sender: self)
-//        }
-//    }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if (segue.identifier == "loginSeg") {
-//            
-//            let dest: TabBarViewController = segue.destinationViewController as! TabBarViewController
-//            
-//            dest.selfId = ref.authData.uid
-//            
-//            // pass data to next view
 //        }
 //    }
 
