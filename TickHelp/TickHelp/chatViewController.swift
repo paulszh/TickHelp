@@ -8,7 +8,6 @@
 
 import UIKit
 import MultipeerConnectivity
-import Firebase
 
 class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -49,32 +48,6 @@ class chatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addFriend(sender: AnyObject) {
-        
-        
-        let uid = Firebase(url: constant.userURL).authData.uid
-        
-        let ref = Firebase(url: constant.userURL + "/users/" + uid)
-        
-        let listRef = ref.childByAppendingPath("friends")
-        
-        
-        //Add Friend
-        
-        let friend = ["uid": self.peerId, "name" : self.peerName]
-        let friendRef = listRef.childByAutoId()
-        
-        friendRef.setValue(friend, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
-        })
-        
-        
-    }
     @IBAction func stopChat(sender: AnyObject) {
         
         let messageDictionary: [String: String] = ["message": "_end_chat_"]
