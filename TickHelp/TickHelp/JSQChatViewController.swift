@@ -89,15 +89,21 @@ class JSQChatViewController: JSQMessagesViewController {
             let text = snapshot.value["text"] as! String
             
             // 4 Need to make sure not to display messages sent by self
-            if((snapshot.value["opposite_senderID"] as! String) == constant.other_uid){
+            let sender = snapshot.value["senderId"] as! String
+           // print("senderId: \(sender)" )
+            if(sender == constant.other_uid){
                 self.addMessage(id, text: text)
+            }
+            else{
+                self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
+                
             }
             // 5
             self.finishReceivingMessage()
         }
     }
     func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "", text: text)
+        let message = JSQMessage(senderId: id, displayName: constant.other_nickname, text: text)
         messages.append(message)
     }
     /*
@@ -127,8 +133,8 @@ class JSQChatViewController: JSQMessagesViewController {
         let oppositeItemRef = oppositeMessageRef.childByAutoId()
         let oppositeMessageItem = [ // 2
             "text": text,
-            "senderId": constant.other_uid,
-            "opposite_senderID" : constant.uid,
+            "senderId": constant.uid,
+            "opposite_senderID" : constant.other_uid,
         ]
         oppositeItemRef.setValue(oppositeMessageItem)
         
@@ -138,7 +144,6 @@ class JSQChatViewController: JSQMessagesViewController {
         // 5
         finishSendingMessage()
         
-   //     self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
