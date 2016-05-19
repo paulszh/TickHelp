@@ -55,7 +55,7 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
         let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.6)
         
-        var queryHandle = circleQuery.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+       circleQuery.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
             //    print("Key '\(key)' entered the search area and is at location '\(location)'")
             let refPath = geofireRef.childByAppendingPath("users")
                 .childByAppendingPath(key)
@@ -63,11 +63,11 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
             // Get the data on a post that has changed
             refPath.observeEventType(.Value, withBlock: { snapshot in
                 // retrieve data
-                let getCurrName = snapshot.value.objectForKey("nickname") as? String
-                let getCurrUsername = snapshot.value.objectForKey("username") as? String
+                let nickname = snapshot.value.objectForKey("nickname") as? String
+                let username = snapshot.value.objectForKey("username") as? String
                 // Should not add current logged-in uid to the display list
                 if(constant.uid != key){
-                    let newCon = Conversation(display_nickname: getCurrName, display_username: getCurrUsername, display_uid: key, latestMessage: getCurrUsername, isRead: false)
+                    let newCon = Conversation(display_nickname: nickname, display_username: username, display_uid: key, latestMessage: username, isRead: false)
                     self.conversations.append(newCon)
                 }
                 else{
@@ -113,14 +113,19 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
         // update the firebase database accordingly
         // This is to know whom we are communicating with. might need to be refactored a little.
         
-        constant.other_user_on_chat = self.conversations[indexPath.row].display_uid!
-        print(constant.other_user_on_chat)
+        constant.other_uid = self.conversations[indexPath.row].display_uid!
+        print(constant.other_uid)
+        
         // need to get the nickname of the user that we are communicating with
-        let otherUserRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat)
+        let otherUserRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid)
+        
         otherUserRef.observeEventType(.Value, withBlock: { snapshot in
+            
            // print(snapshot.value)
-            constant.usernameFromOtherUser = (snapshot.value.objectForKey("nickname") as? String)!
+            constant.other_nickname = (snapshot.value.objectForKey("nickname") as? String)!
+            constant.other_username = (snapshot.value.objectForKey("username") as? String)!
          //   print("The nickname is: \(constant.usernameFromOtherUser)")
+            
             }, withCancelBlock: { error in
                 print(error.description)
         })

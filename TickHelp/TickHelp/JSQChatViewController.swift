@@ -22,7 +22,7 @@ class JSQChatViewController: JSQMessagesViewController {
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
     
     let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid).childByAppendingPath("MessageList");
-    let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_user_on_chat).childByAppendingPath("MessageList");
+    let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid).childByAppendingPath("MessageList");
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +89,7 @@ class JSQChatViewController: JSQMessagesViewController {
             let text = snapshot.value["text"] as! String
             
             // 4 Need to make sure not to display messages sent by self
-            if((snapshot.value["opposite_senderID"] as! String) == constant.other_user_on_chat){
+            if((snapshot.value["opposite_senderID"] as! String) == constant.other_uid){
                 self.addMessage(id, text: text)
             }
             // 5
@@ -118,7 +118,7 @@ class JSQChatViewController: JSQMessagesViewController {
         let messageItem = [ // 2
             "text": text,
             "senderId": constant.uid,
-            "opposite_senderID" : constant.other_user_on_chat,
+            "opposite_senderID" : constant.other_uid,
         ]
         itemRef.setValue(messageItem) // 3
         
@@ -127,7 +127,7 @@ class JSQChatViewController: JSQMessagesViewController {
         let oppositeItemRef = oppositeMessageRef.childByAutoId()
         let oppositeMessageItem = [ // 2
             "text": text,
-            "senderId": constant.other_user_on_chat,
+            "senderId": constant.other_uid,
             "opposite_senderID" : constant.uid,
         ]
         oppositeItemRef.setValue(oppositeMessageItem)
@@ -150,10 +150,15 @@ class JSQChatViewController: JSQMessagesViewController {
         
         let listRef = ref.childByAppendingPath("friends")
         
-
         //Add Friend
         
-        let friend = ["uid": constant.other_user_on_chat, "name" : constant.usernameFromOtherUser]
+        let friend = ["uid": constant.other_uid,
+                      "nickname" : constant.other_nickname,
+                      "username" : constant.other_username ]
+        
+        print("username: \(constant.other_username)" )
+        print("nickname: \(constant.other_nickname)" )
+        
         let friendRef = listRef.childByAutoId()
         
         friendRef.setValue(friend, withCompletionBlock: {
@@ -165,6 +170,7 @@ class JSQChatViewController: JSQMessagesViewController {
             }
         })
     }
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
