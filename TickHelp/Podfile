@@ -4,9 +4,11 @@
  use_frameworks!
 
 target 'TickHelp' do
+	pod 'GeoFire', '>= 1.1'
     pod 'VideoSplashKit'
     pod "TextFieldEffects"
     pod 'Firebase', '>= 2.5.1'
+    pod 'JSQMessagesViewController'
 end
 
 target 'TickHelpTests' do

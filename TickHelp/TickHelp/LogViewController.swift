@@ -9,18 +9,23 @@
 import UIKit
 import TextFieldEffects
 import Firebase
+import GeoFire
 
 class LogViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var ref = Firebase(url: constant.userURL)
+
+
+    
     // get a reference to the appDelegate
     var mpcManager: MPCManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlacehoder();
+
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -59,7 +64,7 @@ class LogViewController: UIViewController {
                 //let alert = UIAlertController(title: "", message: "Successfully login", preferredStyle: UIAlertControllerStyle.Alert)
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
-                constant.uid = authData.uid;
+                constant.uid = authData.uid
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.mpcManager = MPCManager();

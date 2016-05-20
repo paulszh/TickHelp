@@ -19,7 +19,7 @@ class SignViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
-    let firebase = Firebase(url:constant.userURL)
+    let firebase = Firebase(url: "https://tickhelp.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()

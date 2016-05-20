@@ -10,6 +10,9 @@
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856489A51CDED3C000626BD4 /* DisplayNameController.swift */; };
+		8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217B1CE8624B002638C3 /* ConversationListViewController.swift */; };
+		857321801CE86292002638C3 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217F1CE86292002638C3 /* Conversation.swift */; };
+		857321821CE862D9002638C3 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857321811CE862D9002638C3 /* JSQChatViewController.swift */; };
 		8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBAD1CDDB94900B60FBA /* OfflineConstants.swift */; };
 		8586FBB01CDDB9C700B60FBA /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBAF1CDDB9C700B60FBA /* OfflineViewController.swift */; };
 		8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */; };
@@ -62,11 +65,15 @@
 		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		856489A51CDED3C000626BD4 /* DisplayNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNameController.swift; sourceTree = "<group>"; };
+		8573217B1CE8624B002638C3 /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
+		8573217F1CE86292002638C3 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		857321811CE862D9002638C3 /* JSQChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		8586FBAD1CDDB94900B60FBA /* OfflineConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineConstants.swift; sourceTree = "<group>"; };
 		8586FBAF1CDDB9C700B60FBA /* OfflineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCOfflineManager.swift; sourceTree = "<group>"; };
 		8586FBB31CDDBD9B00B60FBA /* OffChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffChatViewController.swift; sourceTree = "<group>"; };
 		8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TickHelp-Bridging-Header.h"; sourceTree = "<group>"; };
 		85CA5B781CC37E860063F287 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
 		8D01A6231CBB66B400072110 /* test3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.mp4; sourceTree = "<group>"; };
 		8D18702F1CBD78AC00B610C8 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
@@ -132,6 +139,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		852DDACE1CE78477001B6261 /* GeoFireLocation */ = {
+			isa = PBXGroup;
+			children = (
+				8573217B1CE8624B002638C3 /* ConversationListViewController.swift */,
+				8573217F1CE86292002638C3 /* Conversation.swift */,
+				857321811CE862D9002638C3 /* JSQChatViewController.swift */,
+			);
+			name = GeoFireLocation;
+			sourceTree = "<group>";
+		};
 		8586FBAA1CDDB8C300B60FBA /* Offline */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +195,7 @@
 		8D30E0851CB9C435001C186B /* TickHelp */ = {
 			isa = PBXGroup;
 			children = (
+				852DDACE1CE78477001B6261 /* GeoFireLocation */,
 				8586FBAA1CDDB8C300B60FBA /* Offline */,
 				85CA5B771CC37E750063F287 /* Friends */,
 				8D30E0C61CBB2421001C186B /* Resources */,
@@ -191,6 +209,7 @@
 				8D30E08D1CB9C435001C186B /* Assets.xcassets */,
 				8D30E08F1CB9C435001C186B /* LaunchScreen.storyboard */,
 				8D30E0921CB9C435001C186B /* Info.plist */,
+				85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */,
 			);
 			path = TickHelp;
 			sourceTree = "<group>";
@@ -468,6 +487,7 @@
 			files = (
 				8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
+				857321801CE86292002638C3 /* Conversation.swift in Sources */,
 				8D1870341CBDA17600B610C8 /* chatTableViewCell.swift in Sources */,
 				8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */,
 				8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */,
@@ -480,8 +500,10 @@
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */,
 				8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */,
+				8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */,
 				8586FBB01CDDB9C700B60FBA /* OfflineViewController.swift in Sources */,
 				8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */,
+				857321821CE862D9002638C3 /* JSQChatViewController.swift in Sources */,
 				8D30E0CC1CBB3306001C186B /* LogViewController.swift in Sources */,
 				8586FBB41CDDBD9B00B60FBA /* OffChatViewController.swift in Sources */,
 				8586FBB61CDDBECA00B60FBA /* ChatViewCell.swift in Sources */,
@@ -635,6 +657,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -650,6 +673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
 			};
 			name = Release;
 		};
