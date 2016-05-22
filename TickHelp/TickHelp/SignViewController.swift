@@ -50,6 +50,7 @@ class SignViewController: UIViewController {
                                             "nickname": self.nickname.text,
                                             //the password need to be hashed
                                             "password": self.password.text,
+                                            "image_path": "",
                                             "credit" : "0",
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
