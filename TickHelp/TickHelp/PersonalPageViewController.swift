@@ -24,27 +24,12 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         
         print(ref)
         
-//            let imageUI = NSImage(named:"cat.jpeg") {
-//            let imageData = imageUI.TIFFRepresentation
-//            let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-//            let imageRef = myRootRef.childByAppendingPath("image_path")
-//            imageRef.setValue(base64String)
-//        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
-//        let uploadImage = UIImage(contentsOfFile: absoluteImagePath)
-       
-       
-//
-//            let imageData = UIImageJPEGRepresentation(uploadImage!, 0.5)!
-//            let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-//            let imageRef = ref.childByAppendingPath("image_path")
-//            imageRef.setValue(base64String)
-        uploadtoFireBase(self.avator.image!)
-        
         // Get the data on a post that has changed
         ref.observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
+            //Store the image to firebase
             let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
             let imageRetrieve = NSData(base64EncodedString: base64EncodedString ,
                 options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
@@ -69,11 +54,6 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
         self.presentViewController(imagePicker, animated: true, completion: nil)
-//        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
-//        let uploadImage = UIImage(contentsOfFile: absoluteImagePath)
-        //uploadtoFireBase(uploadImage!)
-        
-        
         
     }
     
