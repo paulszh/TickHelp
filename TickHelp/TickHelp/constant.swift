@@ -9,7 +9,7 @@
 import Foundation
 
 struct constant{
-    static var userURL = "https://tickhelp.firebaseio.com/"
+    static var userURL = "https://tickhelp1234.firebaseio.com/"
     static var uid = "";
     static var nickname = "";
     static var username = "";
