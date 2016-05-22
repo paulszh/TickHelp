@@ -14,13 +14,14 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
 
     @IBOutlet weak var avator: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.avator.image = maskRoundedImage(centerCrop(self.avator.image!))
         self.avator.image = resizeImage(self.avator.image!, targetSize: CGSize(width: 160, height: 160))
-        let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+        
         print(ref)
         
 //            let imageUI = NSImage(named:"cat.jpeg") {
@@ -28,17 +29,16 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
 //            let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
 //            let imageRef = myRootRef.childByAppendingPath("image_path")
 //            imageRef.setValue(base64String)
-        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
-        var uploadImage = UIImage(contentsOfFile: absoluteImagePath)
+//        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
+//        let uploadImage = UIImage(contentsOfFile: absoluteImagePath)
        
-        uploadImage = maskRoundedImage(centerCrop(uploadImage!))
-        uploadImage = resizeImage(uploadImage!, targetSize: CGSize(width: 160, height: 160))
-
-            let imageData = UIImageJPEGRepresentation(uploadImage!, 0.5)!
-            let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-            let imageRef = ref.childByAppendingPath("image_path")
-            imageRef.setValue(base64String)
-        
+       
+//
+//            let imageData = UIImageJPEGRepresentation(uploadImage!, 0.5)!
+//            let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+//            let imageRef = ref.childByAppendingPath("image_path")
+//            imageRef.setValue(base64String)
+        uploadtoFireBase(self.avator.image!)
         
         // Get the data on a post that has changed
         ref.observeEventType(.Value, withBlock: { snapshot in
@@ -46,11 +46,12 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
             let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
-            let imageRetrieve = NSData(base64EncodedString: base64EncodedString as! String,
+            let imageRetrieve = NSData(base64EncodedString: base64EncodedString ,
                 options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             let decodedImage = UIImage(data:imageRetrieve!)
+            if(decodedImage != nil){
             self.avator.image = decodedImage
-            
+            }
 
             }, withCancelBlock: { error in
                 print(error.description)
@@ -68,23 +69,26 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
         self.presentViewController(imagePicker, animated: true, completion: nil)
+//        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
+//        let uploadImage = UIImage(contentsOfFile: absoluteImagePath)
+        //uploadtoFireBase(uploadImage!)
         
         
         
     }
     
  
-    func loadImageFromPath(path: String) -> UIImage? {
+    func uploadtoFireBase(image: UIImage){
         
-        let image = UIImage(contentsOfFile: path)
+        var uploadImage = image
         
-        if image == nil {
-            
-            print("missing image at: \(path)")
-        }
-        print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
-        return image
+        uploadImage = maskRoundedImage(centerCrop(uploadImage))
+        uploadImage = resizeImage(uploadImage, targetSize: CGSize(width: 160, height: 160))
         
+        let imageData = UIImageJPEGRepresentation(uploadImage, 0.5)!
+        let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let imageRef = ref.childByAppendingPath("image_path")
+        imageRef.setValue(base64String)
     }
     
     
@@ -92,7 +96,8 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         
         self.avator.image = maskRoundedImage(centerCrop(image))
         self.avator.image = resizeImage(self.avator.image!, targetSize: CGSize(width: 180, height: 180))
-        
+        print("uploaded")
+        uploadtoFireBase(self.avator.image!)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
