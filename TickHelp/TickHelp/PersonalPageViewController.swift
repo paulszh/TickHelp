@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class PersonalPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var avator: UIImageView!
@@ -21,11 +22,35 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         self.avator.image = resizeImage(self.avator.image!, targetSize: CGSize(width: 160, height: 160))
         let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
         print(ref)
+        
+//            let imageUI = NSImage(named:"cat.jpeg") {
+//            let imageData = imageUI.TIFFRepresentation
+//            let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+//            let imageRef = myRootRef.childByAppendingPath("image_path")
+//            imageRef.setValue(base64String)
+        let absoluteImagePath = "/Users/paulszh/github/TickHelp/TickHelp/TickHelp/april.jpg"
+        var uploadImage = UIImage(contentsOfFile: absoluteImagePath)
+       
+        uploadImage = maskRoundedImage(centerCrop(uploadImage!))
+        uploadImage = resizeImage(uploadImage!, targetSize: CGSize(width: 160, height: 160))
+
+            let imageData = UIImageJPEGRepresentation(uploadImage!, 0.5)!
+            let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+            let imageRef = ref.childByAppendingPath("image_path")
+            imageRef.setValue(base64String)
+        
+        
         // Get the data on a post that has changed
         ref.observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
+            let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
+            let imageRetrieve = NSData(base64EncodedString: base64EncodedString as! String,
+                options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+            let decodedImage = UIImage(data:imageRetrieve!)
+            self.avator.image = decodedImage
+            
 
             }, withCancelBlock: { error in
                 print(error.description)
@@ -43,7 +68,25 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
         self.presentViewController(imagePicker, animated: true, completion: nil)
+        
+        
+        
     }
+    
+ 
+    func loadImageFromPath(path: String) -> UIImage? {
+        
+        let image = UIImage(contentsOfFile: path)
+        
+        if image == nil {
+            
+            print("missing image at: \(path)")
+        }
+        print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
+        return image
+        
+    }
+    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
