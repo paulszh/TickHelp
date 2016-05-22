@@ -13,17 +13,36 @@ class ConversationTableViewCell: UITableViewCell {
 import UIKit
 import Firebase
 import GeoFire
+import CoreLocation
 
-class ConversationsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class ConversationsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView?
     
     var conversations = [Conversation]()
+    var locationManager:CLLocationManager!
+    var currLocation:CLLocation!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         conversations.removeAll()
-        loadDataFromFirebase()
+        
+        //init locationManager
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.distanceFilter = 100.0;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+            print("location service enabled")
+        }
+        else{
+            print("location service not enabled")
+        }
+        //loadDataFromFirebase()
      
      //   data has been loaded in loadDataFromFirebase()
      //   self.conversations = getConversation()
@@ -36,6 +55,21 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
         
         // Hides empty cells
         tableView?.tableFooterView = UIView()
+        
+    }
+    
+    //get user location
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        
+        self.currLocation = locations.last! as CLLocation
+        //print("latitude: \(currLocation.coordinate.latitude) and longtitude: \(currLocation.coordinate.latitude)")
+        loadDataFromFirebase()
+        /*
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))*/
+        
+       
     }
     
     func loadDataFromFirebase(){
@@ -43,7 +77,24 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
         let geoPath = geofireRef.childByAppendingPath("locations")
         let geoFire = GeoFire(firebaseRef: geoPath)
         
-        geoFire.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: constant.uid) { (error) in
+        
+        
+        //update user location using CLLocationManager
+        geoFire.setLocation(self.currLocation, forKey: constant.uid) { (error) in
+            if (error != nil) {
+                    print("An error occured: \(error)")
+            } else {
+                    print("Saved location successfully!")
+            }
+         }
+        
+        let center = self.currLocation
+        // Query locations at curretLocation with a radius of 600 meters
+        let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.6)
+        
+        
+        //hard coding user location
+        /*geoFire.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: constant.uid) { (error) in
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
@@ -51,9 +102,14 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
             }
         }
         
+    
         let center = CLLocation(latitude: 37.7832889, longitude: -122.4056973)
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
         let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.6)
+        */
+        
+        
+        
         
        circleQuery.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
             //    print("Key '\(key)' entered the search area and is at location '\(location)'")
