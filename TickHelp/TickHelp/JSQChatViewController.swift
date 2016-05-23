@@ -90,11 +90,12 @@ class JSQChatViewController: JSQMessagesViewController {
             
             // 4 Need to make sure not to display messages sent by self
             let sender = snapshot.value["senderId"] as! String
+            let receiver = snapshot.value["opposite_senderID"] as! String
            // print("senderId: \(sender)" )
             if(sender == constant.other_uid){
                 self.addMessage(id, text: text)
             }
-            else{
+            else if (receiver == constant.other_uid) {
                 self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
                 
             }
