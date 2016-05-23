@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYh-hQ-d2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="-811"/>
+            <point key="canvasLocation" x="-241" y="-699"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="T3M-hj-eaa">
@@ -277,14 +277,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zom-PO-7Le" kind="relationship" relationship="viewControllers" id="HXD-Xb-mkq"/>
-                        <segue destination="qUR-UR-hpU" kind="relationship" relationship="viewControllers" id="eu3-bL-ip2"/>
-                        <segue destination="Xdc-zh-iqc" kind="relationship" relationship="viewControllers" id="Iue-P9-GiT"/>
+                        <segue destination="Xdc-zh-iqc" kind="relationship" relationship="viewControllers" id="JIn-Xh-HkK"/>
                         <segue destination="nZa-ok-nnj" kind="relationship" relationship="viewControllers" id="xGq-e9-dPb"/>
+                        <segue destination="qUR-UR-hpU" kind="relationship" relationship="viewControllers" id="eu3-bL-ip2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POm-sW-jqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1200" y="159"/>
+            <point key="canvasLocation" x="-1240" y="647"/>
         </scene>
         <!--Rank View Controller-->
         <scene sceneID="FDh-Oo-J1d">
@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKt-j4-hEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="2121"/>
+            <point key="canvasLocation" x="-217" y="1913"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="MMD-xo-h85">
@@ -346,7 +346,7 @@
         <!--Item-->
         <scene sceneID="aE9-lQ-f3w">
             <objects>
-                <viewController id="aiR-nm-mO7" customClass="OfflineViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="offlineNearbyUsers" id="aiR-nm-mO7" customClass="OfflineViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGm-gp-RTR"/>
                         <viewControllerLayoutGuide type="bottom" id="QRo-IJ-29D"/>
@@ -678,7 +678,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gvQ-v3-BfE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tdw-dm-HZY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="473"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -699,13 +699,13 @@
         <!--Conversations List-->
         <scene sceneID="JUj-ry-RUW">
             <objects>
-                <viewController title="Conversations List" id="oxi-Gx-BS9" customClass="ConversationsListViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onlineNearbyUsers" title="Conversations List" id="oxi-Gx-BS9" customClass="ConversationsListViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DRT-Qu-6az"/>
                         <viewControllerLayoutGuide type="bottom" id="EV5-63-QvS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D4a-eI-unr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="473"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Find help from nearby users." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2p-TM-wDb">
@@ -779,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsc-2M-vK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755" y="1163"/>
+            <point key="canvasLocation" x="2397" y="1561"/>
         </scene>
         <!--Conversation View Controller-->
         <scene sceneID="GeG-ai-hhk">
@@ -793,12 +793,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="oxi-Gx-BS9" kind="relationship" relationship="rootViewController" id="tkf-h3-EJS"/>
+                        <segue destination="rkt-0r-d8p" kind="relationship" relationship="rootViewController" id="AUn-4z-PRO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8z3-cU-C3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="1163"/>
+            <point key="canvasLocation" x="385" y="1073"/>
         </scene>
         <!--Friend List View Controller-->
         <scene sceneID="17i-ZV-dTi">
@@ -846,6 +846,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaC-7Z-OaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-233" y="159"/>
+        </scene>
+        <!--Embed View Controller-->
+        <scene sceneID="R44-U9-e5i">
+            <objects>
+                <viewController title="Embed View Controller" id="rkt-0r-d8p" customClass="switchMode" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vyu-yc-aEB"/>
+                        <viewControllerLayoutGuide type="bottom" id="02T-Gy-IIP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MEH-YE-Fub">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCI-VM-Eob">
+                                <rect key="frame" x="0.0" y="127" width="600" height="473"/>
+                                <connections>
+                                    <segue destination="oxi-Gx-BS9" kind="embed" id="WvB-h8-oMu"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mSC-oC-ykj">
+                                <rect key="frame" x="235" y="83" width="129" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="eY1-YS-LfE"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="showComponent:" destination="rkt-0r-d8p" eventType="valueChanged" id="JKc-v0-ZBw"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mSC-oC-ykj" firstAttribute="centerX" secondItem="MEH-YE-Fub" secondAttribute="centerX" id="49m-aF-ahu"/>
+                            <constraint firstItem="mSC-oC-ykj" firstAttribute="top" secondItem="vyu-yc-aEB" secondAttribute="bottom" constant="19" id="PBo-PX-gOc"/>
+                            <constraint firstItem="zCI-VM-Eob" firstAttribute="centerX" secondItem="mSC-oC-ykj" secondAttribute="centerX" id="RPD-TJ-sKh"/>
+                            <constraint firstItem="zCI-VM-Eob" firstAttribute="leading" secondItem="MEH-YE-Fub" secondAttribute="leading" id="YKy-aq-GGF"/>
+                            <constraint firstItem="zCI-VM-Eob" firstAttribute="top" secondItem="mSC-oC-ykj" secondAttribute="bottom" constant="16" id="ZIC-hN-2uI"/>
+                            <constraint firstAttribute="bottom" secondItem="zCI-VM-Eob" secondAttribute="bottom" id="mNH-wu-QIB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="pCY-NT-EpS"/>
+                    <navigationItem key="navigationItem" id="VHa-Sb-sie"/>
+                    <connections>
+                        <outlet property="containerView" destination="zCI-VM-Eob" id="GvE-oD-JPy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Opb-7n-fK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486" y="1417"/>
         </scene>
     </scenes>
     <resources>
