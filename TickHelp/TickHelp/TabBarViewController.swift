@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         
-        let item0 = self.tabBar.items![0] as UITabBarItem
+        /*let item0 = self.tabBar.items![0] as UITabBarItem
         item0.image = UIImage(named: "chat")!
         item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
@@ -31,7 +31,7 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         
         let item3 = self.tabBar.items![3] as UITabBarItem
         item3.image = UIImage(named: "Queen")!
-        item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)*/
         
         
     }
