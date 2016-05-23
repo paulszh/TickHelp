@@ -871,8 +871,8 @@
                                     <constraint firstAttribute="width" constant="129" id="eY1-YS-LfE"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Online"/>
+                                    <segment title="Offline"/>
                                 </segments>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
