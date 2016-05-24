@@ -126,9 +126,9 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTS-n9-EBp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="TickHelp" id="09v-Ew-U1P">
+                                    <navigationItem id="09v-Ew-U1P">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="Bes-ow-NdK">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </barButtonItem>
@@ -309,9 +309,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cez-Kl-2UD">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="TickHelp" id="Gus-3c-FX3">
+                                    <navigationItem id="Gus-3c-FX3">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="6Qk-CO-8WR">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </barButtonItem>
@@ -716,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ra-qS-m85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="1139"/>
+            <point key="canvasLocation" x="2802" y="1431"/>
         </scene>
         <!--Conversations List-->
         <scene sceneID="JUj-ry-RUW">
@@ -841,7 +841,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <items>
-                                        <navigationItem title="Contacts" id="Poe-fm-89C">
+                                        <navigationItem id="Poe-fm-89C">
                                             <barButtonItem key="leftBarButtonItem" title="Log Out" id="Bna-Md-L3z">
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </barButtonItem>
