@@ -81,6 +81,13 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
+    
     func centerCrop(image: UIImage) -> UIImage{
         let width = image.size.width
         let height = image.size.height
