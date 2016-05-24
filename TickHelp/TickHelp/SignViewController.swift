@@ -19,7 +19,7 @@ class SignViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
-    let firebase = Firebase(url: "https://tickhelp.firebaseio.com/")
+    let firebase = Firebase(url: "https://tickhelp1234.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,7 @@ class SignViewController: UIViewController {
                                             "nickname": self.nickname.text,
                                             //the password need to be hashed
                                             "password": self.password.text,
+                                            "image_path": "",
                                             "credit" : "0",
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]

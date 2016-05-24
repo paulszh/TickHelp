@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
+		852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */; };
+		852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */; };
 		856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856489A51CDED3C000626BD4 /* DisplayNameController.swift */; };
 		8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217B1CE8624B002638C3 /* ConversationListViewController.swift */; };
 		857321801CE86292002638C3 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573217F1CE86292002638C3 /* Conversation.swift */; };
@@ -19,6 +21,7 @@
 		8586FBB41CDDBD9B00B60FBA /* OffChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB31CDDBD9B00B60FBA /* OffChatViewController.swift */; };
 		8586FBB61CDDBECA00B60FBA /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */; };
 		85CA5B791CC37E860063F287 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA5B781CC37E860063F287 /* FriendListController.swift */; };
+		85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0A7D91CF3A8A800A5D67C /* switchMode.swift */; };
 		8D01A6241CBB66B400072110 /* test3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D01A6231CBB66B400072110 /* test3.mp4 */; };
 		8D1870301CBD78AC00B610C8 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18702F1CBD78AC00B610C8 /* MPCManager.swift */; };
 		8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1870311CBD8E0A00B610C8 /* chatViewController.swift */; };
@@ -64,6 +67,8 @@
 		6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.release.xcconfig"; sourceTree = "<group>"; };
 		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchFriendRequestsController.swift; sourceTree = "<group>"; };
+		852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendsListController.swift; sourceTree = "<group>"; };
 		856489A51CDED3C000626BD4 /* DisplayNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNameController.swift; sourceTree = "<group>"; };
 		8573217B1CE8624B002638C3 /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		8573217F1CE86292002638C3 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 		8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
 		85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TickHelp-Bridging-Header.h"; sourceTree = "<group>"; };
 		85CA5B781CC37E860063F287 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
+		85F0A7D91CF3A8A800A5D67C /* switchMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchMode.swift; sourceTree = "<group>"; };
 		8D01A6231CBB66B400072110 /* test3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.mp4; sourceTree = "<group>"; };
 		8D18702F1CBD78AC00B610C8 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		8D1870311CBD8E0A00B610C8 /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				85CA5B781CC37E860063F287 /* FriendListController.swift */,
+				852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */,
+				852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				8D30E08F1CB9C435001C186B /* LaunchScreen.storyboard */,
 				8D30E0921CB9C435001C186B /* Info.plist */,
 				85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */,
+				85F0A7D91CF3A8A800A5D67C /* switchMode.swift */,
 			);
 			path = TickHelp;
 			sourceTree = "<group>";
@@ -486,7 +495,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */,
+				852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
+				85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
 				8D1870341CBDA17600B610C8 /* chatTableViewCell.swift in Sources */,
 				8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */,
@@ -500,6 +511,7 @@
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */,
 				8D1870321CBD8E0A00B610C8 /* chatViewController.swift in Sources */,
+				852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */,
 				8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */,
 				8586FBB01CDDB9C700B60FBA /* OfflineViewController.swift in Sources */,
 				8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */,
@@ -654,7 +666,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = .com.luna.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
@@ -670,7 +682,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ucsd.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = .com.luna.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
