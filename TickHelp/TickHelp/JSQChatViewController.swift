@@ -150,31 +150,43 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
-        let uid = Firebase(url: constant.userURL).authData.uid
+        let alertController = UIAlertController(title: title, message: "Do you really want to add this user as a friend?", preferredStyle:UIAlertControllerStyle.Alert)
         
-        let ref = Firebase(url: constant.userURL + "/users/" + uid)
-        
-        let listRef = ref.childByAppendingPath("friends")
-        
-        //Add Friend
-        
-        let friend = ["uid": constant.other_uid,
-                      "nickname" : constant.other_nickname,
-                      "username" : constant.other_username ]
-        
-        print("username: \(constant.other_username)" )
-        print("nickname: \(constant.other_nickname)" )
-        
-        let friendRef = listRef.childByAutoId()
-        
-        friendRef.setValue(friend, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
+        alertController.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default)
+        { action -> Void in
+            // Put your code here
+            let uid = Firebase(url: constant.userURL).authData.uid
+            
+            let ref = Firebase(url: constant.userURL + "/users/" + uid)
+            
+            let listRef = ref.childByAppendingPath("friends")
+            
+            //Add Friend
+            
+            let friend = ["uid": constant.other_uid,
+                "nickname" : constant.other_nickname,
+                "username" : constant.other_username ]
+            
+            print("username: \(constant.other_username)" )
+            print("nickname: \(constant.other_nickname)" )
+            
+            let friendRef = listRef.childByAutoId()
+            
+            friendRef.setValue(friend, withCompletionBlock: {
+                (error:NSError?, ref:Firebase!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                }
+            })
         })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default)
+        { action -> Void in
+            // Put your code here
+        })
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

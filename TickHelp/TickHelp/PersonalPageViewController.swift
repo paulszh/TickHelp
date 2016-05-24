@@ -84,20 +84,8 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
-        locationRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-    /*        for rest in snapshot.children.valueForKey(constant.uid) as! [FDataSnapshot]{
-            ///    print(rest.value)
-                print(rest.valueForKey(constant.uid))
-
-            }
-    */
-      //      let user_loc_ref = self.locationRef.childByAppendingPath(currLoc)
-            
-        //    print("The location to remove is \(user_loc_ref)")
-         /*   if(user_loc_ref == constant.uid){
-                self.locationRef.childByAppendingPath(currLoc).setValue(NSNull)
-            }*/
-        })
+     //   locationRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+     //   })
         
         
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
