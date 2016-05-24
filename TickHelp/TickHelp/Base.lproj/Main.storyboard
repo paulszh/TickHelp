@@ -706,19 +706,22 @@
                         <viewControllerLayoutGuide type="bottom" id="gvQ-v3-BfE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tdw-dm-HZY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="dC7-oV-ceZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kXT-qN-lx0">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="AddFriendBtn:" destination="Kc7-K7-agp" id="NrG-Zm-Gth"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ra-qS-m85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -927,12 +930,24 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="pCY-NT-EpS"/>
-                    <navigationItem key="navigationItem" id="VHa-Sb-sie"/>
+                    <navigationItem key="navigationItem" id="VHa-Sb-sie">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="K2p-qW-r9V">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="zCI-VM-Eob" id="GvE-oD-JPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opb-7n-fK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem id="PTo-qH-Fs0">
+                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oi3-l8-qq7">
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="AddFriendBtn:" destination="Kc7-K7-agp" id="dfl-Sf-0SI"/>
+                        </connections>
+                    </barButtonItem>
+                </navigationItem>
             </objects>
             <point key="canvasLocation" x="638" y="1921"/>
         </scene>
@@ -950,5 +965,5 @@
         <segue reference="tS0-wg-LNk"/>
         <segue reference="EOe-I7-MbV"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

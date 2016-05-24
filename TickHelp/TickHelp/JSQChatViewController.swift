@@ -186,7 +186,6 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource? {
-    //    return messages[indexPath.item].senderId == AvatarIdWoz ? outgoingBubble : incomingBubble
         return messages[indexPath.item].senderId == constant.nickname ? outgoingBubble : incomingBubble
     }
     
@@ -199,7 +198,6 @@ class JSQChatViewController: JSQMessagesViewController {
         switch message.senderId {
             
         case constant.nickname:
-    //    case AvatarIdWoz:
             return nil
         default:
             guard let senderDisplayName = message.senderDisplayName else {
@@ -212,7 +210,6 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout?, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-    //    return messages[indexPath.item].senderId == AvatarIdWoz ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
         return messages[indexPath.item].senderId == constant.nickname ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
     }
     
