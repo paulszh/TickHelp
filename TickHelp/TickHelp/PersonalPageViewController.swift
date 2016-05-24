@@ -15,6 +15,7 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var avator: UIImageView!
     @IBOutlet weak var userName: UILabel!
     let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+    let locationRef = Firebase(url: constant.userURL + "/locations/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,29 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         print("uploaded")
         uploadtoFireBase(self.avator.image!)
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        locationRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+    /*        for rest in snapshot.children.valueForKey(constant.uid) as! [FDataSnapshot]{
+            ///    print(rest.value)
+                print(rest.valueForKey(constant.uid))
+
+            }
+    */
+      //      let user_loc_ref = self.locationRef.childByAppendingPath(currLoc)
+            
+        //    print("The location to remove is \(user_loc_ref)")
+         /*   if(user_loc_ref == constant.uid){
+                self.locationRef.childByAppendingPath(currLoc).setValue(NSNull)
+            }*/
+        })
+        
+        
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+
     }
     
     func centerCrop(image: UIImage) -> UIImage{

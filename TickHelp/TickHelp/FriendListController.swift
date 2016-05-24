@@ -62,6 +62,10 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
     }
     
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count
     }

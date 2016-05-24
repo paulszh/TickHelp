@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitialViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="TickHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -131,6 +131,9 @@
                                     <navigationItem id="09v-Ew-U1P">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="Bes-ow-NdK">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <connections>
+                                                <action selector="logOutBtnPressed:" destination="Zom-PO-7Le" id="wEq-ij-jUG"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -314,6 +317,9 @@
                                     <navigationItem id="Gus-3c-FX3">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="6Qk-CO-8WR">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <connections>
+                                                <action selector="logOutBtnPressed:" destination="qUR-UR-hpU" id="BL2-z0-k41"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -438,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zis-fY-CZi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-289" y="-688"/>
+            <point key="canvasLocation" x="-265" y="-664"/>
         </scene>
         <!--Off Chat View Controller-->
         <scene sceneID="BFP-1S-KHs">
@@ -689,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zg-7d-PvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="-688"/>
+            <point key="canvasLocation" x="638" y="-664"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="sqr-63-az9">
@@ -700,23 +706,26 @@
                         <viewControllerLayoutGuide type="bottom" id="gvQ-v3-BfE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tdw-dm-HZY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="dC7-oV-ceZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kXT-qN-lx0">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="AddFriendBtn:" destination="Kc7-K7-agp" id="NrG-Zm-Gth"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ra-qS-m85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2802" y="1431"/>
+            <point key="canvasLocation" x="2586" y="1367"/>
         </scene>
         <!--Conversations List-->
         <scene sceneID="JUj-ry-RUW">
@@ -844,6 +853,9 @@
                                         <navigationItem id="Poe-fm-89C">
                                             <barButtonItem key="leftBarButtonItem" title="Log Out" id="Bna-Md-L3z">
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="logOutBtnPressed:" destination="nZa-ok-nnj" id="N5t-Gx-Pby"/>
+                                                </connections>
                                             </barButtonItem>
                                         </navigationItem>
                                     </items>
@@ -918,12 +930,24 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="pCY-NT-EpS"/>
-                    <navigationItem key="navigationItem" id="VHa-Sb-sie"/>
+                    <navigationItem key="navigationItem" id="VHa-Sb-sie">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="K2p-qW-r9V">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="zCI-VM-Eob" id="GvE-oD-JPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opb-7n-fK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem id="PTo-qH-Fs0">
+                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oi3-l8-qq7">
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="AddFriendBtn:" destination="Kc7-K7-agp" id="dfl-Sf-0SI"/>
+                        </connections>
+                    </barButtonItem>
+                </navigationItem>
             </objects>
             <point key="canvasLocation" x="638" y="1921"/>
         </scene>
@@ -938,8 +962,8 @@
         <image name="favourite512x512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tS0-wg-LNk"/>
         <segue reference="EOe-I7-MbV"/>
-        <segue reference="CvT-xh-OQt"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
