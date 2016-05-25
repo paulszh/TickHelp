@@ -46,18 +46,21 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             
+            //check if the friend request has been accepted
+            let accepted = snapshot.value.objectForKey("accepted") as! Bool
+            if(accepted){
+                let uid = snapshot.value.objectForKey("uid") as! String!
+                let nickname = snapshot.value.objectForKey("nickname") as! String!
+                let username = snapshot.value.objectForKey("username") as! String!
             
-            let uid = snapshot.value.objectForKey("uid") as! String!
-            let nickname = snapshot.value.objectForKey("nickname") as! String!
-            let username = snapshot.value.objectForKey("username") as! String!
+                let newFriend = Conversation(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false)
+                self.conversations.append(newFriend)
             
-            let newCon = Conversation(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false)
-            self.conversations.append(newCon)
+                print("count: \(uid)")
+                print("count1: \(self.conversations.count)")
             
-            print("count: \(uid)")
-            print("count1: \(self.conversations.count)")
-            
-            self.friendTable.reloadData()
+                self.friendTable.reloadData()
+            }
         })
         
     }
@@ -101,7 +104,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             // print(snapshot.value)
             
             constant.other_nickname = (snapshot.value.objectForKey("nickname") as? String)!
-             constant.other_username = (snapshot.value.objectForKey("username") as? String)!
+            constant.other_username = (snapshot.value.objectForKey("username") as? String)!
             
             //   print("The nickname is: \(constant.usernameFromOtherUser)")
             }, withCancelBlock: { error in
@@ -110,6 +113,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
         performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
