@@ -51,6 +51,10 @@ class switchMode: UIViewController {
         }
     }
     
+    @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         oldViewController.willMoveToParentViewController(nil)
         self.addChildViewController(newViewController)
