@@ -133,6 +133,29 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
                 print(error.description)
         })
         
+        let alertController = UIAlertController(title: nil, message: "Do you want to add this user as a friend?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // Nothing to do here
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Confirm Friend", style: .Default) { (action) in
+            // TO-DO
+            // Add code to update friend status in firebase
+        }
+        alertController.addAction(OKAction)
+        
+        let destroyAction = UIAlertAction(title: "Delete Request", style: .Destructive) { (action) in
+            print(action)
+        }
+        alertController.addAction(destroyAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // TODO
+            // Add code here to delete friend request status in firebase
+        }
+        
     }
 
     @IBAction func acceptRequest(sender: UIButton) {

@@ -148,6 +148,24 @@ class JSQChatViewController: JSQMessagesViewController {
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
+    @IBAction func backBtnPressed(sender: UIBarButtonItem) {
+    /*    if(constant.enter_chat_origin == "Friends"){
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchFriends")
+            self.presentViewController(next, animated: true, completion: nil)
+        }
+        if(constant.enter_chat_origin == "NearbyUsers"){
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchConversation")
+            self.presentViewController(next, animated: true, completion: nil)
+        }*/
+        
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
+        self.presentViewController(next, animated: true, completion: nil)
+        
+        
+        
+        
+        
+    }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
         let alertController = UIAlertController(title: title, message: "Do you really want to add this user as a friend?", preferredStyle:UIAlertControllerStyle.Alert)

@@ -721,7 +721,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gvQ-v3-BfE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tdw-dm-HZY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -729,6 +729,11 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dC7-oV-ceZ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SML-M1-Agz">
+                            <connections>
+                                <action selector="backBtnPressed:" destination="Kc7-K7-agp" id="SP7-cZ-9U9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kXT-qN-lx0">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1036,7 +1041,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GPq-dt-xCk" id="Fmh-jE-FWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZU6-ir-sVK">
@@ -1120,7 +1125,7 @@
         <!--Friend Navigation View Controller-->
         <scene sceneID="pZ5-UO-5HT">
             <objects>
-                <navigationController title="Friend Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="ZbE-Wm-SJS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SwitchFriends" title="Friend Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="ZbE-Wm-SJS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="Groups" id="Iid-de-qck"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O2T-C7-XHH">
@@ -1186,7 +1191,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tS0-wg-LNk"/>
-        <segue reference="jWu-Nv-9KG"/>
+        <segue reference="77H-7K-a2y"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

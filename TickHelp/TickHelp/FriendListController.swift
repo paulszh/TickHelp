@@ -111,7 +111,35 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
                 print(error.description)
         })
         
-        performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
+        let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Chat", style: .Default) { (action) in
+            // need to know where we entered the conversation
+            constant.enter_chat_origin = "Friends"
+            self.performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
+            
+        }
+        alertController.addAction(OKAction)
+        
+        let supportAction = UIAlertAction(title: "ThumbsUp!", style: .Default) { (action) in
+            
+        }
+        alertController.addAction(supportAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+        
+        
+        
+        
+        
+    //    performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
     }
     
     
