@@ -710,7 +710,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZW-Wg-lpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648" y="1851"/>
+            <point key="canvasLocation" x="2464" y="1774"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="sqr-63-az9">
@@ -721,7 +721,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gvQ-v3-BfE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tdw-dm-HZY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -836,7 +836,7 @@
         <scene sceneID="GeG-ai-hhk">
             <objects>
                 <navigationController storyboardIdentifier="SwitchConversation" title="Conversation View Controller" id="Xdc-zh-iqc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="NearBy" image="chat" id="h1M-Q4-dbW"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="chat" id="h1M-Q4-dbW"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Qf-8T-0SF">
@@ -1191,7 +1191,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tS0-wg-LNk"/>
-        <segue reference="77H-7K-a2y"/>
+        <segue reference="jWu-Nv-9KG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
