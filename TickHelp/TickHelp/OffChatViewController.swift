@@ -29,6 +29,28 @@ class OffChatViewController: JSQMessagesViewController{
     @IBOutlet weak var tblChat: UITableView!
     
     
+    @IBAction func offlineBackPressed(sender: UIBarButtonItem) {
+        
+        // need to check whether the user is using the online or the offline mode
+        if(constant.uid == ""){
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("offlineNearbyUsers")
+            self.presentViewController(next, animated: true, completion: nil)
+        }
+        else{
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
+            self.presentViewController(next, animated: true, completion: nil)
+        }
+        // scenario one user disconnects
+        if(!self.appDelegate.mpcOfflineManager.session.connectedPeers.isEmpty){
+            // Code below is the same as ending a chat session
+            let messageDictionary: [String: String] = [kCommunicationsMessageTerm: kCommunicationsEndConnectionTerm]
+            if appDelegate.mpcOfflineManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcOfflineManager.session.connectedPeers[0] ){
+            //    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                self.appDelegate.mpcOfflineManager.session.disconnect()
+            //    })
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero

@@ -148,6 +148,24 @@ class JSQChatViewController: JSQMessagesViewController {
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
+    @IBAction func backBtnPressed(sender: UIBarButtonItem) {
+    /*    if(constant.enter_chat_origin == "Friends"){
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchFriends")
+            self.presentViewController(next, animated: true, completion: nil)
+        }
+        if(constant.enter_chat_origin == "NearbyUsers"){
+            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchConversation")
+            self.presentViewController(next, animated: true, completion: nil)
+        }*/
+        
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
+        self.presentViewController(next, animated: true, completion: nil)
+        
+        
+        
+        
+        
+    }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
         let alertController = UIAlertController(title: title, message: "Do you really want to add this user as a friend?", preferredStyle:UIAlertControllerStyle.Alert)
@@ -155,17 +173,19 @@ class JSQChatViewController: JSQMessagesViewController {
         alertController.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default)
         { action -> Void in
             // Put your code here
+            //User info
             let uid = Firebase(url: constant.userURL).authData.uid
-            
             let ref = Firebase(url: constant.userURL + "/users/" + uid)
-            
             let listRef = ref.childByAppendingPath("friends")
             
+           
             //Add Friend
             
             let friend = ["uid": constant.other_uid,
                 "nickname" : constant.other_nickname,
-                "username" : constant.other_username ]
+                "username" : constant.other_username,
+                "accepted" : false,
+                "needToAccept" : false]
             
             print("username: \(constant.other_username)" )
             print("nickname: \(constant.other_nickname)" )
@@ -180,6 +200,35 @@ class JSQChatViewController: JSQMessagesViewController {
                     print("Data saved successfully!")
                 }
             })
+            
+            
+            //Opposite info
+            let oppositeUid = constant.other_uid
+            let oppositeRef = Firebase(url: constant.userURL + "/users/" + oppositeUid)
+            let oppositeListRef = oppositeRef.childByAppendingPath("friends")
+            
+            
+            let oppositeFriend = ["uid": constant.uid,
+                "nickname" : constant.nickname,
+                "username" : constant.username,
+                "accepted" : false,
+                "needToAccept" : true]
+            
+            print("username: \(constant.other_username)" )
+            print("nickname: \(constant.other_nickname)" )
+            
+            let oppositeFriendRef = oppositeListRef.childByAutoId()
+            
+            oppositeFriendRef.setValue(oppositeFriend, withCompletionBlock: {
+                (error:NSError?, ref:Firebase!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                }
+            })
+
+            
         })
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default)
