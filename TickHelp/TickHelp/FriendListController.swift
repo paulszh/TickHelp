@@ -110,12 +110,13 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        
+        /*
         let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             // ...
         }
+        
         alertController.addAction(cancelAction)
         
         let OKAction = UIAlertAction(title: "Chat", style: .Default) { (action) in
@@ -133,6 +134,29 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.presentViewController(alertController, animated: true) {
             // ...
+        }*/
+        let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // Nothing to do here
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Chat Now", style: .Default) { (action) in
+            self.performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
+            // TO-DO
+            // Add code to update friend status in firebase
+        }
+        alertController.addAction(OKAction)
+        
+        let destroyAction = UIAlertAction(title: "Remove Friend", style: .Destructive) { (action) in
+            print(action)
+        }
+        alertController.addAction(destroyAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // TODO
+            // Add code here to delete friend request status in firebase
         }
         
         

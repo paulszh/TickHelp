@@ -21,7 +21,8 @@ class RankingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+
+    @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
         self.presentViewController(next, animated: true, completion: nil)
     }

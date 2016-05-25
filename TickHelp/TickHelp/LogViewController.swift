@@ -75,6 +75,12 @@ class LogViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func backHomeBtnPressed(sender: AnyObject) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
