@@ -74,6 +74,10 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         return conversations.count
     }
     
+    
+    
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.friendTable.dequeueReusableCellWithIdentifier("pendingFriendCell", forIndexPath:indexPath) as! PendingFriendCell
