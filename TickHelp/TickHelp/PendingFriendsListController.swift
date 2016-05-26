@@ -102,7 +102,7 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
             cell.waitingLabel.hidden = true
         }
         else{
-           cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.userInteractionEnabled = false
         }
         
