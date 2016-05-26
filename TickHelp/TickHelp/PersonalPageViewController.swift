@@ -83,15 +83,11 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     
-    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
-     //   locationRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-     //   })
-        
-        
+    @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
         self.presentViewController(next, animated: true, completion: nil)
-
     }
+
     
     func centerCrop(image: UIImage) -> UIImage{
         let width = image.size.width

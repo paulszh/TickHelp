@@ -192,7 +192,8 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        
+        // need to know where we entered the conversation
+        constant.enter_chat_origin = "NearbyUsers"
         performSegueWithIdentifier("ConversationSegue", sender: indexPath.row)
     }
     

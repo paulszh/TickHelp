@@ -24,6 +24,9 @@ class JSQChatViewController: JSQMessagesViewController {
     let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid).childByAppendingPath("MessageList");
     let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid).childByAppendingPath("MessageList");
     
+    
+    var isFriend = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
@@ -53,6 +56,19 @@ class JSQChatViewController: JSQMessagesViewController {
         // Anywhere that AvatarIDWoz is used you should replace with you currentUserVariable
     //    senderId = AvatarIdWoz
         senderId = constant.nickname
+        
+        let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/friends")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            let tempUid = snapshot.value.objectForKey("uid") as! String
+            print("tempUid: \(tempUid)")
+            if(tempUid == constant.other_uid){
+                self.isFriend = true
+                print("they are friends")
+            }
+        })
+                
+                 
+
         
         
         
@@ -148,24 +164,60 @@ class JSQChatViewController: JSQMessagesViewController {
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
+    @IBAction func backBtnPressed(sender: UIBarButtonItem) {
+        
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
+        self.presentViewController(next, animated: true, completion: nil)
+        
+        
+        
+        
+        
+    }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
-        let alertController = UIAlertController(title: title, message: "Do you really want to add this user as a friend?", preferredStyle:UIAlertControllerStyle.Alert)
         
-        alertController.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default)
-        { action -> Void in
-            // Put your code here
+        if(isFriend){
+            let alertController = UIAlertController(title: nil, message: "You have already added \(constant.other_nickname)", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title:"OK", style: .Default){(action) in
+            
+            }
+            
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true) {
+                // TODO
+                // Add code here to delete friend request status in firebase
+            }
+
+
+        
+        }
+        else{
+        let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // Nothing to do here
+        }
+        alertController.addAction(cancelAction)
+        
+            let OKAction = UIAlertAction(title: "Add Friend", style: .Default) { (action) in
+            // TO-DO
+            // Add code to update friend status in firebase
+            //User info
             let uid = Firebase(url: constant.userURL).authData.uid
-            
             let ref = Firebase(url: constant.userURL + "/users/" + uid)
-            
             let listRef = ref.childByAppendingPath("friends")
+            
             
             //Add Friend
             
             let friend = ["uid": constant.other_uid,
-                "nickname" : constant.other_nickname,
-                "username" : constant.other_username ]
+                          "nickname" : constant.other_nickname,
+                          "username" : constant.other_username,
+                          "accepted" : false,
+                          "needToAccept" : false]
             
             print("username: \(constant.other_username)" )
             print("nickname: \(constant.other_nickname)" )
@@ -180,13 +232,48 @@ class JSQChatViewController: JSQMessagesViewController {
                     print("Data saved successfully!")
                 }
             })
-        })
+            
+            
+            //Opposite info
+            let oppositeUid = constant.other_uid
+            let oppositeRef = Firebase(url: constant.userURL + "/users/" + oppositeUid)
+            let oppositeListRef = oppositeRef.childByAppendingPath("friends")
+            
+            
+            let oppositeFriend = ["uid": constant.uid,
+                                  "nickname" : constant.nickname,
+                                  "username" : constant.username,
+                                  "accepted" : false,
+                                  "needToAccept" : true]
+            
+            print("username: \(constant.other_username)" )
+            print("nickname: \(constant.other_nickname)" )
+            
+            let oppositeFriendRef = oppositeListRef.childByAutoId()
+            
+            oppositeFriendRef.setValue(oppositeFriend, withCompletionBlock: {
+                (error:NSError?, ref:Firebase!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                }
+            })
+            
+        }
+        alertController.addAction(OKAction)
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default)
-        { action -> Void in
-            // Put your code here
-        })
-        self.presentViewController(alertController, animated: true, completion: nil)
+        let rateAction = UIAlertAction(title: "ThumbsUp!", style: .Default) { (action) in
+            print(action)
+        }
+        alertController.addAction(rateAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // TODO
+            // Add code here to delete friend request status in firebase
+        }
+        }
+        
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

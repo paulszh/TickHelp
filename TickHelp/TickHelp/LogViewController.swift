@@ -17,10 +17,6 @@ class LogViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     var ref = Firebase(url: constant.userURL)
 
-
-    
-    // get a reference to the appDelegate
-    var mpcManager: MPCManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +61,7 @@ class LogViewController: UIViewController {
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
                 constant.uid = authData.uid
-                
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.mpcManager = MPCManager();
+
                 print("App delegate called.")
                 self.performSegueWithIdentifier("loginSeg", sender: self)
                 
@@ -75,6 +69,12 @@ class LogViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func backHomeBtnPressed(sender: AnyObject) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
