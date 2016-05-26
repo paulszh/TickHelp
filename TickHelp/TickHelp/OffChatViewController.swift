@@ -182,7 +182,7 @@ class OffChatViewController: JSQMessagesViewController{
             
             // 5
             self.finishReceivingMessage()
-            ++i
+            i += 1
         }
     }
     func addMessage(id: String, text: String) {
