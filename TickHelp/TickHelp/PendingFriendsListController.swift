@@ -98,8 +98,7 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         print("need to accept? \(needToAccepts[indexPath.row])")
         
         if(needToAccepts[indexPath.row]){
-            print("hello?")
-            cell.waitingLabel.hidden = true
+            cell.waitingLabel.text = "Please click to accept or reject"
         }
         else{
             cell.selectionStyle = UITableViewCellSelectionStyle.None
