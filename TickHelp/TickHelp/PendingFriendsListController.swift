@@ -26,7 +26,6 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         
         friendTable.delegate = self
         friendTable.dataSource = self
-        
         // Register cell classes
         //friendTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "pendingFriendCell")
         
@@ -49,13 +48,14 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
             
             //check if the friend request has been acccepted
             let accepted = snapshot.value.objectForKey("accepted") as! Bool
-            if(!accepted){
+            print("these are pending friends")
+            if(!accepted ){
                 let needToAccept = snapshot.value.objectForKey("needToAccept") as! Bool
                 //check if the user needs to accept the friend request
                 let uid = snapshot.value.objectForKey("uid") as! String!
                 let nickname = snapshot.value.objectForKey("nickname") as! String!
                 let username = snapshot.value.objectForKey("username") as! String!
-            
+                print(nickname)
                 let newCon = Conversation(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false)
                 self.conversations.append(newCon)
                 self.needToAccepts.append(needToAccept)
@@ -98,14 +98,11 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         print("need to accept? \(needToAccepts[indexPath.row])")
         
         if(needToAccepts[indexPath.row]){
-            print("hello?")
-            cell.acceptButton.hidden = false
-            cell.acceptButton.tag = indexPath.row
-            cell.acceptButton.addTarget(self, action: "acceptRequest", forControlEvents: .TouchUpInside)
+            cell.waitingLabel.text = "Please click to accept or reject"
         }
         else{
-            cell.acceptButton.hidden = true
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.userInteractionEnabled = false
         }
         
         return cell
@@ -125,6 +122,7 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         otherUserRef.observeEventType(.Value, withBlock: { snapshot in
             // print(snapshot.value)
             
+            
             constant.other_nickname = (snapshot.value.objectForKey("nickname") as? String)!
             constant.other_username = (snapshot.value.objectForKey("username") as? String)!
             
@@ -143,11 +141,80 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         let OKAction = UIAlertAction(title: "Confirm Friend", style: .Default) { (action) in
             // TO-DO
             // Add code to update friend status in firebase
+            let friendToAdd = self.conversations[indexPath.row]
+            
+           
+            let friendUid = friendToAdd.display_uid
+            //let listRef = ref.childByAppendingPath("friends")
+            
+            print("frientUid: \(friendUid)")
+            
+            let uid = Firebase(url: constant.userURL).authData.uid
+            let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
+            dispatch_async(dispatch_get_main_queue()){
+            ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+                let tempUid = snapshot.value.objectForKey("uid") as! String
+                print("tempUid: \(tempUid)")
+                if(tempUid == friendUid){
+                    let tempRef = snapshot.ref
+                    tempRef.updateChildValues(["accepted": true])
+                    self.conversations.removeAtIndex(indexPath.row)
+                    self.friendTable.reloadData()
+                
+                }
+            })
+            }
+            
+            let friendRef = Firebase(url: constant.userURL + "/users/" + friendUid! + "/friends")
+            friendRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+                let tempUid = snapshot.value.objectForKey("uid") as! String
+                print("tempUid: \(tempUid)")
+                if(tempUid == constant.uid){
+                    let tempRef = snapshot.ref
+                    tempRef.updateChildValues(["accepted": true])
+                }
+            })
+            
         }
         alertController.addAction(OKAction)
         
         let destroyAction = UIAlertAction(title: "Delete Request", style: .Destructive) { (action) in
             print(action)
+            
+            let friendToAdd = self.conversations[indexPath.row]
+            
+            
+            let friendUid = friendToAdd.display_uid
+            //let listRef = ref.childByAppendingPath("friends")
+            
+            print("frientUid: \(friendUid)")
+            
+            let uid = Firebase(url: constant.userURL).authData.uid
+            let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
+            dispatch_async(dispatch_get_main_queue()){
+                ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+                    let tempUid = snapshot.value.objectForKey("uid") as! String
+                    print("tempUid: \(tempUid)")
+                    if(tempUid == friendUid){
+                        let tempRef = snapshot.ref
+                        tempRef.removeValue()
+                        self.conversations.removeAtIndex(indexPath.row)
+                        self.friendTable.reloadData()
+                        
+                    }
+                })
+            }
+            
+            let friendRef = Firebase(url: constant.userURL + "/users/" + friendUid! + "/friends")
+            friendRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+                let tempUid = snapshot.value.objectForKey("uid") as! String
+                print("tempUid: \(tempUid)")
+                if(tempUid == constant.uid){
+                    let tempRef = snapshot.ref
+                    tempRef.removeValue()
+                }
+            })
+            
         }
         alertController.addAction(destroyAction)
         
@@ -158,69 +225,7 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
         
     }
 
-    @IBAction func acceptRequest(sender: UIButton) {
-        
-        let friendToAdd = self.conversations[sender.tag]
-        
-        let uid = Firebase(url: constant.userURL).authData.uid
-        let ref = Firebase(url: constant.userURL + "/users/" + uid)
-        //let listRef = ref.childByAppendingPath("friends")
-        
-        let friendUid = friendToAdd.display_uid
-        print("frientUid: \(friendUid)")
-        //Add Friend
-        /*
-        let friend = ["uid": (friendToAdd.display_uid! as String),
-                      "nickname" : friendToAdd.display_nickname,
-                      "username" : friendToAdd.display_username,
-                      "accepted" : true,
-                      "needToAccept" : false]
-        
-        print("username: \(constant.other_username)" )
-        print("nickname: \(constant.other_nickname)" )
-        
-        let friendRef = listRef.childByAutoId()
-        
-        friendRef.setValue(friend, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
-        })
-        
-        
-        //Opposite info
-        let oppositeUid = constant.other_uid
-        let oppositeRef = Firebase(url: constant.userURL + "/users/" + oppositeUid)
-        let oppositeListRef = oppositeRef.childByAppendingPath("friends")
-        
-        
-        let oppositeFriend = ["uid": constant.uid,
-                              "nickname" : constant.nickname,
-                              "username" : constant.username,
-                              "accepted" : true,
-                              "needToAccept" : true]
-        
-        print("username: \(constant.other_username)" )
-        print("nickname: \(constant.other_nickname)" )
-        
-        let oppositeFriendRef = oppositeListRef.childByAutoId()
-        
-        oppositeFriendRef.setValue(oppositeFriend, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
-        })
-        
-        self.friendTable.reloadData()*/
-        
-        
-    }
+
 
     
     /*

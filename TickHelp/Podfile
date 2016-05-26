@@ -9,6 +9,7 @@ target 'TickHelp' do
     pod "TextFieldEffects"
     pod 'Firebase', '>= 2.5.1'
     pod 'JSQMessagesViewController'
+    pod 'FoldingCell', '~> 0.8.1'
 end
 
 target 'TickHelpTests' do

@@ -1,22 +1,19 @@
 //
-//  PendingFriendCell.swift
+//  FriendCell.swift
 //  TickHelp
 //
-//  Created by Lihui(Luna) Lu on 5/24/16.
+//  Created by Lihui(Luna) Lu on 5/25/16.
 //  Copyright © 2016 Ariel. All rights reserved.
 //
 
 import UIKit
 
-class PendingFriendCell: UITableViewCell {
+class FriendCell: UITableViewCell {
+
     @IBOutlet weak var userNickname: UILabel!
-
-
-    @IBOutlet weak var waitingLabel: UILabel!
-    
+    @IBOutlet weak var userImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // Initialization code
     }
 

@@ -19,7 +19,7 @@ class switchFriendRequestsController: UIViewController {
     
     
     override func viewDidLoad() {
-        self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pendingFriendList")
+        self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("confirmedFriendList")
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
@@ -40,13 +40,13 @@ class switchFriendRequestsController: UIViewController {
     
     @IBAction func showComponent(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pendingFriendList")
+            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("confirmedFriendList")
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController
         } else {
             self.appDelagate.mpcOfflineManager = MPCOfflineManager()
-            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("confirmedFriendList")
+            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pendingFriendList")
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController

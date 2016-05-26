@@ -24,6 +24,9 @@ class JSQChatViewController: JSQMessagesViewController {
     let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid).childByAppendingPath("MessageList");
     let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid).childByAppendingPath("MessageList");
     
+    
+    var isFriend = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
@@ -53,6 +56,19 @@ class JSQChatViewController: JSQMessagesViewController {
         // Anywhere that AvatarIDWoz is used you should replace with you currentUserVariable
     //    senderId = AvatarIdWoz
         senderId = constant.nickname
+        
+        let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/friends")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            let tempUid = snapshot.value.objectForKey("uid") as! String
+            print("tempUid: \(tempUid)")
+            if(tempUid == constant.other_uid){
+                self.isFriend = true
+                print("they are friends")
+            }
+        })
+                
+                 
+
         
         
         
@@ -149,14 +165,6 @@ class JSQChatViewController: JSQMessagesViewController {
         self.collectionView?.reloadData()
     }
     @IBAction func backBtnPressed(sender: UIBarButtonItem) {
-    /*    if(constant.enter_chat_origin == "Friends"){
-            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchFriends")
-            self.presentViewController(next, animated: true, completion: nil)
-        }
-        if(constant.enter_chat_origin == "NearbyUsers"){
-            let next = self.storyboard!.instantiateViewControllerWithIdentifier("SwitchConversation")
-            self.presentViewController(next, animated: true, completion: nil)
-        }*/
         
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
         self.presentViewController(next, animated: true, completion: nil)
@@ -168,6 +176,25 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
+        
+        if(isFriend){
+            let alertController = UIAlertController(title: nil, message: "You have already added \(constant.other_nickname)", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title:"OK", style: .Default){(action) in
+            
+            }
+            
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true) {
+                // TODO
+                // Add code here to delete friend request status in firebase
+            }
+
+
+        
+        }
+        else{
         let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -245,6 +272,8 @@ class JSQChatViewController: JSQMessagesViewController {
             // TODO
             // Add code here to delete friend request status in firebase
         }
+        }
+        
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -10,6 +10,9 @@
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259430E41CF4F9240064451B /* PendingFriendCell.swift */; };
+		25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E6F1CF6850B00D527D2 /* FriendCell.swift */; };
+		25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */; };
+		25B42E761CF6C07500D527D2 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E751CF6C07500D527D2 /* RankingCell.swift */; };
 		852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */; };
 		852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */; };
 		856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856489A51CDED3C000626BD4 /* DisplayNameController.swift */; };
@@ -35,7 +38,6 @@
 		8D30E0A71CB9C435001C186B /* TickHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0A61CB9C435001C186B /* TickHelpUITests.swift */; };
 		8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0B61CB9C826001C186B /* PersonalPageViewController.swift */; };
 		8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */; };
-		8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */; };
 		8D30E0C01CBB07FA001C186B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */; };
 		8D30E0C81CBB2447001C186B /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C71CBB2447001C186B /* test.mp4 */; };
 		8D30E0CA1CBB2946001C186B /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0C91CBB2946001C186B /* test2.mp4 */; };
@@ -66,6 +68,9 @@
 /* Begin PBXFileReference section */
 		085852851CBF59220099CD1D /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		259430E41CF4F9240064451B /* PendingFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendCell.swift; sourceTree = "<group>"; };
+		25B42E6F1CF6850B00D527D2 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
+		25B42E751CF6C07500D527D2 /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.release.xcconfig"; sourceTree = "<group>"; };
 		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +106,6 @@
 		8D30E0A81CB9C435001C186B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D30E0B61CB9C826001C186B /* PersonalPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageViewController.swift; sourceTree = "<group>"; };
 		8D30E0B91CB9C8B0001C186B /* offlineChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = offlineChatViewController.swift; sourceTree = "<group>"; };
-		8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8D30E0C71CBB2447001C186B /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		8D30E0C91CBB2946001C186B /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		85CA5B771CC37E750063F287 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				25B42E6F1CF6850B00D527D2 /* FriendCell.swift */,
 				85CA5B781CC37E860063F287 /* FriendListController.swift */,
 				852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */,
 				852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */,
@@ -276,7 +281,8 @@
 		8D30E0BB1CB9C8EA001C186B /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				8D30E0BC1CB9C8FE001C186B /* RankingViewController.swift */,
+				25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */,
+				25B42E751CF6C07500D527D2 /* RankingCell.swift */,
 			);
 			name = Ranking;
 			sourceTree = "<group>";
@@ -497,13 +503,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */,
 				259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */,
-				8D30E0BD1CB9C8FE001C186B /* RankingViewController.swift in Sources */,
 				852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
 				85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
 				8D1870341CBDA17600B610C8 /* chatTableViewCell.swift in Sources */,
+				25B42E761CF6C07500D527D2 /* RankingCell.swift in Sources */,
+				25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */,
 				8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */,
 				8D30E0BA1CB9C8B0001C186B /* offlineChatViewController.swift in Sources */,
 				856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */,
