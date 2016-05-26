@@ -55,9 +55,9 @@ class RankingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("rankingCell", forIndexPath: indexPath) as! RankingCell
-        cell.userNickname.text = "马拉红"
+        cell.userNickname.text = "Hello"
         
-        cell.userBigNickname.text = "马拉红"
+        cell.userBigNickname.text = "Hello"
         cell.userBigUsername.text = "hdx@ucsd.edu"
         cell.userBigUserdescription.text = "some description"
         return cell
