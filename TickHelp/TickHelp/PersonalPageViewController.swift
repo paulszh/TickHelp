@@ -31,7 +31,7 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
             print(snapshot.value)
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
-            self.userID.text = "@\(snapshot.value.objectForKey("username") as! String)"
+            self.userID.text = "\(snapshot.value.objectForKey("username") as! String)"
             self.userID.sizeToFit()
             //Store the image to firebase
             let base64EncodedString = snapshot.value.objectForKey("image_path") as! String

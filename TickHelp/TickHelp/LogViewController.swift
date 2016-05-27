@@ -40,7 +40,7 @@ class LogViewController: UIViewController {
     
     func setPlacehoder(){
         
-        let placeholder1 = NSAttributedString(string: "User name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder1 = NSAttributedString(string: "Username (Email address)", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
 
         let placeholder2 = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         

@@ -178,7 +178,7 @@ class JSQChatViewController: JSQMessagesViewController {
     @IBAction func AddFriendBtn(sender: AnyObject) {
         
         if(isFriend){
-            SweetAlert().showAlert("Oops!", subTitle: "You have already added \(constant.other_nickname)", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+            SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
         }
             
         else{

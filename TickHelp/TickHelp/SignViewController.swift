@@ -82,8 +82,8 @@ class SignViewController: UIViewController {
     
     func setPlacehoder(){
         
-        let placeholder1 = NSAttributedString(string: "User name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
-        let placeholder2 = NSAttributedString(string: "Nick name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder1 = NSAttributedString(string: "Username (Email address)", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder2 = NSAttributedString(string: "Nickname", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         let placeholder3 = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         
         username.attributedPlaceholder = placeholder1
