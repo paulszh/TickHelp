@@ -73,6 +73,7 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         let imageRef = ref.childByAppendingPath("image_path")
         imageRef.setValue(base64String)
+        SweetAlert().showAlert("Success", subTitle: "Upload photo successfully", style: AlertStyle.Success, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
     }
     
     

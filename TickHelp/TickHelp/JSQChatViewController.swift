@@ -168,11 +168,7 @@ class JSQChatViewController: JSQMessagesViewController {
         
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
         self.presentViewController(next, animated: true, completion: nil)
-        
-        
-        
-        
-        
+
     }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
