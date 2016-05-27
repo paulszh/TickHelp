@@ -25,7 +25,7 @@ class ViewController: VideoSplashViewController {
         super.viewDidLoad()
         
         //Video
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test3", ofType: "mp4")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("test5", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
         self.alwaysRepeat = true
