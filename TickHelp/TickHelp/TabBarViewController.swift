@@ -14,8 +14,8 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        UITabBar.appearance().barTintColor = UIColor.blackColor()
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().barTintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor.blackColor()
         
         if(constant.enter_chat_origin == "Friends"){
             self.selectedIndex = 1

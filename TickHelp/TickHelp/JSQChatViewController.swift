@@ -178,22 +178,9 @@ class JSQChatViewController: JSQMessagesViewController {
     @IBAction func AddFriendBtn(sender: AnyObject) {
         
         if(isFriend){
-            let alertController = UIAlertController(title: nil, message: "You have already added \(constant.other_nickname)", preferredStyle: .Alert)
-            
-            let OKAction = UIAlertAction(title:"OK", style: .Default){(action) in
-            
-            }
-            
-            alertController.addAction(OKAction)
-            
-            self.presentViewController(alertController, animated: true) {
-                // TODO
-                // Add code here to delete friend request status in firebase
-            }
-
-
-        
+            SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
         }
+            
         else{
         let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
