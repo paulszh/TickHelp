@@ -24,6 +24,9 @@ class JSQChatViewController: JSQMessagesViewController {
     let conversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.uid).childByAppendingPath("MessageList");
     let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid).childByAppendingPath("MessageList");
     
+    
+    var isFriend = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
@@ -53,6 +56,19 @@ class JSQChatViewController: JSQMessagesViewController {
         // Anywhere that AvatarIDWoz is used you should replace with you currentUserVariable
     //    senderId = AvatarIdWoz
         senderId = constant.nickname
+        
+        let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/friends")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            let tempUid = snapshot.value.objectForKey("uid") as! String
+            print("tempUid: \(tempUid)")
+            if(tempUid == constant.other_uid){
+                self.isFriend = true
+                print("they are friends")
+            }
+        })
+                
+                 
+
         
         
         
@@ -90,11 +106,12 @@ class JSQChatViewController: JSQMessagesViewController {
             
             // 4 Need to make sure not to display messages sent by self
             let sender = snapshot.value["senderId"] as! String
+            let receiver = snapshot.value["opposite_senderID"] as! String
            // print("senderId: \(sender)" )
             if(sender == constant.other_uid){
                 self.addMessage(id, text: text)
             }
-            else{
+            else if (receiver == constant.other_uid) {
                 self.messages.append(JSQMessage(senderId: constant.nickname, displayName: constant.nickname, text: text))
                 
             }
@@ -147,33 +164,99 @@ class JSQChatViewController: JSQMessagesViewController {
         self.finishSendingMessageAnimated(true)
         self.collectionView?.reloadData()
     }
+    @IBAction func backBtnPressed(sender: UIBarButtonItem) {
+        
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController")
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
-        let uid = Firebase(url: constant.userURL).authData.uid
         
-        let ref = Firebase(url: constant.userURL + "/users/" + uid)
+        if(isFriend){
+            SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+        }
+            
+        else{
+        let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
-        let listRef = ref.childByAppendingPath("friends")
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // Nothing to do here
+        }
+        alertController.addAction(cancelAction)
         
-        //Add Friend
+            let OKAction = UIAlertAction(title: "Add Friend", style: .Default) { (action) in
+            // TO-DO
+            // Add code to update friend status in firebase
+            //User info
+            let uid = Firebase(url: constant.userURL).authData.uid
+            let ref = Firebase(url: constant.userURL + "/users/" + uid)
+            let listRef = ref.childByAppendingPath("friends")
+            
+            
+            //Add Friend
+            
+            let friend = ["uid": constant.other_uid,
+                          "nickname" : constant.other_nickname,
+                          "username" : constant.other_username,
+                          "accepted" : false,
+                          "needToAccept" : false]
+            
+            print("username: \(constant.other_username)" )
+            print("nickname: \(constant.other_nickname)" )
+            
+            let friendRef = listRef.childByAutoId()
+            
+            friendRef.setValue(friend, withCompletionBlock: {
+                (error:NSError?, ref:Firebase!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                }
+            })
+            
+            
+            //Opposite info
+            let oppositeUid = constant.other_uid
+            let oppositeRef = Firebase(url: constant.userURL + "/users/" + oppositeUid)
+            let oppositeListRef = oppositeRef.childByAppendingPath("friends")
+            
+            
+            let oppositeFriend = ["uid": constant.uid,
+                                  "nickname" : constant.nickname,
+                                  "username" : constant.username,
+                                  "accepted" : false,
+                                  "needToAccept" : true]
+            
+            print("username: \(constant.other_username)" )
+            print("nickname: \(constant.other_nickname)" )
+            
+            let oppositeFriendRef = oppositeListRef.childByAutoId()
+            
+            oppositeFriendRef.setValue(oppositeFriend, withCompletionBlock: {
+                (error:NSError?, ref:Firebase!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                }
+            })
+            
+        }
+        alertController.addAction(OKAction)
         
-        let friend = ["uid": constant.other_uid,
-                      "nickname" : constant.other_nickname,
-                      "username" : constant.other_username ]
+        let rateAction = UIAlertAction(title: "ThumbsUp!", style: .Default) { (action) in
+            print(action)
+        }
+        alertController.addAction(rateAction)
         
-        print("username: \(constant.other_username)" )
-        print("nickname: \(constant.other_nickname)" )
+        self.presentViewController(alertController, animated: true) {
+            // TODO
+            // Add code here to delete friend request status in firebase
+        }
+        }
         
-        let friendRef = listRef.childByAutoId()
-        
-        friendRef.setValue(friend, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
-        })
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -185,7 +268,6 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource? {
-    //    return messages[indexPath.item].senderId == AvatarIdWoz ? outgoingBubble : incomingBubble
         return messages[indexPath.item].senderId == constant.nickname ? outgoingBubble : incomingBubble
     }
     
@@ -198,7 +280,6 @@ class JSQChatViewController: JSQMessagesViewController {
         switch message.senderId {
             
         case constant.nickname:
-    //    case AvatarIdWoz:
             return nil
         default:
             guard let senderDisplayName = message.senderDisplayName else {
@@ -211,7 +292,6 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView?, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout?, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-    //    return messages[indexPath.item].senderId == AvatarIdWoz ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
         return messages[indexPath.item].senderId == constant.nickname ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
     }
     

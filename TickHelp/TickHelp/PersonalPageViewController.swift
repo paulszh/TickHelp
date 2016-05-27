@@ -12,9 +12,11 @@ import Firebase
 
 class PersonalPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var userID: UILabel!
     @IBOutlet weak var avator: UIImageView!
     @IBOutlet weak var userName: UILabel!
     let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
+    let locationRef = Firebase(url: constant.userURL + "/locations/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
             print(snapshot.value)
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
+            self.userID.text = "\(snapshot.value.objectForKey("username") as! String)"
+            self.userID.sizeToFit()
             //Store the image to firebase
             let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
             let imageRetrieve = NSData(base64EncodedString: base64EncodedString ,
@@ -69,6 +73,7 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         let imageRef = ref.childByAppendingPath("image_path")
         imageRef.setValue(base64String)
+        SweetAlert().showAlert("Success", subTitle: "Upload photo successfully", style: AlertStyle.Success, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
     }
     
     
@@ -80,6 +85,13 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         uploadtoFireBase(self.avator.image!)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+
     
     func centerCrop(image: UIImage) -> UIImage{
         let width = image.size.width

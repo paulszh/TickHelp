@@ -18,5 +18,6 @@ struct constant{
     static var other_uid = "";
     static var other_nickname = ""
     static var other_username = ""
+    static var enter_chat_origin = ""
 
 }

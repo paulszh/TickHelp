@@ -15,25 +15,32 @@ class LogViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+   
+    var clicked = false
+    
     var ref = Firebase(url: constant.userURL)
 
-
-    
-    // get a reference to the appDelegate
-    var mpcManager: MPCManager!
+    @IBOutlet weak var submit: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlacehoder();
 
+        clicked = false
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        submit.layer.cornerRadius = 5
+    }
+    
+    @IBAction func Cancel(sender: AnyObject) {
+        clicked = true
     }
     
     func setPlacehoder(){
         
-        let placeholder1 = NSAttributedString(string: "User name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder1 = NSAttributedString(string: "Username (Email address)", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
 
         let placeholder2 = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         
@@ -51,10 +58,12 @@ class LogViewController: UIViewController {
         ref.authUser(username.text, password:password.text) {
             error, authData in
             if error != nil {
-                // Something went wrong. :(
-                //print("Please check your username and password")
-                //let alert = UIAlertController(title: "", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
-                //self.presentViewController(alert, animated: true, completion: nil)
+                
+                if(!self.clicked){
+                     SweetAlert().showAlert("Error", subTitle: "Invalid username or password", style: AlertStyle.Error, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+                }
+                
+                
             } else {
 
                 // Authentication just completed successfully :)
@@ -65,16 +74,15 @@ class LogViewController: UIViewController {
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
                 constant.uid = authData.uid
-                
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.mpcManager = MPCManager();
-                print("App delegate called.")
+
                 self.performSegueWithIdentifier("loginSeg", sender: self)
                 
             }
         }
         
     }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

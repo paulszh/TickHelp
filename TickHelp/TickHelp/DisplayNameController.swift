@@ -9,12 +9,16 @@
 import UIKit
 
 class DisplayNameController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var confirm: UIButton!
     @IBOutlet weak var DisplayNameTextField: UITextField!
     let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         DisplayNameTextField.delegate = self
         setPlaceholder();
+        
+        confirm.layer.cornerRadius = 5
+
     }
     
     func setPlaceholder(){

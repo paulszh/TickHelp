@@ -13,12 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mpcOfflineManager: MPCOfflineManager!
-    
-    var mpcManager: MPCManager!
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    //        mpcOfflineManager = MPCOfflineManager()
-            mpcManager = MPCManager()
+
         return true
     }
 

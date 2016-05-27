@@ -14,10 +14,17 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        UITabBar.appearance().barTintColor = UIColor.blackColor()
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().barTintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor.blackColor()
         
-        let item0 = self.tabBar.items![0] as UITabBarItem
+        if(constant.enter_chat_origin == "Friends"){
+            self.selectedIndex = 1
+        }
+        else if(constant.enter_chat_origin == "NearbyUsers"){
+            self.selectedIndex = 0
+        }
+        
+        /*let item0 = self.tabBar.items![0] as UITabBarItem
         item0.image = UIImage(named: "chat")!
         item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
@@ -31,7 +38,7 @@ class TabBarViewController: UITabBarController, UINavigationControllerDelegate {
         
         let item3 = self.tabBar.items![3] as UITabBarItem
         item3.image = UIImage(named: "Queen")!
-        item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)*/
         
         
     }

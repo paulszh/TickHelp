@@ -21,6 +21,7 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var tableView: UITableView?
     
     var conversations = [Conversation]()
+    var conversationBuffer = Set<String>()
     var locationManager:CLLocationManager!
     var currLocation:CLLocation!
     
@@ -46,6 +47,7 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
      
      //   data has been loaded in loadDataFromFirebase()
      //   self.conversations = getConversation()
+        self.conversationBuffer.removeAll()
         self.tableView?.reloadData()
     }
     
@@ -121,10 +123,15 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
                 // retrieve data
                 let nickname = snapshot.value.objectForKey("nickname") as? String
                 let username = snapshot.value.objectForKey("username") as? String
+                let uid = snapshot.value.objectForKey("uid") as! String
+                print("nickname: \(nickname) username: \(username)")
                 // Should not add current logged-in uid to the display list
                 if(constant.uid != key){
-                    let newCon = Conversation(display_nickname: nickname, display_username: username, display_uid: key, latestMessage: username, isRead: false)
-                    self.conversations.append(newCon)
+                    if(!self.conversationBuffer.contains(uid)){
+                        let newCon = Conversation(display_nickname: nickname, display_username: username, display_uid: key, latestMessage: username, isRead: false)
+                        self.conversations.append(newCon)
+                        self.conversationBuffer.insert(uid)
+                    }
                 }
                 else{
                     // store current user's info into the global constants
@@ -185,7 +192,8 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        
+        // need to know where we entered the conversation
+        constant.enter_chat_origin = "NearbyUsers"
         performSegueWithIdentifier("ConversationSegue", sender: indexPath.row)
     }
     
