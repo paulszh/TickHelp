@@ -41,7 +41,6 @@
 		8D42C6691CCF3C70005C3E9B /* test4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D42C6681CCF3C70005C3E9B /* test4.mp4 */; };
 		8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4A791CCAADA1004F1E8F /* peer.swift */; };
 		8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */; };
-		8DF6CB641CF808C800D05E06 /* test3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8DF6CB631CF808C800D05E06 /* test3.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +104,6 @@
 		8D42C6681CCF3C70005C3E9B /* test4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test4.mp4; sourceTree = "<group>"; };
 		8D6A4A791CCAADA1004F1E8F /* peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = peer.swift; sourceTree = "<group>"; };
 		8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
-		8DF6CB631CF808C800D05E06 /* test3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				08978AB11CF82FEC00F77236 /* test5.mp4 */,
-				8DF6CB631CF808C800D05E06 /* test3.mp4 */,
 				8D42C6681CCF3C70005C3E9B /* test4.mp4 */,
 			);
 			name = Resources;
@@ -406,7 +403,6 @@
 			files = (
 				8D30E0911CB9C435001C186B /* LaunchScreen.storyboard in Resources */,
 				8D42C6691CCF3C70005C3E9B /* test4.mp4 in Resources */,
-				8DF6CB641CF808C800D05E06 /* test3.mp4 in Resources */,
 				8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */,
 				8D30E08E1CB9C435001C186B /* Assets.xcassets in Resources */,
 				08978AB21CF82FEC00F77236 /* test5.mp4 in Resources */,
