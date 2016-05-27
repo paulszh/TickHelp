@@ -39,6 +39,7 @@
 		8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0D11CBB4DE1001C186B /* Main.storyboard */; };
 		8D42C6691CCF3C70005C3E9B /* test4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D42C6681CCF3C70005C3E9B /* test4.mp4 */; };
 		8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4A791CCAADA1004F1E8F /* peer.swift */; };
+		8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		8D30E0D21CBB4DE1001C186B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D42C6681CCF3C70005C3E9B /* test4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test4.mp4; sourceTree = "<group>"; };
 		8D6A4A791CCAADA1004F1E8F /* peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = peer.swift; sourceTree = "<group>"; };
+		8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */,
 				085852851CBF59220099CD1D /* constant.swift */,
 				8D6A4A791CCAADA1004F1E8F /* peer.swift */,
+				8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */,
 				259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */,
 				852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */,
+				8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
 				85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
