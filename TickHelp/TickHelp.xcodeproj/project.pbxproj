@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
+		08978AB21CF82FEC00F77236 /* test5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 08978AB11CF82FEC00F77236 /* test5.mp4 */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259430E41CF4F9240064451B /* PendingFriendCell.swift */; };
 		25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E6F1CF6850B00D527D2 /* FriendCell.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		085852851CBF59220099CD1D /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		08978AB11CF82FEC00F77236 /* test5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test5.mp4; sourceTree = "<group>"; };
 		259430E41CF4F9240064451B /* PendingFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendCell.swift; sourceTree = "<group>"; };
 		25B42E6F1CF6850B00D527D2 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		8D30E0C61CBB2421001C186B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08978AB11CF82FEC00F77236 /* test5.mp4 */,
 				8DF6CB631CF808C800D05E06 /* test3.mp4 */,
 				8D42C6681CCF3C70005C3E9B /* test4.mp4 */,
 			);
@@ -364,7 +367,7 @@
 				TargetAttributes = {
 					8D30E0821CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = AFY9V78MYM;
+						DevelopmentTeam = PW7N3JWXUJ;
 					};
 					8D30E0961CB9C435001C186B = {
 						CreatedOnToolsVersion = 7.3;
@@ -406,6 +409,7 @@
 				8DF6CB641CF808C800D05E06 /* test3.mp4 in Resources */,
 				8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */,
 				8D30E08E1CB9C435001C186B /* Assets.xcassets in Resources */,
+				08978AB21CF82FEC00F77236 /* test5.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,7 +654,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.Ariel.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = firstProject.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
@@ -666,7 +670,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.Ariel.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = firstProject.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";

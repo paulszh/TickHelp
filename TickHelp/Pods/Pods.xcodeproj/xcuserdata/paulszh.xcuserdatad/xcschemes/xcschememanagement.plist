@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>FoldingCell.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>GeoFire.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,12 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>035048141DA2E0030ACEF65E1F36F0CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>256C8D0676A417C61A4DD1C190E80D4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>41CE0E548650F701461EAB35CAFC17B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44D04613A7591446E9F604C26C55657F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4842659DD098727C0BE1F8954A5A84E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -78,6 +98,11 @@
 			<true/>
 		</dict>
 		<key>C61A7925B2387CCF7AFA9F79CC62936F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5373EB5CEB34632A5CEC1C58D7A85EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
