@@ -31,7 +31,7 @@ class ViewController: VideoSplashViewController {
         self.alwaysRepeat = true
         self.sound = true
         self.startTime = 3.0
-        self.duration = 6.0
+        self.duration = 15.0
         self.alpha = 0.4
         self.backgroundColor = UIColor.blackColor()
         self.contentURL = url
