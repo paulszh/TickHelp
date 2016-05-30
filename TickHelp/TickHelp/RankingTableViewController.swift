@@ -8,6 +8,8 @@
 
 import UIKit
 import FoldingCell
+import Firebase
+
 
 class RankingTableViewController: UITableViewController {
 
@@ -17,13 +19,28 @@ class RankingTableViewController: UITableViewController {
     let kRowsCount = 5
     
     var cellHeights = [CGFloat]()
+    var users = [String]()
+    
+    
+    @IBOutlet var rankingTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createCellHeightsArray()
         
+        
        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let ref = Firebase(url: constant.userURL + "/users/")
+        ref.queryOrderedByChild("score").observeEventType(.Value, withBlock: { snapshot in
+            //do something!!!!!!!!!!!!
+        })
+
+        
     }
     
     // MARK: configure
@@ -55,7 +72,9 @@ class RankingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("rankingCell", forIndexPath: indexPath) as! RankingCell
-        cell.userNickname.text = "Hello"
+        
+        print(self.users.count)
+        //cell.userNickname.text = self.users[self.users.count - indexPath.row]
         
         cell.userBigNickname.text = "Hello"
         cell.userBigUsername.text = "hdx@ucsd.edu"

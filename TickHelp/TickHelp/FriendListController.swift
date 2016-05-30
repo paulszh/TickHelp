@@ -90,7 +90,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
+        return 65
     }
 
     
@@ -198,7 +198,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             let uid = Firebase(url: constant.userURL).authData.uid
             let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
             dispatch_async(dispatch_get_main_queue()){
-                ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+                ref.observeEventType(.ChildChanged, withBlock: { snapshot in
                     let tempUid = snapshot.value.objectForKey("uid") as! String
                     print("tempUid: \(tempUid)")
                     if(tempUid == friendUid){
