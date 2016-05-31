@@ -16,70 +16,90 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
     var friendName : [String!] = []
     var friendId : [String!] = []
 
+
     
-    var conversations = [Conversation]()
+    var conversations = [Friend]()
+    var imgUrl = String()
     
     var userImages = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
         friendTable.delegate = self
         friendTable.dataSource = self
-        
-        // Register cell classes
-        //friendTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "idCellPeer")
-        
-        //Get friend list
-        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
-        //Get friend list
+        self.conversations = []
         
         
-        conversations = []
-        
+        self.friendTable.reloadData()
         let uid = Firebase(url: constant.userURL).authData.uid
         let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
         
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
-            
             //check if the friend request has been accepted
             let accepted = snapshot.value.objectForKey("accepted") as! Bool
             if(accepted){
+                
+                
+                // TO-EDIT 
+                /*
+                friendRef.observeEventType(.Value, withBlock: { snapshot in
+                    let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
+                    self.friendTable.reloadData()
+                    self.userImages.append(base64EncodedString)
+               //     self.friendTable.reloadData()
+                    print("retrieving user image ... \(self.userImages.count)")
+                })*/
+                
+
                 let uid = snapshot.value.objectForKey("uid") as! String!
                 let nickname = snapshot.value.objectForKey("nickname") as! String!
                 let username = snapshot.value.objectForKey("username") as! String!
                 
+                
                 let friendRef = Firebase(url: constant.userURL + "/users/" + uid)
-                print("friendRef\(friendRef)")
-                /*get friend user image --> bu zhi dao wei shen me bu jin zhe ge block
+                print("friendRef......... \(friendRef)")
+                
                 friendRef.observeEventType(.Value, withBlock: { snapshot in
-                    print("Hello?")
-                    let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
-                    self.userImages.append(base64EncodedString)
                     
-                    print(self.userImages.count)
                     
-                })*/
+                    
+               //     self.imgUrl = snapshot.value.objectForKey("image_path") as! String
+                    let imagePath = snapshot.value.objectForKey("image_path") as! String
+                    print("Make a friend with the image url:     \(self.imgUrl)")
+                    let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath)
+                    //          let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath)
+                    
+                    print("appending a new friend... ")
+                    self.conversations.append(newFriend)
+                    
+                    self.friendTable.reloadData()
+
+                })
+
+                /*
+                print("Make a friend with the image url:     \(self.imgUrl)")
+                let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: self.imgUrl)
+      //          let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath)
                 
-                
-            
-                let newFriend = Conversation(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false)
+                print("appending a new friend... ")
                 self.conversations.append(newFriend)
-                print("count: \(uid)")
-                print("count1: \(self.conversations.count)")
-            
-                self.friendTable.reloadData()
+                
+                self.friendTable.reloadData()*/
             }
+            
         })
+
         
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+
     }
+
     
     @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
@@ -90,11 +110,12 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
+        return 65
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = self.friendTable.dequeueReusableCellWithIdentifier("friendCell", forIndexPath:indexPath) as! FriendCell
         
         if(conversations.count <= indexPath.row) {
@@ -104,23 +125,26 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         
         cell.userNickname.text = conversations[indexPath.row].display_nickname
         cell.userNickname.font = UIFont(name:"Avenir", size:20)
+
         
-        cell.userImage.image = UIImage(named: "face")
-        /*
-        let imageRetrieve = NSData(base64EncodedString: userImages[indexPath.row] ,
+        let imageRetrieve = NSData(base64EncodedString: conversations[indexPath.row].imageUrl! ,
                                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        
         let decodedImage = UIImage(data:imageRetrieve!)
+ 
+        
         if(decodedImage != nil){
             cell.userImage.image = decodedImage
         }
         else{
             cell.userImage.image = UIImage(named: "face")
-        }*/
-        
+        }
+
         
         
         return cell
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // retrieve the user that we are currently chatting with so we can
         // update the firebase database accordingly
@@ -129,7 +153,6 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         constant.other_uid = conversations[indexPath.row].display_uid!
         
         
-        print(constant.other_uid)
         // need to get the nickname of the user that we are communicating with
         
         let otherUserRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid)
@@ -144,31 +167,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        /*
-        let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            // ...
-        }
-        
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "Chat", style: .Default) { (action) in
-            // need to know where we entered the conversation
-            constant.enter_chat_origin = "Friends"
-            self.performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
-            
-        }
-        alertController.addAction(OKAction)
-        
-        let supportAction = UIAlertAction(title: "ThumbsUp!", style: .Default) { (action) in
-            
-        }
-        alertController.addAction(supportAction)
-        
-        self.presentViewController(alertController, animated: true) {
-            // ...
-        }*/
+
         let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -177,11 +176,8 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
         alertController.addAction(cancelAction)
         
         let OKAction = UIAlertAction(title: "Chat Now", style: .Default) { (action) in
-            
             constant.enter_chat_origin = "Friends"
             self.performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
-            // TO-DO
-            // Add code to update friend status in firebase
         }
         alertController.addAction(OKAction)
         
@@ -191,16 +187,13 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             
             
             let friendUid = friendToAdd.display_uid
-            //let listRef = ref.childByAppendingPath("friends")
-            
-            print("frientUid: \(friendUid)")
+
             
             let uid = Firebase(url: constant.userURL).authData.uid
             let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
             dispatch_async(dispatch_get_main_queue()){
-                ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+                ref.observeEventType(.ChildChanged, withBlock: { snapshot in
                     let tempUid = snapshot.value.objectForKey("uid") as! String
-                    print("tempUid: \(tempUid)")
                     if(tempUid == friendUid){
                         let tempRef = snapshot.ref
                         tempRef.removeValue()
@@ -214,7 +207,6 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             let friendRef = Firebase(url: constant.userURL + "/users/" + friendUid! + "/friends")
             friendRef.observeEventType(.ChildAdded, withBlock: { snapshot in
                 let tempUid = snapshot.value.objectForKey("uid") as! String
-                print("tempUid: \(tempUid)")
                 if(tempUid == constant.uid){
                     let tempRef = snapshot.ref
                     tempRef.removeValue()
@@ -229,19 +221,13 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             // TODO
             // Add code here to delete friend request status in firebase
         }
-        
-        
-        
-        
-        
-    //    performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let conversationController = segue.destinationViewController as? JSQChatViewController, row = sender as? Int {
-            conversationController.conversation = self.conversations[row]
+        //    conversationController.conversation = self.conversations[row]
         }
     }
 }

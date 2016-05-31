@@ -11,11 +11,12 @@ import Firebase
 
 class SignViewController: UIViewController {
     
-    
+    let i = 0
     
     @IBOutlet weak var nickname: UITextField!
     
     
+    @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
@@ -33,6 +34,8 @@ class SignViewController: UIViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        submit.layer.cornerRadius = 5
     }
     @IBAction func register(sender: AnyObject) {
         self.firebase.createUser(username.text, password: password.text) { (error: NSError!) in
@@ -44,14 +47,15 @@ class SignViewController: UIViewController {
                                         print(auth.uid)
                                         // Create a new user dictionary accessing the user's info
                                         // provided by the authData parameter
-                                        let newUser = [
+                                        let newUser:[String: AnyObject] = [
                                             "uid": auth.uid,
-                                            "username": self.username.text,
-                                            "nickname": self.nickname.text,
+                                            "username": self.username.text!,
+                                            "nickname": self.nickname.text!,
                                             //the password need to be hashed
-                                            "password": self.password.text,
+                                            "password": self.password.text!,
                                             "image_path": "",
-                                            "credit" : "0",
+                                            "credit" : 0,
+                                            "score" : 0,
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
                                         
@@ -65,7 +69,8 @@ class SignViewController: UIViewController {
                 
             }
             else{
-                print("Authentication Failed");
+                
+                SweetAlert().showAlert("Error", subTitle: "Invalid username or password", style: AlertStyle.Error, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
             }
         }
         
@@ -78,8 +83,8 @@ class SignViewController: UIViewController {
     
     func setPlacehoder(){
         
-        let placeholder1 = NSAttributedString(string: "User name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
-        let placeholder2 = NSAttributedString(string: "Nick name", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder1 = NSAttributedString(string: "Username (Email address)", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
+        let placeholder2 = NSAttributedString(string: "Nickname", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         let placeholder3 = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.lightGrayColor()])
         
         username.attributedPlaceholder = placeholder1

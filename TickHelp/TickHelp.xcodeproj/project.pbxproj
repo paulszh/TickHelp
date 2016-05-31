@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		085852861CBF59220099CD1D /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085852851CBF59220099CD1D /* constant.swift */; };
+		08978AB21CF82FEC00F77236 /* test5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 08978AB11CF82FEC00F77236 /* test5.mp4 */; };
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259430E41CF4F9240064451B /* PendingFriendCell.swift */; };
 		25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E6F1CF6850B00D527D2 /* FriendCell.swift */; };
@@ -24,6 +25,7 @@
 		8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */; };
 		8586FBB41CDDBD9B00B60FBA /* OffChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB31CDDBD9B00B60FBA /* OffChatViewController.swift */; };
 		8586FBB61CDDBECA00B60FBA /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */; };
+		85A16E791CFCD6CA004AACD3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A16E781CFCD6CA004AACD3 /* Friend.swift */; };
 		85CA5B791CC37E860063F287 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA5B781CC37E860063F287 /* FriendListController.swift */; };
 		85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0A7D91CF3A8A800A5D67C /* switchMode.swift */; };
 		8D30E0871CB9C435001C186B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0861CB9C435001C186B /* AppDelegate.swift */; };
@@ -39,6 +41,7 @@
 		8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D30E0D11CBB4DE1001C186B /* Main.storyboard */; };
 		8D42C6691CCF3C70005C3E9B /* test4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8D42C6681CCF3C70005C3E9B /* test4.mp4 */; };
 		8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4A791CCAADA1004F1E8F /* peer.swift */; };
+		8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		085852851CBF59220099CD1D /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		08978AB11CF82FEC00F77236 /* test5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test5.mp4; sourceTree = "<group>"; };
 		259430E41CF4F9240064451B /* PendingFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendCell.swift; sourceTree = "<group>"; };
 		25B42E6F1CF6850B00D527D2 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		8586FBB11CDDBAEF00B60FBA /* MPCOfflineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCOfflineManager.swift; sourceTree = "<group>"; };
 		8586FBB31CDDBD9B00B60FBA /* OffChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffChatViewController.swift; sourceTree = "<group>"; };
 		8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		85A16E781CFCD6CA004AACD3 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TickHelp-Bridging-Header.h"; sourceTree = "<group>"; };
 		85CA5B781CC37E860063F287 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
 		85F0A7D91CF3A8A800A5D67C /* switchMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchMode.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 		8D30E0D21CBB4DE1001C186B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D42C6681CCF3C70005C3E9B /* test4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test4.mp4; sourceTree = "<group>"; };
 		8D6A4A791CCAADA1004F1E8F /* peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = peer.swift; sourceTree = "<group>"; };
+		8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 				852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */,
 				852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */,
 				259430E41CF4F9240064451B /* PendingFriendCell.swift */,
+				85A16E781CFCD6CA004AACD3 /* Friend.swift */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 				8D30E0BF1CBB07FA001C186B /* TabBarViewController.swift */,
 				085852851CBF59220099CD1D /* constant.swift */,
 				8D6A4A791CCAADA1004F1E8F /* peer.swift */,
+				8DF6CB5E1CF7EF9D00D05E06 /* SweetAlert.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 		8D30E0C61CBB2421001C186B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08978AB11CF82FEC00F77236 /* test5.mp4 */,
 				8D42C6681CCF3C70005C3E9B /* test4.mp4 */,
 			);
 			name = Resources;
@@ -399,6 +408,7 @@
 				8D42C6691CCF3C70005C3E9B /* test4.mp4 in Resources */,
 				8D30E0D31CBB4DE1001C186B /* Main.storyboard in Resources */,
 				8D30E08E1CB9C435001C186B /* Assets.xcassets in Resources */,
+				08978AB21CF82FEC00F77236 /* test5.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +484,7 @@
 				25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */,
 				259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */,
 				852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */,
+				8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
 				85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
@@ -485,6 +496,7 @@
 				8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */,
 				8D30E0CE1CBB3317001C186B /* SignViewController.swift in Sources */,
 				8D30E0B71CB9C826001C186B /* PersonalPageViewController.swift in Sources */,
+				85A16E791CFCD6CA004AACD3 /* Friend.swift in Sources */,
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */,
 				852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */,
@@ -642,7 +654,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.luna.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucsd.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
@@ -658,7 +670,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TickHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.luna.TickHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucsd.TickHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TickHelp/TickHelp-Bridging-Header.h";
