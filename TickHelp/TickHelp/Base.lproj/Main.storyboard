@@ -789,7 +789,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZW-Wg-lpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="1958"/>
+            <point key="canvasLocation" x="2560" y="1830"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="sqr-63-az9">
@@ -928,7 +928,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8z3-cU-C3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="2425"/>
+            <point key="canvasLocation" x="113" y="2777"/>
         </scene>
         <!--Friend List View Controller-->
         <scene sceneID="17i-ZV-dTi">
@@ -996,7 +996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaC-7Z-OaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="1657.5"/>
+            <point key="canvasLocation" x="1708" y="1529.5"/>
         </scene>
         <!--Embed View Controller-->
         <scene sceneID="R44-U9-e5i">
@@ -1064,7 +1064,7 @@
                     </barButtonItem>
                 </navigationItem>
             </objects>
-            <point key="canvasLocation" x="1077" y="2761"/>
+            <point key="canvasLocation" x="1133" y="2777"/>
         </scene>
         <!--Friend View Controller-->
         <scene sceneID="Z4W-Qp-RGE">
@@ -1112,6 +1112,9 @@
                     <navigationItem key="navigationItem" title="Friends" id="Tru-pu-PuE">
                         <barButtonItem key="leftBarButtonItem" image="Exit" id="geo-yV-qaZ">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logOutBtnPressed:" destination="TKN-RG-Hl9" id="CgL-ug-dPw"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1128,7 +1131,7 @@
                     </barButtonItem>
                 </navigationItem>
             </objects>
-            <point key="canvasLocation" x="656" y="1358"/>
+            <point key="canvasLocation" x="856" y="1526"/>
         </scene>
         <!--Pending List View Controller-->
         <scene sceneID="CTj-aN-did">
@@ -1226,7 +1229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIv-ey-ShQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="984"/>
+            <point key="canvasLocation" x="1708" y="856"/>
         </scene>
         <!--Friend Navigation View Controller-->
         <scene sceneID="pZ5-UO-5HT">
@@ -1245,7 +1248,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZF6-jc-QzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="1358"/>
+            <point key="canvasLocation" x="-7" y="1526"/>
         </scene>
         <!--Personal Navigation View Controller-->
         <scene sceneID="MgG-sD-RWU">
@@ -1301,7 +1304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlh-VE-GG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="3483"/>
+            <point key="canvasLocation" x="-207" y="3975"/>
         </scene>
         <!--Users Rank View Controller-->
         <scene sceneID="v4u-qO-xEo">
@@ -1315,7 +1318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zwf-Km-0bo" userLabel="Rank Table">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zwf-Km-0bo" userLabel="Rank Table">
                                 <rect key="frame" x="0.0" y="204" width="600" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1323,7 +1326,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="68"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="1Tb-oO-Zld" id="gCY-Wo-FKh">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-Md-dmm">
@@ -1385,14 +1388,20 @@
                             <constraint firstAttribute="trailing" secondItem="zwf-Km-0bo" secondAttribute="trailing" id="wlu-4g-6oa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="LeaderBoard" id="pFZ-aN-bTf"/>
+                    <navigationItem key="navigationItem" title="LeaderBoard" id="pFZ-aN-bTf">
+                        <barButtonItem key="leftBarButtonItem" image="Exit" id="QgM-oC-9Jt">
+                            <connections>
+                                <action selector="logOutBtnPressed:" destination="yxk-q6-CYa" id="V8c-sm-Lzw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="friendTable" destination="zwf-Km-0bo" id="4zx-Jr-m80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9o-uK-sUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="3513"/>
+            <point key="canvasLocation" x="1077" y="3975"/>
         </scene>
     </scenes>
     <resources>

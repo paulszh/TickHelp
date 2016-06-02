@@ -88,6 +88,9 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource, 
             } else {
                     print("Saved location successfully!")
             }
+          //  geoPath.setValue(constant.uid)
+            geoPath.childByAppendingPath(constant.uid).childByAppendingPath("currLoc").setValue(constant.uid)
+            
          }
         
         let center = self.currLocation

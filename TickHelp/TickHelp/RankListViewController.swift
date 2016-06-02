@@ -38,50 +38,17 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         
         self.friendTable.reloadData()
-      //  let uid = Firebase(url: constant.userURL).authData.uid
-     //   let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
         let ref = Firebase(url: constant.userURL + "/users/")
         
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
-        /*    //check if the friend request has been accepted
-            let accepted = snapshot.value.objectForKey("accepted") as! Bool
-            if(accepted){
-                let uid = snapshot.value.objectForKey("uid") as! String!
-                let nickname = snapshot.value.objectForKey("nickname") as! String!
-                let username = snapshot.value.objectForKey("username") as! String!
-                
-                
-                let friendRef = Firebase(url: constant.userURL + "/users/" + uid)
-                print("friendRef......... \(friendRef)")
-                
-                friendRef.observeEventType(.Value, withBlock: { snapshot in
-                    
-                    
-                    
-                    //     self.imgUrl = snapshot.value.objectForKey("image_path") as! String
-                    let imagePath = snapshot.value.objectForKey("image_path") as! String
-                    print("Make a friend with the image url:     \(self.imgUrl)")
-                    let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath)
-                    //          let newFriend = Friend(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath)
-                    
-                    print("appending a new friend... ")
-                    self.conversations.append(newFriend)
-                    
-                    self.friendTable.reloadData()
-                    
-                })
-            }*/
             let uid = snapshot.value.objectForKey("uid") as! String!
             let nickname = snapshot.value.objectForKey("nickname") as! String!
             let username = snapshot.value.objectForKey("username") as! String!
             let score = snapshot.value.objectForKey("score") as! Int!
             let imagePath = snapshot.value.objectForKey("image_path") as! String!
-            
-            print("This imagePath is:     \(imagePath)")
-            
-            
-            let newFriend = Rank(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath, score: score)
-            self.conversations.append(newFriend)
+
+            let user = Rank(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath, score: score)
+            self.conversations.append(user)
             
             // Sort the array by the order of credits received.
             self.conversations.sortInPlace {(rank1:Rank, rank2:Rank) -> Bool in
@@ -147,6 +114,17 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
         return cell
     }
     
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        // Delete the corresponding location in Firebase
+        let ref = Firebase(url: constant.userURL + "/locations/")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
+                ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
+            }
+        })
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         /*
