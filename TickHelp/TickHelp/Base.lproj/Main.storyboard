@@ -1315,19 +1315,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zwf-Km-0bo" userLabel="Rank Table">
-                                <rect key="frame" x="0.0" y="20" width="600" height="507"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zwf-Km-0bo" userLabel="Rank Table">
+                                <rect key="frame" x="0.0" y="204" width="600" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rankCell" rowHeight="68" id="1Tb-oO-Zld" customClass="RankingCell" customModule="TickHelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="68"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="1Tb-oO-Zld" id="gCY-Wo-FKh">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-Md-dmm">
-                                                    <rect key="frame" x="57" y="12" width="279" height="44"/>
+                                                    <rect key="frame" x="143" y="12" width="279" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="279" id="zHG-dz-cK1"/>
                                                     </constraints>
@@ -1336,32 +1336,56 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Xb-Gtm">
-                                                    <rect key="frame" x="8" y="12" width="47" height="44"/>
+                                                    <rect key="frame" x="82" y="12" width="47" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="47" id="BD0-ZH-R5p"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NC-6R-WJG">
+                                                    <rect key="frame" x="21" y="23" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kOt-Xb-Gtm" firstAttribute="top" secondItem="VOZ-Md-dmm" secondAttribute="top" id="7vd-mR-Wje"/>
+                                                <constraint firstItem="kOt-Xb-Gtm" firstAttribute="leading" secondItem="1NC-6R-WJG" secondAttribute="trailing" constant="22" id="DrK-Ua-07t"/>
                                                 <constraint firstItem="kOt-Xb-Gtm" firstAttribute="bottom" secondItem="VOZ-Md-dmm" secondAttribute="bottom" id="FBd-pR-lWR"/>
                                                 <constraint firstItem="kOt-Xb-Gtm" firstAttribute="centerY" secondItem="gCY-Wo-FKh" secondAttribute="centerY" id="QOx-3s-WQ0"/>
-                                                <constraint firstItem="kOt-Xb-Gtm" firstAttribute="leading" secondItem="gCY-Wo-FKh" secondAttribute="leadingMargin" id="V0h-Ge-EU8"/>
+                                                <constraint firstItem="kOt-Xb-Gtm" firstAttribute="leading" secondItem="gCY-Wo-FKh" secondAttribute="leadingMargin" constant="74" id="V0h-Ge-EU8"/>
                                                 <constraint firstItem="kOt-Xb-Gtm" firstAttribute="top" secondItem="gCY-Wo-FKh" secondAttribute="topMargin" constant="4" id="XhJ-Wc-h0b"/>
-                                                <constraint firstItem="VOZ-Md-dmm" firstAttribute="leading" secondItem="kOt-Xb-Gtm" secondAttribute="trailing" constant="2" id="yih-Jh-cc9"/>
+                                                <constraint firstItem="1NC-6R-WJG" firstAttribute="centerY" secondItem="kOt-Xb-Gtm" secondAttribute="centerY" id="xdx-iW-DYq"/>
+                                                <constraint firstItem="VOZ-Md-dmm" firstAttribute="leading" secondItem="kOt-Xb-Gtm" secondAttribute="trailing" constant="14" id="yih-Jh-cc9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="rankNumber" destination="1NC-6R-WJG" id="oFo-uG-qul"/>
                                             <outlet property="userImage" destination="kOt-Xb-Gtm" id="CCE-A1-uaD"/>
                                             <outlet property="userNickname" destination="VOZ-Md-dmm" id="in8-M2-6wP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up_banner" translatesAutoresizingMaskIntoConstraints="NO" id="5x6-nb-jrV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="y7o-ZQ-c9h"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5x6-nb-jrV" firstAttribute="top" secondItem="KFx-RP-K0a" secondAttribute="bottom" id="4cq-7l-jV5"/>
+                            <constraint firstItem="I3G-X9-GKL" firstAttribute="top" secondItem="zwf-Km-0bo" secondAttribute="bottom" constant="24" id="OhQ-qC-Fa9"/>
+                            <constraint firstItem="zwf-Km-0bo" firstAttribute="leading" secondItem="f2c-o8-8nC" secondAttribute="leading" id="OlU-ql-yKG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5x6-nb-jrV" secondAttribute="trailing" constant="-20" id="VW2-AS-56X"/>
+                            <constraint firstItem="zwf-Km-0bo" firstAttribute="top" secondItem="5x6-nb-jrV" secondAttribute="bottom" constant="-50" id="WW9-Xz-cfD"/>
+                            <constraint firstItem="5x6-nb-jrV" firstAttribute="leading" secondItem="f2c-o8-8nC" secondAttribute="leadingMargin" constant="-20" id="iwx-gd-Ief"/>
+                            <constraint firstAttribute="trailing" secondItem="zwf-Km-0bo" secondAttribute="trailing" id="wlu-4g-6oa"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pFZ-aN-bTf"/>
+                    <navigationItem key="navigationItem" title="LeaderBoard" id="pFZ-aN-bTf"/>
                     <connections>
                         <outlet property="friendTable" destination="zwf-Km-0bo" id="4zx-Jr-m80"/>
                     </connections>
@@ -1381,6 +1405,7 @@
         <image name="chat" width="30" height="30"/>
         <image name="check" width="30" height="30"/>
         <image name="face" width="512" height="512"/>
+        <image name="up_banner" width="1474" height="462"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iKb-t9-A6V"/>

@@ -121,6 +121,10 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
         cell.userNickname.text = conversations[indexPath.row].display_nickname
         cell.userNickname.font = UIFont(name:"Avenir", size:20)
         
+        // Display the relative user rank number here.
+        cell.rankNumber.text = String(indexPath.row + 1)
+        cell.userNickname.font = UIFont(name:"Avenir", size:20)
+        
         
         let imageRetrieve = NSData(base64EncodedString: conversations[indexPath.row].imageUrl! ,
                                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)

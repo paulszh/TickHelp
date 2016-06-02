@@ -11,8 +11,10 @@ import UIKit
 class RankingCell: UITableViewCell {
     
 
+    @IBOutlet weak var rankNumber: UILabel!
     @IBOutlet weak var userNickname: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
