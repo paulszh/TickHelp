@@ -123,7 +123,10 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         // Display the relative user rank number here.
         cell.rankNumber.text = String(indexPath.row + 1)
-        cell.userNickname.font = UIFont(name:"Avenir", size:20)
+        if(indexPath.row + 1 <= 3){
+            cell.rankNumber.font = UIFont(name:"Avenir", size:20)
+            cell.rankNumber.highlightedTextColor = UIColor.redColor()
+        }
         
         
         let imageRetrieve = NSData(base64EncodedString: conversations[indexPath.row].imageUrl! ,

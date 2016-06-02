@@ -1368,9 +1368,9 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up_banner" translatesAutoresizingMaskIntoConstraints="NO" id="5x6-nb-jrV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="190"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="182"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="y7o-ZQ-c9h"/>
+                                    <constraint firstAttribute="height" constant="182" id="y7o-ZQ-c9h"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -1380,7 +1380,7 @@
                             <constraint firstItem="I3G-X9-GKL" firstAttribute="top" secondItem="zwf-Km-0bo" secondAttribute="bottom" constant="24" id="OhQ-qC-Fa9"/>
                             <constraint firstItem="zwf-Km-0bo" firstAttribute="leading" secondItem="f2c-o8-8nC" secondAttribute="leading" id="OlU-ql-yKG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5x6-nb-jrV" secondAttribute="trailing" constant="-20" id="VW2-AS-56X"/>
-                            <constraint firstItem="zwf-Km-0bo" firstAttribute="top" secondItem="5x6-nb-jrV" secondAttribute="bottom" constant="-50" id="WW9-Xz-cfD"/>
+                            <constraint firstItem="zwf-Km-0bo" firstAttribute="top" secondItem="5x6-nb-jrV" secondAttribute="bottom" constant="-42" id="WW9-Xz-cfD"/>
                             <constraint firstItem="5x6-nb-jrV" firstAttribute="leading" secondItem="f2c-o8-8nC" secondAttribute="leadingMargin" constant="-20" id="iwx-gd-Ief"/>
                             <constraint firstAttribute="trailing" secondItem="zwf-Km-0bo" secondAttribute="trailing" id="wlu-4g-6oa"/>
                         </constraints>
@@ -1392,7 +1392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9o-uK-sUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="3509"/>
+            <point key="canvasLocation" x="1077" y="3513"/>
         </scene>
     </scenes>
     <resources>
