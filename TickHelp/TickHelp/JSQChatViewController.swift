@@ -14,8 +14,6 @@ class JSQChatViewController: JSQMessagesViewController {
     var messageRef: Firebase!
     var oppositeMessageRef: Firebase!
     
-    
-    
     var messages = [JSQMessage]()
     
     var conversation: Conversation?
@@ -27,15 +25,7 @@ class JSQChatViewController: JSQMessagesViewController {
     let oppositeConversationRef = Firebase(url: constant.userURL).childByAppendingPath("users").childByAppendingPath(constant.other_uid).childByAppendingPath("MessageList");
     
     
-    let friendRef = Firebase(url: constant.userURL + "/users/" + constant.other_uid + "/score/")
-    let thumbsUpRef = Firebase(url: constant.userURL + "/users/" + constant.other_uid + "/thumbsUpList")
     var isFriend = false
-    
-    //ranking var
-    var hasThumbsUp = false
-    var score: Int!
-    var credit: Int!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +57,8 @@ class JSQChatViewController: JSQMessagesViewController {
     //    senderId = AvatarIdWoz
         senderId = constant.nickname
         
-        let ref = Firebase(url: constant.userURL + "/users/" + constant.uid)
-        
-        ref.childByAppendingPath("/friends").observeEventType(.ChildAdded, withBlock: { snapshot in
-            
+        let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/friends")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             let tempUid = snapshot.value.objectForKey("uid") as! String
             print("tempUid: \(tempUid)")
             if(tempUid == constant.other_uid){
@@ -78,24 +66,8 @@ class JSQChatViewController: JSQMessagesViewController {
                 print("they are friends")
             }
         })
-        
-    
-        ref.childByAppendingPath("credit").observeEventType(.Value, withBlock: { snapshot in
-            self.credit = snapshot.value as! Int
-        })
-        
-        friendRef.observeEventType(.Value, withBlock: { snapshot in
-            self.score = snapshot.value as! Int
-        })
-        
-        thumbsUpRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if (snapshot.value as! String == constant.other_uid){
-                self.hasThumbsUp = true
-            }
-        })
-        
-        
-        
+                
+                 
 
         
         
@@ -201,27 +173,19 @@ class JSQChatViewController: JSQMessagesViewController {
     
     @IBAction func AddFriendBtn(sender: AnyObject) {
         
-        /*if(isFriend){
+        if(isFriend){
             SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
-        }*/
+        }
             
-        
+        else{
         let alertController = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-        
-        
             // Nothing to do here
         }
-        
         alertController.addAction(cancelAction)
         
-        let OKAction = UIAlertAction(title: "Add Friend", style: .Default) { (action) in
-            if(self.isFriend){
-                SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
-                return;
-                
-            }
+            let OKAction = UIAlertAction(title: "Add Friend", style: .Default) { (action) in
             // TO-DO
             // Add code to update friend status in firebase
             //User info
@@ -279,28 +243,10 @@ class JSQChatViewController: JSQMessagesViewController {
                 }
             })
             
-            SweetAlert().showAlert("Good job!", subTitle: "You have send a friend request to \(constant.other_nickname)", style: AlertStyle.Success, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
-            return;
-            
-
-            
         }
         alertController.addAction(OKAction)
         
         let rateAction = UIAlertAction(title: "ThumbsUp!", style: .Default) { (action) in
-            
-            if(!self.hasThumbsUp){
-                self.friendRef.setValue(self.score + 1)
-                let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "credit")
-                ref.setValue(self.credit + 1)
-                self.thumbsUpRef.childByAppendingPath(constant.other_uid).setValue(constant.other_uid)
-            }
-            else{
-                SweetAlert().showAlert("Oops!", subTitle: "You have already done that!", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
-                return;
-            }
-            
-            
             print(action)
         }
         alertController.addAction(rateAction)
@@ -309,7 +255,7 @@ class JSQChatViewController: JSQMessagesViewController {
             // TODO
             // Add code here to delete friend request status in firebase
         }
-        
+        }
         
     }
     

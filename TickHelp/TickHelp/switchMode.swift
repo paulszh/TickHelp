@@ -12,7 +12,7 @@ class switchMode: UIViewController {
     
     weak var currentViewController: UIViewController?
     @IBOutlet weak var containerView: UIView!
-  //  let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
     
@@ -43,7 +43,7 @@ class switchMode: UIViewController {
             self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController
         } else {
-            //self.appDelagate.mpcOfflineManager = MPCOfflineManager()
+            self.appDelagate.mpcOfflineManager = MPCOfflineManager()
             let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("offlineNearbyUsers")
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)

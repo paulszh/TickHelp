@@ -19,9 +19,6 @@ class LogViewController: UIViewController {
     var clicked = false
     
     var ref = Firebase(url: constant.userURL)
-    
-    let appDelagate = UIApplication.sharedApplication().delegate as! AppDelegate
-
 
     @IBOutlet weak var submit: UIButton!
         
@@ -77,7 +74,6 @@ class LogViewController: UIViewController {
                 //self.presentViewController(alert, animated: true, completion: nil)
                 // We are now logged in
                 constant.uid = authData.uid
-                self.appDelagate.mpcOfflineManager = MPCOfflineManager()
 
                 self.performSegueWithIdentifier("loginSeg", sender: self)
                 
