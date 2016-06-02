@@ -12,8 +12,9 @@
 		1B43174DB09A7291078D4BAD /* Pods_TickHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */; };
 		259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259430E41CF4F9240064451B /* PendingFriendCell.swift */; };
 		25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E6F1CF6850B00D527D2 /* FriendCell.swift */; };
-		25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */; };
 		25B42E761CF6C07500D527D2 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B42E751CF6C07500D527D2 /* RankingCell.swift */; };
+		850B85671D001C8100F75DE8 /* RankListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B85661D001C8100F75DE8 /* RankListViewController.swift */; };
+		850B85691D0021D100F75DE8 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B85681D0021D100F75DE8 /* Rank.swift */; };
 		852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */; };
 		852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */; };
 		856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856489A51CDED3C000626BD4 /* DisplayNameController.swift */; };
@@ -66,11 +67,12 @@
 		08978AB11CF82FEC00F77236 /* test5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test5.mp4; sourceTree = "<group>"; };
 		259430E41CF4F9240064451B /* PendingFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendCell.swift; sourceTree = "<group>"; };
 		25B42E6F1CF6850B00D527D2 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
-		25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		25B42E751CF6C07500D527D2 /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		6543605DE072AE9B2FCDD7B3 /* Pods-TickHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.release.xcconfig"; sourceTree = "<group>"; };
 		6CDD781482087DE58A271FA6 /* Pods_TickHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TickHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC64DFEC1EA8C9584688477 /* Pods-TickHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TickHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TickHelp/Pods-TickHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		850B85661D001C8100F75DE8 /* RankListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankListViewController.swift; sourceTree = "<group>"; };
+		850B85681D0021D100F75DE8 /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		852B6D0D1CF447F200B068EB /* switchFriendRequestsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchFriendRequestsController.swift; sourceTree = "<group>"; };
 		852B6D151CF44DF900B068EB /* PendingFriendsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingFriendsListController.swift; sourceTree = "<group>"; };
 		856489A51CDED3C000626BD4 /* DisplayNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNameController.swift; sourceTree = "<group>"; };
@@ -262,8 +264,9 @@
 		8D30E0BB1CB9C8EA001C186B /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				25B42E731CF6BF2E00D527D2 /* RankingTableViewController.swift */,
 				25B42E751CF6C07500D527D2 /* RankingCell.swift */,
+				850B85661D001C8100F75DE8 /* RankListViewController.swift */,
+				850B85681D0021D100F75DE8 /* Rank.swift */,
 			);
 			name = Ranking;
 			sourceTree = "<group>";
@@ -481,12 +484,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B42E741CF6BF2E00D527D2 /* RankingTableViewController.swift in Sources */,
 				259430E51CF4F9240064451B /* PendingFriendCell.swift in Sources */,
 				852B6D161CF44DF900B068EB /* PendingFriendsListController.swift in Sources */,
 				8DF6CB5F1CF7EF9D00D05E06 /* SweetAlert.swift in Sources */,
 				8586FBAE1CDDB94900B60FBA /* OfflineConstants.swift in Sources */,
 				85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */,
+				850B85691D0021D100F75DE8 /* Rank.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
 				25B42E761CF6C07500D527D2 /* RankingCell.swift in Sources */,
 				25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */,
@@ -499,6 +502,7 @@
 				85A16E791CFCD6CA004AACD3 /* Friend.swift in Sources */,
 				085852861CBF59220099CD1D /* constant.swift in Sources */,
 				8D6A4A7A1CCAADA1004F1E8F /* peer.swift in Sources */,
+				850B85671D001C8100F75DE8 /* RankListViewController.swift in Sources */,
 				852B6D0E1CF447F200B068EB /* switchFriendRequestsController.swift in Sources */,
 				8573217C1CE8624B002638C3 /* ConversationListViewController.swift in Sources */,
 				8586FBB01CDDB9C700B60FBA /* OfflineViewController.swift in Sources */,
