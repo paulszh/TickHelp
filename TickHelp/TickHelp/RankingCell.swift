@@ -7,28 +7,24 @@
 //
 
 import UIKit
-import FoldingCell
 
-class RankingCell: FoldingCell {
+class RankingCell: UITableViewCell {
     
-    @IBOutlet weak var userBigNickname: UILabel!
-    
-    @IBOutlet weak var userBigUserdescription: UILabel!
-    @IBOutlet weak var userBigUsername: UILabel!
+
+    @IBOutlet weak var rankNumber: UILabel!
     @IBOutlet weak var userNickname: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    
     override func awakeFromNib() {
-        
-        foregroundView.layer.cornerRadius = 10
-        foregroundView.layer.masksToBounds = true
-        
-        
         super.awakeFromNib()
+        // Initialization code
     }
     
-    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         
-        let durations = [0.66, 0.2, 0.2]
-        return durations[itemIndex]
+        // Configure the view for the selected state
     }
+
 }
 
