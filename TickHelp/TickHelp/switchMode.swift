@@ -45,7 +45,7 @@ class switchMode: UIViewController {
             self.currentViewController = newViewController
         } else {
             //self.appDelagate.mpcOfflineManager = MPCOfflineManager()
-            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("offlineNoNavBar77")
+            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("offlineNoNavBar")
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController
