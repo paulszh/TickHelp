@@ -41,12 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Delete the corresponding location in Firebase
+        /*
         let ref = Firebase(url: constant.userURL + "/locations/")
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
                 ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
             }
-        })
+        })*/
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

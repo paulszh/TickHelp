@@ -180,7 +180,7 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             self.performSegueWithIdentifier("FriendChatSegue", sender: indexPath.row)
         }
         alertController.addAction(OKAction)
-        
+        /*
         let destroyAction = UIAlertAction(title: "Remove Friend", style: .Destructive) { (action) in
             print(action)
             let friendToAdd = self.conversations[indexPath.row]
@@ -215,7 +215,9 @@ class FriendListController: UIViewController,UITableViewDelegate, UITableViewDat
             
         }
         
-        alertController.addAction(destroyAction)
+        alertController.addAction(destroyAction)*/
+
+
         
         self.presentViewController(alertController, animated: true) {
             // TODO

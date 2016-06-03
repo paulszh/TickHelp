@@ -216,7 +216,7 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
             })
             
         }
-        alertController.addAction(destroyAction)
+        alertController.addAction(destroyAction) 
         
         self.presentViewController(alertController, animated: true) {
             // TODO
