@@ -28,6 +28,7 @@
 		8586FBB61CDDBECA00B60FBA /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586FBB51CDDBECA00B60FBA /* ChatViewCell.swift */; };
 		85A16E791CFCD6CA004AACD3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A16E781CFCD6CA004AACD3 /* Friend.swift */; };
 		85CA5B791CC37E860063F287 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA5B781CC37E860063F287 /* FriendListController.swift */; };
+		85D01E4E1D0183CC0074C6DF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D01E4D1D0183CC0074C6DF /* PaymentViewController.swift */; };
 		85F0A7DA1CF3A8A800A5D67C /* switchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0A7D91CF3A8A800A5D67C /* switchMode.swift */; };
 		8D30E0871CB9C435001C186B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0861CB9C435001C186B /* AppDelegate.swift */; };
 		8D30E0891CB9C435001C186B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30E0881CB9C435001C186B /* LoginViewController.swift */; };
@@ -87,6 +88,7 @@
 		85A16E781CFCD6CA004AACD3 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		85C18F3A1CE69B9800D37A13 /* TickHelp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TickHelp-Bridging-Header.h"; sourceTree = "<group>"; };
 		85CA5B781CC37E860063F287 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
+		85D01E4D1D0183CC0074C6DF /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		85F0A7D91CF3A8A800A5D67C /* switchMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchMode.swift; sourceTree = "<group>"; };
 		8D30E0831CB9C435001C186B /* TickHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TickHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D30E0861CB9C435001C186B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				8573217B1CE8624B002638C3 /* ConversationListViewController.swift */,
 				8573217F1CE86292002638C3 /* Conversation.swift */,
 				857321811CE862D9002638C3 /* JSQChatViewController.swift */,
+				85D01E4D1D0183CC0074C6DF /* PaymentViewController.swift */,
 			);
 			name = "Online Chat";
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				850B85691D0021D100F75DE8 /* Rank.swift in Sources */,
 				857321801CE86292002638C3 /* Conversation.swift in Sources */,
 				25B42E761CF6C07500D527D2 /* RankingCell.swift in Sources */,
+				85D01E4E1D0183CC0074C6DF /* PaymentViewController.swift in Sources */,
 				25B42E701CF6850B00D527D2 /* FriendCell.swift in Sources */,
 				8586FBB21CDDBAEF00B60FBA /* MPCOfflineManager.swift in Sources */,
 				856489A61CDED3C000626BD4 /* DisplayNameController.swift in Sources */,

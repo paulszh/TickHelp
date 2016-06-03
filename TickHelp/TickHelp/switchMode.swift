@@ -54,12 +54,14 @@ class switchMode: UIViewController {
     
     @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
         // Delete the corresponding location in Firebase
+        /*
         let ref = Firebase(url: constant.userURL + "/locations/")
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
                 ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
             }
         })
+         */
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
         self.presentViewController(next, animated: true, completion: nil)
     }
