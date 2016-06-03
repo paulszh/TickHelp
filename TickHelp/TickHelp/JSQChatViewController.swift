@@ -199,6 +199,11 @@ class JSQChatViewController: JSQMessagesViewController {
 
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @IBAction func AddFriendBtn(sender: AnyObject) {
         
         /*if(isFriend){
@@ -219,6 +224,7 @@ class JSQChatViewController: JSQMessagesViewController {
         let OKAction = UIAlertAction(title: "Add Friend", style: .Default) { (action) in
             if(self.isFriend){
                 SweetAlert().showAlert("Oops!", subTitle: "\(constant.other_nickname) is already your friend", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+                self.dismissKeyboard()
                 return;
                 
             }
