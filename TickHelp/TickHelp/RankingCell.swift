@@ -15,6 +15,7 @@ class RankingCell: UITableViewCell {
     @IBOutlet weak var userNickname: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
+    @IBOutlet weak var userCredit: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

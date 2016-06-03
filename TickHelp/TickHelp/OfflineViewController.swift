@@ -30,12 +30,16 @@ class OfflineViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Register cell classes
         tblPeers.registerClass(UITableViewCell.self, forCellReuseIdentifier: "idCellPeer")
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     
     // MARK: IBAction method implementation
     

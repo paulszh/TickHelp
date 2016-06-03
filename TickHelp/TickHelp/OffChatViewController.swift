@@ -268,7 +268,6 @@ class OffChatViewController: JSQMessagesViewController{
                 
                     //Reload the tableview data and scroll to the bottom using the main thread
                     self.collectionView?.reloadData()
-                    print("able to reload")
                 }
             }else{
                 let alert = UIAlertController(title: "", message: "\(fromPeer.displayName) ended this chat.", preferredStyle: UIAlertControllerStyle.Alert)

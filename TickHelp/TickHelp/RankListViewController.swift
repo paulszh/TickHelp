@@ -46,8 +46,11 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
             let username = snapshot.value.objectForKey("username") as! String!
             let score = snapshot.value.objectForKey("score") as! Int!
             let imagePath = snapshot.value.objectForKey("image_path") as! String!
+            let creditPath = snapshot.value.objectForKey("credit") as! Int
+            print("The current credit is:     \(creditPath)")
+            
 
-            let user = Rank(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath, score: score)
+            let user = Rank(display_nickname: nickname, display_username: username, display_uid: uid, latestMessage: username, isRead: false, imageUrl: imagePath, score: score, credit: creditPath)
             self.conversations.append(user)
             
             // Sort the array by the order of credits received.
@@ -83,7 +86,8 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
         if(conversations.count <= indexPath.row) {
             return UITableViewCell()
         }
-
+      //  print(conversations[indexPath.row].credit)
+        cell.userCredit!.text = String(conversations[indexPath.row].credit!)
         
         cell.userNickname.text = conversations[indexPath.row].display_nickname
         cell.userNickname.font = UIFont(name:"Avenir", size:20)
@@ -116,12 +120,13 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
         // Delete the corresponding location in Firebase
+        /*
         let ref = Firebase(url: constant.userURL + "/locations/")
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
                 ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
             }
-        })
+        }) */
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
         self.presentViewController(next, animated: true, completion: nil)
     }

@@ -291,7 +291,7 @@ class JSQChatViewController: JSQMessagesViewController {
             
             if(!self.hasThumbsUp){
                 self.friendRef.setValue(self.score + 1)
-                let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "credit")
+                let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/credit/")
                 ref.setValue(self.credit + 1)
                 self.thumbsUpRef.childByAppendingPath(constant.other_uid).setValue(constant.other_uid)
             }

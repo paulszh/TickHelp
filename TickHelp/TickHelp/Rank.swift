@@ -16,4 +16,5 @@ struct Rank {
     let isRead: Bool
     let imageUrl: String?
     let score: Int?
+    let credit: Int?
 }
