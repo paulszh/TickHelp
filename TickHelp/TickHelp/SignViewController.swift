@@ -11,7 +11,7 @@ import Firebase
 
 class SignViewController: UIViewController {
     
-    
+    let i = 0
     
     @IBOutlet weak var nickname: UITextField!
     
@@ -47,14 +47,15 @@ class SignViewController: UIViewController {
                                         print(auth.uid)
                                         // Create a new user dictionary accessing the user's info
                                         // provided by the authData parameter
-                                        let newUser = [
+                                        let newUser:[String: AnyObject] = [
                                             "uid": auth.uid,
-                                            "username": self.username.text,
-                                            "nickname": self.nickname.text,
+                                            "username": self.username.text!,
+                                            "nickname": self.nickname.text!,
                                             //the password need to be hashed
-                                            "password": self.password.text,
+                                            "password": self.password.text!,
                                             "image_path": "",
-                                            "credit" : "0",
+                                            "credit" : 0,
+                                            "score" : 0,
                                             "device": UIDevice.currentDevice().identifierForVendor!.UUIDString
                                         ]
                                         

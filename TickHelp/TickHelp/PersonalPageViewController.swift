@@ -15,15 +15,21 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var userID: UILabel!
     @IBOutlet weak var avator: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var creditToShow: UILabel!
+    
+    @IBOutlet weak var scoreToShow: UILabel!
+    
     let ref = Firebase(url:constant.userURL + "/users/" + constant.uid)
     let locationRef = Firebase(url: constant.userURL + "/locations/")
+    var myScore = 0
+    var myCredit = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.avator.image = maskRoundedImage(centerCrop(self.avator.image!))
         self.avator.image = resizeImage(self.avator.image!, targetSize: CGSize(width: 160, height: 160))
-        
         print(ref)
         
         // Get the data on a post that has changed
@@ -32,6 +38,13 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
             //Get the data from the firebase
             self.userName.text = snapshot.value.objectForKey("nickname") as? String
             self.userID.text = "\(snapshot.value.objectForKey("username") as! String)"
+            self.myScore = (snapshot.value.objectForKey("score") as? Int)!
+            print("score: \(self.myScore)")
+            
+            self.scoreToShow.text = String(self.myScore)
+            self.myCredit = (snapshot.value.objectForKey("credit") as? Int)!
+            print("credit: \(self.myCredit)")
+            self.creditToShow.text = String(self.myCredit)
             self.userID.sizeToFit()
             //Store the image to firebase
             let base64EncodedString = snapshot.value.objectForKey("image_path") as! String
@@ -39,14 +52,14 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
                 options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             let decodedImage = UIImage(data:imageRetrieve!)
             if(decodedImage != nil){
-            self.avator.image = decodedImage
+                self.avator.image = decodedImage
             }
-
+            
             }, withCancelBlock: { error in
                 print(error.description)
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,7 +74,7 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
         
     }
     
- 
+    
     func uploadtoFireBase(image: UIImage){
         
         var uploadImage = image
@@ -88,10 +101,17 @@ class PersonalPageViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func LogOutBtnPressed(sender: UIBarButtonItem) {
+        // Delete the corresponding location in Firebase
+        let ref = Firebase(url: constant.userURL + "/locations/")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
+                ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
+            }
+        })
         let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
         self.presentViewController(next, animated: true, completion: nil)
     }
-
+    
     
     func centerCrop(image: UIImage) -> UIImage{
         let width = image.size.width

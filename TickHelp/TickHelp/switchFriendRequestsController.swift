@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class switchFriendRequestsController: UIViewController {
     
@@ -39,6 +40,18 @@ class switchFriendRequestsController: UIViewController {
             options: [], metrics: nil, views: viewBindingsDict))
     }
     
+    @IBAction func logOutBtnPressed(sender: UIBarButtonItem) {
+        // Delete the corresponding location in Firebase
+        /*
+        let ref = Firebase(url: constant.userURL + "/locations/")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if(snapshot.value.objectForKey("currLoc") as! String == constant.uid){
+                ref.childByAppendingPath(snapshot.value.objectForKey("currLoc")as! String).setValue("")
+            }
+        })*/
+        let next = self.storyboard!.instantiateViewControllerWithIdentifier("InitialViewController")
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     
     @IBAction func showComponent(sender: UISegmentedControl) {  
         if sender.selectedSegmentIndex == 0 {
