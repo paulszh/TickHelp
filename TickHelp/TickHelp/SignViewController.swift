@@ -70,6 +70,8 @@ class SignViewController: UIViewController {
             }
             else{
                 
+                self.dismissKeyboard()
+                
                 SweetAlert().showAlert("Error", subTitle: "Invalid username or password", style: AlertStyle.Error, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
             }
         }

@@ -63,6 +63,9 @@ class LogViewController: UIViewController {
             if error != nil {
                 
                 if(!self.clicked){
+                
+                    self.dismissKeyboard()
+                    
                      SweetAlert().showAlert("Error", subTitle: "Invalid username or password", style: AlertStyle.Error, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
                 }
                 

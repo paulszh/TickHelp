@@ -89,7 +89,7 @@ class JSQChatViewController: JSQMessagesViewController {
         })
         
         thumbsUpRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if (snapshot.value as! String == constant.other_uid){
+            if (snapshot.value as! String == constant.uid){
                 self.hasThumbsUp = true
             }
         })
@@ -115,6 +115,8 @@ class JSQChatViewController: JSQMessagesViewController {
   //          self.collectionView?.layoutIfNeeded()
   //      }
         observeMessages()
+       
+        
     }
     
 
@@ -286,10 +288,8 @@ class JSQChatViewController: JSQMessagesViewController {
             })
             
             SweetAlert().showAlert("Good job!", subTitle: "You have send a friend request to \(constant.other_nickname)", style: AlertStyle.Success, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+            self.dismissKeyboard()
             return;
-            
-
-            
         }
         alertController.addAction(OKAction)
         
@@ -299,10 +299,13 @@ class JSQChatViewController: JSQMessagesViewController {
                 self.friendRef.setValue(self.score + 1)
                 let ref = Firebase(url: constant.userURL + "/users/" + constant.uid + "/credit/")
                 ref.setValue(self.credit + 1)
-                self.thumbsUpRef.childByAppendingPath(constant.other_uid).setValue(constant.other_uid)
+                self.thumbsUpRef.childByAppendingPath(constant.uid).setValue(constant.uid)
+                 SweetAlert().showAlert("Good job!", subTitle: "Thank you!", style: AlertStyle.Success, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+                self.dismissKeyboard()
             }
             else{
                 SweetAlert().showAlert("Oops!", subTitle: "You have already done that!", style: AlertStyle.Warning, buttonTitle:"OK", buttonColor:UIColor.grayColor() )
+                self.dismissKeyboard()
                 return;
             }
             

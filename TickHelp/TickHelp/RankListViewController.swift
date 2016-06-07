@@ -23,6 +23,7 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
     var imgUrl = String()
     
     var userImages = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         self.friendTable.reloadData()
         let ref = Firebase(url: constant.userURL + "/users/")
-        
+
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             let uid = snapshot.value.objectForKey("uid") as! String!
             let nickname = snapshot.value.objectForKey("nickname") as! String!
@@ -59,9 +60,9 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
             }
             
             self.friendTable.reloadData()
-
             
         })
+
         
         
         UIApplication.sharedApplication().endIgnoringInteractionEvents()
@@ -87,7 +88,7 @@ class RankListViewController: UIViewController,UITableViewDelegate, UITableViewD
             return UITableViewCell()
         }
       //  print(conversations[indexPath.row].credit)
-        cell.userCredit!.text = String(conversations[indexPath.row].credit!)
+        cell.userCredit!.text = String(conversations[indexPath.row].score!)
         
         cell.userNickname.text = conversations[indexPath.row].display_nickname
         cell.userNickname.font = UIFont(name:"Avenir", size:20)

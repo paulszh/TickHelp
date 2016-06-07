@@ -191,19 +191,19 @@ class PendingFriendListController: UIViewController,UITableViewDelegate, UITable
             
             let uid = Firebase(url: constant.userURL).authData.uid
             let ref = Firebase(url: constant.userURL + "/users/" + uid + "/friends")
-            dispatch_async(dispatch_get_main_queue()){
-                ref.observeEventType(.ChildAdded, withBlock: { snapshot in
-                    let tempUid = snapshot.value.objectForKey("uid") as! String
-                    print("tempUid: \(tempUid)")
-                    if(tempUid == friendUid){
-                        let tempRef = snapshot.ref
-                        tempRef.removeValue()
-                        self.conversations.removeAtIndex(indexPath.row)
-                        self.friendTable.reloadData()
+           
+            ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+                let tempUid = snapshot.value.objectForKey("uid") as! String
+                print("tempUid: \(tempUid)")
+                if(tempUid == friendUid){
+                    let tempRef = snapshot.ref
+                    tempRef.removeValue()
+                    self.conversations.removeAtIndex(indexPath.row)
+                    self.friendTable.reloadData()
                         
-                    }
-                })
-            }
+                }
+            })
+            
             
             let friendRef = Firebase(url: constant.userURL + "/users/" + friendUid! + "/friends")
             friendRef.observeEventType(.ChildAdded, withBlock: { snapshot in
